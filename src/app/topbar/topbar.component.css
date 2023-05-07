@@ -1,0 +1,100 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    color: #001A33;
+}
+  
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    margin-top: 16px;
+    color: #001A33;
+    opacity: 85%;
+    text-shadow: 3px 2px 5px #CCCCCC
+}
+
+.topbar-left img {
+    width: 50px;
+    margin-right: 10px;
+    color: #001A33;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+}  
+
+a {
+    text-decoration: none;
+}
+
+.topbar-right {
+    overflow: hidden;
+}
+
+.topbar-right .icon {
+    display: none;
+}
+
+.fa-bars:before {
+    color: #001A33;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 767px) {
+    .topbar-right a {
+        display: none;
+    }
+    .topbar-right a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .topbar-right.responsive {
+        margin-top: auto;
+        position: relative;
+        display: block;
+    }
+    .topnbar-right.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topbar-right.responsive a {
+        float: none;
+        display: block;
+        text-align: right;    
+    }
+}
+
+a.routelink:hover {
+    color: #42545C;
+}
+
+a.routelink {
+    border-radius: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #001A33;
+    font-size: small;
+    text-shadow: 3px 2px 5px #CCCCCC;
+} 
+
+.material-icons {
+    color: #001A33;
+    text-shadow: 3px 2px 5px #585757
+}
+
+/* .slide-toggle {
+    height: 24px; Change the height of the slide toggle button
+    width: 48px;  Change the width of the slide toggle button 
+    padding-left: 10px;
+    padding-right: 10px;
+} */
