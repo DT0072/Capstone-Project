@@ -15,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 
@@ -27,6 +30,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     AdminComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    AdminDashboardComponent
 
   ],
   imports: [
