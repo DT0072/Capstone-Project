@@ -38,4 +38,20 @@ export class DataService {
     attdataObj.att_id = this.afs.createId();
     return this.afs.collection('attdata').add(attdataObj.att_id);
   }
+
+  // Get All Data
+  getAllData(){
+    return this.afs.collection('attdata').snapshotChanges();
+  }
+
+  // Delete Data
+  deleteData(attdataObj: AttData){
+    return this.afs.doc('/attdata/' + attdataObj.att_id).delete();
+  }
+
+  // Update Data
+  updateData(attdataObj: AttData){
+    this.deleteData(attdataObj);
+    this.addData(attdataObj);
+  }
 }
