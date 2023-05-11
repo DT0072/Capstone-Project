@@ -16,6 +16,7 @@ export class AuthenticationService {
       localStorage.setItem('token', 'true'); 
       alert('User Login Successfully');
       this.router.navigate(['/homepage']);
+
     }, err => {
       alert(err.message); 
       this.router.navigate(['/login']); 
@@ -24,9 +25,10 @@ export class AuthenticationService {
 
   // Register Method
   register(email: string, password: string){
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
+    this.fireauth.createUserWithEmailAndPassword(email, password).then(res => {
       alert('User Registered Successfully');
       this.router.navigate(['/login']);
+      this.sendEmailForVerification(res.user);
     }, err => {
       alert('Something Went wrong');
       this.router.navigate(['/register']);
@@ -42,5 +44,26 @@ export class AuthenticationService {
       alert(err.message);
       this.router.navigate(['/login']); 
     }) 
+  }
+
+  // Forgot Password Method
+  forgotPassword(email: string){
+    this.fireauth.sendPasswordResetEmail(email).then(() => {
+      alert('Password Reset Email Sent');
+      this.router.navigate(['/verify-email']);
+    }, err => {
+      alert('Something went wrong');
+      this.router.navigate(['/forgot-password']);
+    })
+  }
+
+  // Send Email For Verification Method
+  sendEmailForVerification(user: any){
+    user.sendEmailVerification().then((res: any) => {
+      this.router.navigate(['/verify-email']);
+    }, (err: any) => {
+      alert('Something went wrong. Not able to send verification email.');
+      this.router.navigate(['/register']);
+    })
   }
 }
