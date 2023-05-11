@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from './user';
+import { AttData } from './att-data';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +31,11 @@ export class DataService {
   updateUser(user: User){
     this.deleteUser(user);
     this.addUser(user);
+  }
+
+  // Add Data
+  addData(attdataObj: AttData){
+    attdataObj.att_id = this.afs.createId();
+    return this.afs.collection('attdata').add(attdataObj.att_id);
   }
 }
