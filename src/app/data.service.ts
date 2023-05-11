@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { User } from './user';
+import { Admin } from './admin';
 import { AttData } from './att-data';
 import { Data } from '@angular/router';
 
@@ -12,25 +12,25 @@ export class DataService {
   constructor(private afs: AngularFirestore) { }
 
   // Add User
-  addUser(user: User){
-    user.id = this.afs.createId();
-    return this.afs.collection('users').add(user.id);
+  addAdmin(admin: Admin){
+    admin.id = this.afs.createId();
+    return this.afs.collection('admins').add(admin);
   }
 
   // Get All Users
-  getAllUsers(){
-    return this.afs.collection('users').snapshotChanges();
+  getAllAdmins(){
+    return this.afs.collection('admins').snapshotChanges();
   }
 
   // Delete User
-  deleteUser(user: User){
-    return this.afs.doc('/users/' + user.id).delete();
+  deleteAdmin(admin: Admin){
+    return this.afs.doc('/admins/' + admin.id).delete();
   }
 
   // Update User
-  updateUser(user: User){
-    this.deleteUser(user);
-    this.addUser(user);
+  updateAdmin(admin: Admin){
+    this.deleteAdmin(admin);
+    this.addAdmin(admin);
   }
 
   // Add Data
