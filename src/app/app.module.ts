@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
@@ -36,6 +39,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
   ],
   imports: [
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
