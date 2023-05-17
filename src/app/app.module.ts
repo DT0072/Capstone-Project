@@ -20,7 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 
 
@@ -35,7 +35,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AdminDashboardComponent
+
 
   ],
   imports: [

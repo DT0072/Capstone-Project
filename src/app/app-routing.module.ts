@@ -7,7 +7,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent }
 ];
 
 @NgModule({
