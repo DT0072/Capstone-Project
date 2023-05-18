@@ -12,25 +12,25 @@ export class DataService {
   // Add Attractions
   addAttraction(attdata: AttData) {
     attdata.att_id = this.afs.createId();
-    return this.afs.collection('/attractions').add(attdata);
+    return this.afs.collection('/attdatas').add(attdata);
   }
 
   // Get Attractions
   getAllAttractions() {
-    return this.afs.collection('/attractions').snapshotChanges();
+    return this.afs.collection('/attdatas').snapshotChanges();
   }
 
   // Get Attraction by ID
-  getAttractionById(att_id: string) {
-    return this.afs.doc('/attractions/'+ att_id).valueChanges();
-  }
+  // getAttractionById(att_id: string) {
+  //   return this.afs.doc('/attractions/'+ att_id).valueChanges();
+  // }
 
   // Delete Attraction
   deleteAttraction(attdata: AttData) {
-    return this.afs.doc('/attractions/'+ attdata.att_id).delete();
+    return this.afs.doc('/attdatas/'+ attdata.att_id).delete();
   }
 
-  // Update Attraction
+  // Update Attraction 
   updateAttraction(attdata: AttData) {
     this.deleteAttraction(attdata);
     this.addAttraction(attdata);

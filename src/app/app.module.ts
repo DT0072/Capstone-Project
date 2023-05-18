@@ -21,9 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
-
-
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
 
 
 @NgModule({
@@ -37,6 +35,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ForgotPasswordComponent,
     VerifyEmailComponent,
     AdminDashboardComponent,
+    AdminEditComponent,
   ],
   imports: [
     HttpClientModule,
