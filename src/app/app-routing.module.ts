@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
   { path: 'homepage', component: HomepageComponent },
@@ -18,11 +19,13 @@ const routes: Routes = [
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent }
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }
