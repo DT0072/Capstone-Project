@@ -25,6 +25,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +36,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AdminDashboardComponent
-
+    AdminDashboardComponent,
   ],
   imports: [
     HttpClientModule,
