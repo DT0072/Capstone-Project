@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import  { AttData } from './att-data';
+import  { AttData } from './model/att-data';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,5 @@ export class InMemoryDataService {
   // the method below returns the initial number (11).
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(attdataObj: AttData[]): number {
-    return attdataObj.length > 0 ? Math.max(...attdataObj.map(attdataObj => attdataObj.att_id)) + 1 : 11;
-  }
+  
 }
