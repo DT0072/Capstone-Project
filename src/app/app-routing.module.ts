@@ -1,11 +1,19 @@
+// 'CommonModule' references and 'declarations' array are unnecessary, so are no longer part of 'AppRoutingModule'
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+<<<<<<< HEAD
 import { AboutUsComponent } from './about-us/about-us.component';
+
+=======
+import { AdminComponent } from './admin/admin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+>>>>>>> 617202daa3ceaa402dd2514f0fe65b848d21ff87
 
 
 const routes: Routes = [
@@ -15,12 +23,18 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+<<<<<<< HEAD
   { path: 'about-us', component: AboutUsComponent }
+=======
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+>>>>>>> 617202daa3ceaa402dd2514f0fe65b848d21ff87
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }

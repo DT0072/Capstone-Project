@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +20,11 @@ import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
-import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { OwlModule } from 'ngx-owl-carousel';
-
 
 @NgModule({
   declarations: [
@@ -32,13 +36,19 @@ import { OwlModule } from 'ngx-owl-carousel';
     AdminComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+<<<<<<< HEAD
     AboutUsComponent,
     SearchbarComponent,
     
   
+=======
+    AdminDashboardComponent,
+>>>>>>> 617202daa3ceaa402dd2514f0fe65b848d21ff87
 
   ],
   imports: [
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -46,8 +56,14 @@ import { OwlModule } from 'ngx-owl-carousel';
     MatIconModule,
     MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
+<<<<<<< HEAD
     FormsModule,
     OwlModule
+=======
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+>>>>>>> 617202daa3ceaa402dd2514f0fe65b848d21ff87
   ],
   providers: [],
   bootstrap: [AppComponent]
