@@ -16,12 +16,14 @@ export class AdminDashboardComponent {
     att_name: '',
     att_desc: '',
     att_openHrs: '',
+    att_closeHrs: '',
     att_price: ''
   };
   att_id: string= '';
   att_name: string= '';
   att_desc: string= '';
   att_openHrs: string= '';
+  att_closeHrs: string= '';
   att_price: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService) {}
@@ -58,7 +60,7 @@ export class AdminDashboardComponent {
 
   // Add Attraction
   addAttraction() {
-    if(this.att_name == '' || this.att_desc == '' || this.att_openHrs == '' || this.att_price == '') {
+    if(this.att_name == '' || this.att_desc == '' || this.att_openHrs == '' || this.att_closeHrs == '' ||this.att_price == '') {
       alert('Please fill in all fields');
       return;
     }
@@ -67,6 +69,7 @@ export class AdminDashboardComponent {
     this.attdataObj.att_name= this.att_name;
     this.attdataObj.att_desc= this.att_desc;
     this.attdataObj.att_openHrs= this.att_openHrs;
+    this.attdataObj.att_closeHrs= this.att_closeHrs;
     this.attdataObj.att_price= this.att_price;
 
     this.data.addAttraction(this.attdataObj);
@@ -83,5 +86,20 @@ export class AdminDashboardComponent {
     if(window.confirm('Are you sure you want to delete' + attdata.att_name + '?')){
       this.data.deleteAttraction(attdata);
     }
-  }  
+  }
+
+  formatTime(time: string): string {
+    // Convert the time string to a JavaScript Date object
+    const date = new Date(`2000-01-01T${time}`);
+  
+    // Format the time using options for hour12 and hourCycle
+    const formattedTime = date.toLocaleTimeString([], {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      hourCycle: 'h23'
+    });
+  
+    return `${formattedTime}`;
+  }
 }

@@ -3,5 +3,6 @@ export interface AttData {
     att_name: string;
     att_desc: string;
     att_openHrs: string;
+    att_closeHrs: string;
     att_price: string;
 }
