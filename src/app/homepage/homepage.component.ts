@@ -102,4 +102,18 @@ export class HomepageComponent implements OnInit {
     this.executeMove(this.currentIndex);
     this.indicators[this.currentIndex].classList.add('active');
   }
+
+  carouselOptions = {
+    items: 3,
+    loop: true,
+    nav: true,
+    dots: true
+  };
+
+  carouselItems = [
+    { image: 'https://www.walkabout.asia/wp-content/uploads/2016/02/DSC2096.jpg', title: 'Penang Hill Ultimate Travel Guide:  Coolest things to See, Do & Eat on Penang Famous Hill Station', description: 'Rising in the central part of the island, Penang Hill (known in Malay as “Bukit Bendera”, or Flag Hill) is an imposing 833-meters-high hill, and one of the unmissable things to do in Penang...' },
+    { image: 'path/to/image2.jpg', title: 'Slide 2', description: 'Description 2' },
+    { image: 'path/to/image3.jpg', title: 'Slide 3', description: 'Description 3' }
+  ];
+
 }

@@ -17,9 +17,9 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
-
+import { AboutUsComponent } from './about-us/about-us.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 @NgModule({
@@ -32,7 +32,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AdminDashboardComponent
+    AboutUsComponent,
+    SearchbarComponent,
+    
+  
 
   ],
   imports: [
@@ -43,9 +46,14 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     MatIconModule,
     MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    FormsModule,
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
+
+

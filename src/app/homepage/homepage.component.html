@@ -1,52 +1,47 @@
-<div class="carousel-holder">
-    
+<!--Slider-->
+<div class="carousel-holder mt-4">
     <div class="carousel-frame">
         <div class="carousel">
             <div class="slide">
-                
-                    <div class="leftbtn">
-                        <svg width="20" height="20">
-                            <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
-                          </svg>  
-                    </div>
-                    <img src="assets/img_component/slide 1.svg">
-                        <div class="rightbtn">
-                            <svg width="20" height="20">
-                                <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
-                              </svg>
-                          </div>
-                
+                <div class="leftbtn">
+                    <svg width="20" height="20">
+                        <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
+                    </svg>  
+                </div>
+                <img src="assets/img_component/slide 1.svg">
+                <div class="rightbtn">
+                    <svg width="20" height="20">
+                        <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
+                    </svg>
+                </div>
             </div>
 
             <div class="slide">
-                
-                   <div class="leftbtn1">
-                        <svg width="20" height="20">
-                            <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
-                        </svg>  
-                    </div>
-                  <img src="https://static.the.akdn/53832/1664185981-0_aerial-view-at-night.jpg">
-                    <div class="rightbtn1">
-                        <svg width="20" height="20">
-                            <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
-                          </svg>
-                      </div>
-               
+                <div class="leftbtn1">
+                    <svg width="20" height="20">
+                        <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
+                    </svg>  
+                </div>
+                <img src="https://static.the.akdn/53832/1664185981-0_aerial-view-at-night.jpg">
+                <div class="rightbtn1">
+                    <svg width="20" height="20">
+                        <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
+                    </svg>
+                </div>
             </div>
               
             <div class="slide">
-                
-                    <div class="leftbtn2">
-                        <svg width="20" height="20">
-                            <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
-                        </svg>  
-                    </div>
-                    <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/3c5857e2-Explore-Georgetown/Explore%20Georgetown.jpg">
-                        <div class="rightbtn2">
-                            <svg width="20" height="20">
-                                <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
-                              </svg>
-                        </div>
+                <div class="leftbtn2">
+                    <svg width="20" height="20">
+                        <polygon points="20,5 20,0 5,10 20,20 20,15 10,10" />
+                    </svg>  
+                </div>
+                <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/3c5857e2-Explore-Georgetown/Explore%20Georgetown.jpg">
+                <div class="rightbtn2">
+                    <svg width="20" height="20">
+                        <polygon points="0,5 0,0 15,10 0,20 0,15 10,10" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div> 
@@ -58,12 +53,7 @@
     <div class="indicator"></div>
 </div>
 
-<div class="search-container">
-    <form action="/search">
-      <input type="text" placeholder="Search...">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</div>
+<app-searchbar></app-searchbar>
 
 <div class="Btn">
     <button type="button" class="button" routerlink="/thingstodo">Things To Do 
@@ -80,17 +70,140 @@
     </button>
 </div>
 
-<div class="container">
+<div class="image-container">
     <img src="assets/img_component/aboutus.svg">
-    <div class="text-overlay">
-      <h2>About Us</h2>
-      <p>George Town is the colorful, multicultural capital of the Malaysian island of Penang. 
-        Once an important Straits of Malacca trading hub, the city is known for its British 
-        colonial buildings, Chinese shophouses and mosques. Beyond the old town, George Town 
-        is a modern city with skyscrapers and shopping malls. Verdant Penang Hill, with hiking 
-        and a funicular railway, overlooks it all.</p>
+    <div class="text-container">
+        <h2>About Us</h2>
+        <p>George Town is the colorful, multicultural capital of the Malaysian island of Penang. 
+          Once an important Straits of Malacca trading hub, the city is known for its British 
+          colonial buildings, Chinese shophouses and mosques. Beyond the old town, George Town 
+          is a modern city with skyscrapers and shopping malls. Verdant Penang Hill, with hiking 
+          and a funicular railway, overlooks it all.</p>
     </div>
 </div>
+
+<div class="visit_container">
+    <div class="leftside">
+        <h1>Explore more about Penang</h1>
+        <h3>Visit</h3>
+        <p>Places to see, ways to wander, and signature experiences.</p>
+        <a href="#">see all</a>
+    </div>
+    <div class="rightside">
+        <img src="https://www.adventureswithfamily.com/wp-content/uploads/2015/11/Penang-Street-Art-08.png">
+        <img src="https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg">
+        <p>Penang Heritage</p>
+        <p>Penang Hill</p> 
+    </div>
+</div>    
+
+<div class="experience_cont">
+    <div class="leftside">
+        <h3>Experience</h3>
+        <p>Experience exciting places</p>
+        <a href="#">see all</a>
+    </div>
+    <div class="rightside">
+        <img src="https://cdn-imgix.headout.com/mircobrands-content/image/924d1dd360facef6ead8101c3872fcf9-97e0c77d-509b-4d22-bbb3-9dd63f1af47f.jpg">
+        <img src="https://mypenang.gov.my/uploads/directory/136/cover/The-Habitat-Penang-Hill-1.jpg">
+        <p>The Top Penang</p>
+        <p>The Habitat</p> 
+    </div>
+</div>
+
+<div class="visit_container">
+    <div class="leftside">
+        <h3>Eat</h3>
+        <p>Can't-miss spots to dine, drink, and feast.</p>
+        <a href="#">see all</a>
+    </div>
+    <div class="rightside">
+        <img src="https://www.penang-fyi.com/wp-content/uploads/2018/11/penang-laksa.jpg">
+        <img src="https://1.bp.blogspot.com/-jWyVcgn96yk/XyeVB_JJenI/AAAAAAAA8gI/ZfcmuzXgSOQ9zYWVbpyZQCCxXtfrundHACNcBGAsYHQ/s640/IMG_2591.jpg">
+        <p>Penang Road Famous Laksa </p>
+        <p>Penang Road Famous Teochew Cendol</p> 
+    </div>
+</div>   
+
+<!--Community-->
+<div class="community">
+    <h1>Community</h1>
+    <a href="#">More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+</div>
+<div class="container">
+    <div class="column">
+        <a href="#">
+        <img src="https://www.walkabout.asia/wp-content/uploads/2016/02/DSC2096.jpg">
+        <h4>Penang Hill Ultimate Travel Guide:  Coolest things to See, Do & Eat on Penang's Famous Hill Station </h4>
+        <p>Rising in the central part of the island, Penang Hill (known in Malay as “Bukit Bendera”, or Flag Hill) is an 
+            imposing 833-meters-high hill, and one of the unmissable things to do in Penang...</p>
+        </a>
+    </div>
+    <div class="column">
+        <a href="#">
+        <img src="https://danielfooddiary.com/wp-content/uploads/2022/09/overandabove10.jpg">
+        <h4>Over And Above, PENANG - NEW Japanese-Inspired Cafe In The Day And Bar By Night At George Town</h4>
+        <p>Cafe in the day, bar at night, Japanese-inspired Over and Above has opened recently in Penang. 
+            Located a short distance from one of the places of interest in Penang - Chew Jetty...</p>
+        </a>
+    </div>
+    <div class="column">
+        <a href="#">
+        <img src="https://img.theculturetrip.com/768x/smart/wp-content/uploads/2018/01/shutterstock_594590456.jpg">
+        <h4>City Hall</h4>
+        <p>Located at the westernmost point of Penang Island, this majestic building is a funky formula of Neo-Baroque 
+            and Palladian architectural styles, featuring colonnades, arched windows, and a sharp rooftop silhouette...</p>
+        </a>
+    </div>
+ </div>
+
+<!-- Footer -->
+<div class="footer">
+        <div class="footer-section about">
+            <!--<span class="material-symbols-outlined">travel_explore </span>-->
+            <h1 class="logo-text"><span>Penang</span> E-Travel</h1>
+            <hr>
+        </div>
+        <div class="footer-text">
+            <div class="contact">
+                    <h3>Address</h3>
+                    <p>No 123, Jalan 123, 11900, Bayan Lepas, Penang.</p><br>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:penange-travel@gmail.com">penange-travel@gmail.com</a></p><br>
+                    <h3>Contact Us</h3>
+                    <p><a href="tel:0123456789">012-3456789</a></p>
+            </div>
+            <div class="site">
+                <h3>Site Map</h3>
+                    <div class="footer-links">
+                        <ul class="footer-list left">
+                            <li><a href="/homepage">Home</a></li>
+                            <li><a href="/aboutus">About Us</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Booking</a></li>
+                        </ul>
+                        <ul class="footer-list right">
+                            <li><a href="#">Things To Do</a></li>
+                            <li><a href="#">Bus Stop</a></li>
+                            <li><a href="#">Attraction</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>  
+                    </div>
+                    <h3>Follow Us On</h3>
+                    <div class="social-links">
+                        <a href="#"><img src="assets/img_component/fb.svg"></a>
+                        <a href="#"><img src="assets/img_component/ig.svg"></a>
+                        <a href="#"><img src="assets/img_component/yt.svg"></a>
+                    </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
 
 
 
