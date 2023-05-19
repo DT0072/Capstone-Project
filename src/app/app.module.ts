@@ -8,6 +8,9 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,12 +20,9 @@ import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
-import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
-
 
 
 
@@ -37,6 +37,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ForgotPasswordComponent,
     VerifyEmailComponent,
     AdminDashboardComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -48,7 +49,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     MatIconModule,
     MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
