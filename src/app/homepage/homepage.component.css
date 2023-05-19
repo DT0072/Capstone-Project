@@ -1,190 +1,387 @@
 .carousel-holder{
-    display: flex;
-    justify-content: center ; 
+  display: flex;
+  justify-content: center ; 
 }
 
 /*leftbtn*/
 .leftbtn {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 50%;
-    right: 97%;
-    fill: white;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  right: 97%;
+  fill: white;
 }  
 
 .leftbtn1 {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 50%;
-  right: -4%;
-  fill: white;
+width: 25px;
+height: 25px;
+position: absolute;
+top: 50%;
+right: -4%;
+fill: white;
 }  
 
 .leftbtn2 {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 50%;
-  right: -105%;
-  fill: white;
+width: 25px;
+height: 25px;
+position: absolute;
+top: 50%;
+right: -105%;
+fill: white;
 } 
 
 /*rightbtn*/
 .rightbtn {
-  position: absolute;
-  top: 50%;
-  right: 2%;
-  fill: white;
+position: absolute;
+top: 50%;
+right: 2%;
+fill: white;
 }
 
 .rightbtn1 {
-  position: absolute;
-  top: 50%;
-  right: -98%;
-  fill: white;
+position: absolute;
+top: 50%;
+right: -98%;
+fill: white;
 }
 
 .rightbtn2 {
-  position: absolute;
-  top: 50%;
-  right: -197%;
-  fill: white;
+position: absolute;
+top: 50%;
+right: -197%;
+fill: white;
 }
 
 .carousel-frame{
-    width: 1364px;
-    height: 452px;
-    overflow: hidden;
-    border-radius: 35px;
+  width: 1364px;
+  height: 452px;
+  overflow: hidden;
+  border-radius: 35px;
 }
 
 .carousel{
-    display: flex;    
+  display: flex;    
 }
 
 .carousel img {
-    width: 100%;
-    height: auto;
-  }
-  
+  width: 100%;
+  height: auto;
+}
+
 
 .slide{
-    width: 1364px;
-    height:452px;
-    flex-shrink: 0;
-    outline: 2px;
+  width: 1364px;
+  height:452px;
+  flex-shrink: 0;
+  outline: 2px;
 }
 
 .indicators{
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 5px;    
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;    
 }
 
 .indicator{
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius:10px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius:10px;
 }
-    
-.active{
-    background-color: #001a33;
+  
+/*.active{
+  background-color: #001a33;
+}*/
+
+
+
+/*Button*/
+.Btn{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
-/* search bar */
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+.button {
+  border: none;
+  color: #001a33;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 35px 20px;
+  transition-duration: 0.4s;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: bold;
 }
-  
-  
+
+.button:hover{
+  background-color: #001a33;
+  color: white;    
+}
+
+/*aboutus*/
+.image-container {
+  position: relative;
+  height: 300px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #001a33;
+  font-size: 24px;
+  text-align: center;
+  width: 80%;
+  z-index: 1;
+}
+
+/*experience*/
+.rightside{
+  flex: 50%;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.rightside img{
+  width: 324.33px;
+  height: 293px;
+  border-radius: 35px;
+}
+
+.p .rightside {
+  text-align: center;
+}
+
+/*.rightside p:hover{
+  text-decoration: underline;
+}*/
+
+.leftside{
+  flex: 50%;
+  padding: 20px;
+}
+
+.leftside a{
+  color: #001A33;
+  text-decoration: none;
+}
+
+.leftside a:hover{
+  color:white;
+  text-decoration: underline;
+}
+
+.visit_container{
+  line-height: 45px;
+  color: #001A33;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.experience_cont{
+  display:flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 50px;
+}
+
+.justified-text{
+width: 100px;
+text-align: justify;
+text-justify: inter-word;
+}
+
+/*Community*/
+.column {
+flex: 33.33%;
+padding: 10px;
+margin: 10px;
+background-color: #cccccc;
+text-align: center;
+background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
+border-radius: 35px;
+}
+
+.container {
+ display: flex;
+ padding-bottom: 82px;
+}
+
+.column img {
+height: 250px;
+width: 362px;
+border-radius: 32px;
+padding: 10px;
+
+}
+
+.column h4{
+color: #001A33;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+text-align: justify;
+padding: 20px;
+}
+
+.column p{
+color: black;
+font-size: 20px;
+text-align: justify;
+padding: 20px;
+}
+
+.column a{
+text-decoration: none;
+}
+
+.column a:hover{
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.community{
+padding: 20px;
+padding-left: 75px;
+
+}
+
+.community a{
+color: #001A33;
+text-decoration: none;
+}
+
+/*footer*/
+.footer{
+background-color: #5D8976;
+}
+
+.logo-text{
+color: #FFFFFF;
+text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+margin: 30px;
+}
+
+.footer-section{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 30px;
+}
+
+.material-symbols-outlined{
+font-size:150px;
+color: white;
+filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+.contact, .contact a{
+color: #FFFFFF;
+text-decoration: none;
+}
+
+.contact h3, .site h3{
+font-size: 30px;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.contact a:hover{
+color: #001a33;
+text-decoration: none;
+}
+
+.footer-text{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+padding: 70px;
+color: #FFFFFF;
+font-size: 25px;
+}
+
+.footer-links{
+display: flex;
+flex-direction: row;
+
+}
+
+.left{
+padding: 0px;
+}
+
+.right{
+padding-left: 45px;
+}
+
+.footer-list a, .footer-list li{
+color: #FFFFFF;
+list-style-type: none;
+text-decoration: none;
+line-height: 50px;
+font-size: 25px;
+}
+
+.footer-list a:hover{
+color: #001a33;
+}
+
+.footer-list a{
+color: #FFFFFF;
+}
+
+/*social media*/
+.social-links{
+display: flex;
+justify-content: space-between;
+}
+
+
+/* Media queries */
+@media screen and (max-width: 600px) {
   .search-container input[type=text] {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    width: 500px;
+    width: 70%;
   }
-  
+
   .search-container button {
-    border: none;
-    background-color: #001a33;
-    color: white;
-    padding: 10px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    width: 50px;
+    width: 20%;
   }
 
-  /*Button*/
-  .Btn{
+  .carousel-inner{
     display: flex;
-    justify-content: center;
-    padding: 10px;
   }
 
-  .button {
-    border: none;
-    color: #001a33;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 35px 20px;
-    transition-duration: 0.4s;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-weight: bold;
+  .carousel-item{
+    display: block;
+    margin-right: 0px;
+    flex: 0 0 calc(100%/3);
   }
-  
-  .button:hover{
-    background-color: #001a33;
-    color: white;    
-  }
-
-  .container {
-    position: absolute;
-    width: 1500px;
-    height: 487.5px;
-    left: 0px;
-    padding: 34px;
-}
-  
-  .text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 41%;
-    transform: translate(-20%, -31%);
-    color: #001a33;
-    text-align: center;
-    font-size: 1.5rem;
 }
 
-  
-  /* Media queries */
-  @media screen and (max-width: 600px) {
-    .search-container input[type=text] {
-      width: 70%;
-    }
-  
-    .search-container button {
-      width: 20%;
-    }
+@media screen and (max-width: 400px) {
+  .search-container input[type=text] {
+    width: 80%;
   }
-  
-  @media screen and (max-width: 400px) {
-    .search-container input[type=text] {
-      width: 80%;
-    }
-  
-    .search-container button {
-      width: 30%;
-    }
+
+  .search-container button {
+    width: 30%;
   }
+}
