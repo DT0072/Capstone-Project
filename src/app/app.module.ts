@@ -23,6 +23,13 @@ import { AdminComponent } from './admin/admin.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { FooterComponent } from './footer/footer.component';
+import { EventsComponent } from './events/events.component';
+import { NewsComponent } from './news/news.component';
+import { ThingstodoComponent } from './thingstodo/thingstodo.component';
+import { AttractionsComponent } from './attractions/attractions.component';
 
 
 
@@ -37,6 +44,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ForgotPasswordComponent,
     VerifyEmailComponent,
     AdminDashboardComponent,
+    SearchbarComponent,
+    AboutusComponent,
+    FooterComponent,
+    EventsComponent,
+    NewsComponent,
+    ThingstodoComponent,
+    AttractionsComponent,
 
   ],
   imports: [
