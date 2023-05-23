@@ -33,8 +33,7 @@ import { AttractionsComponent } from './attractions/attractions.component';
 import { EateriesComponent } from './eateries/eateries.component';
 import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
-
-
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 @NgModule({
@@ -58,6 +57,7 @@ import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
     EateriesComponent,
     BusstopComponent,
     AdminTopbarComponent,
+    AdminLoginComponent,
   ],
   imports: [
     HttpClientModule,
