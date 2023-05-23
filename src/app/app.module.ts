@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +24,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-
+import { EventsComponent } from './events/events.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ThingstodoComponent } from './thingstodo/thingstodo.component';
+import { FooterComponent } from './footer/footer.component';
+import { NewsComponent } from './news/news.component';
+import { AttractionsComponent } from './attractions/attractions.component';
 
 
 @NgModule({
@@ -39,6 +44,12 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     VerifyEmailComponent,
     AdminDashboardComponent,
     SearchbarComponent,
+    EventsComponent,
+    AboutusComponent,
+    ThingstodoComponent,
+    FooterComponent,
+    NewsComponent,
+    AttractionsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -53,6 +64,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
