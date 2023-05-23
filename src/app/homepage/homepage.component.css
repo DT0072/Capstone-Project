@@ -18,7 +18,7 @@ width: 25px;
 height: 25px;
 position: absolute;
 top: 50%;
-right: -4%;
+right: -3%;
 fill: white;
 }  
 
@@ -27,7 +27,7 @@ width: 25px;
 height: 25px;
 position: absolute;
 top: 50%;
-right: -105%;
+right: -103%;;
 fill: white;
 } 
 
@@ -49,7 +49,7 @@ fill: white;
 .rightbtn2 {
 position: absolute;
 top: 50%;
-right: -197%;
+right: -198%;
 fill: white;
 }
 
@@ -98,31 +98,43 @@ fill: white;
 
 
 /*Button*/
-.Btn{
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.button {
+.btn{
   border: none;
-  color: #001a33;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 35px 20px;
-  transition-duration: 0.4s;
   border-radius: 20px;
-  background-color: white;
+  color: #001a33;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  position: relative;
+  background-color: #ffffff;
+  margin-right: 150px;
+  width: 100%;
+  font-weight: 600;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-weight: bold;
 }
 
-.button:hover{
-  background-color: #001a33;
-  color: white;    
+.btn img{
+  width: 60px;
+  height: 60px;
+}
+
+.btn:hover{
+  color: #001A33;
+}
+.btn:after{
+  content: "";
+  width: 0;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.35s ease 0s;
+}
+.btn:hover:after{
+  width: 100%;
+}
+.btn.blue:after{
+  background: #001a33;
 }
 
 /*aboutus*/
@@ -206,152 +218,59 @@ fill: white;
 }
 
 .justified-text{
-width: 100px;
-text-align: justify;
-text-justify: inter-word;
+  width: 100px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /*Community*/
 .column {
-flex: 33.33%;
-padding: 10px;
-margin: 10px;
-background-color: #cccccc;
-text-align: center;
-background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
-border-radius: 35px;
+  flex: 33.33%;
+  padding: 10px;
+  margin: 10px;
+  background-color: #cccccc;
+  text-align: center;
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
+  border-radius: 35px;
 }
 
 .container {
- display: flex;
- padding-bottom: 82px;
+  display: flex;
+  padding-bottom: 82px;
 }
 
 .column img {
-height: 250px;
-width: 362px;
-border-radius: 32px;
-padding: 10px;
-
+  height: 250px;
+  width: 362px;
+  border-radius: 32px;
+  padding: 15px;
 }
 
 .column h4{
-color: #001A33;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-text-align: justify;
-padding: 20px;
+  color: #001A33;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: justify;
+  padding: 20px;
 }
 
 .column p{
-color: black;
-font-size: 20px;
-text-align: justify;
-padding: 20px;
+  color: black;
+  font-size: 20px;
+  text-align: justify;
+  padding: 20px;
 }
 
 .column a{
-text-decoration: none;
+  text-decoration: none;
 }
 
 .column a:hover{
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-.community{
-padding: 20px;
-padding-left: 75px;
-
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .community a{
-color: #001A33;
-text-decoration: none;
-}
-
-/*footer*/
-.footer{
-background-color: #5D8976;
-}
-
-.logo-text{
-color: #FFFFFF;
-text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
-margin: 30px;
-}
-
-.footer-section{
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 30px;
-}
-
-.material-symbols-outlined{
-font-size:150px;
-color: white;
-filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-
-.contact, .contact a{
-color: #FFFFFF;
-text-decoration: none;
-}
-
-.contact h3, .site h3{
-font-size: 30px;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.contact a:hover{
-color: #001a33;
-text-decoration: none;
-}
-
-.footer-text{
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-padding: 70px;
-color: #FFFFFF;
-font-size: 25px;
-}
-
-.footer-links{
-display: flex;
-flex-direction: row;
-
-}
-
-.left{
-padding: 0px;
-}
-
-.right{
-padding-left: 45px;
-}
-
-.footer-list a, .footer-list li{
-color: #FFFFFF;
-list-style-type: none;
-text-decoration: none;
-line-height: 50px;
-font-size: 25px;
-}
-
-.footer-list a:hover{
-color: #001a33;
-}
-
-.footer-list a{
-color: #FFFFFF;
-}
-
-/*social media*/
-.social-links{
-display: flex;
-justify-content: space-between;
+  color: #001A33;
+  text-decoration: none;
 }
 
 
@@ -385,3 +304,8 @@ justify-content: space-between;
     width: 30%;
   }
 }
+
+@media only  screen and (max-width: 767px){
+  .btn{ margin-bottom: 20px; }
+}
+

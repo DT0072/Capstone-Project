@@ -11,18 +11,18 @@
         <a href= "javascript:void(0);" class="icon mt-3" (click)="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-        <a routerLink= "/dashboard" class="routelink">About Us</a>
-        <a routerLink= "/heroes" [matMenuTriggerFor]="newsMenu" class="routelink">News</a>
+        <a routerLink= "/aboutus" class="routelink">About Us</a>
+        <a routerLink= "/news" [matMenuTriggerFor]="newsMenu" class="routelink">News</a>
         <mat-menu #newsMenu="matMenu">
-            <button mat-menu-item>Upcoming Events</button>
+            <button mat-menu-item><a routerLink= "/events">Upcoming Events</a></button>
             <button mat-menu-item>Community</button>
             <button mat-menu-item>Past Events</button>
         </mat-menu>
 
         <a routerLink= "/heroes" [matMenuTriggerFor]="categoriesMenu" class="routelink">All Categories</a>
         <mat-menu #categoriesMenu="matMenu">
-            <button mat-menu-item>Things to Do</button>
-            <button mat-menu-item>Attractions</button>
+            <button mat-menu-item><a routerLink= "/thingstodo">Things to Do</a></button>
+            <button mat-menu-item><a routerLink= "/attractions">Attractions</a></button>
             <button mat-menu-item>Eateries</button>
         </mat-menu>
         <a routerLink= "/cart" class="routelink">Booking</a>
