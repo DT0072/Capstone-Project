@@ -14,6 +14,13 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { EventsComponent } from './events/events.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ThingstodoComponent } from './thingstodo/thingstodo.component';
+import { FooterComponent } from './footer/footer.component';
+import { NewsComponent } from './news/news.component';
+import { AttractionsComponent } from './attractions/attractions.component';
 
 
 const routes: Routes = [
@@ -30,6 +37,13 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'searchbar', component: SearchbarComponent },
+  { path: 'events', component: EventsComponent },
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'thingstodo', component: ThingstodoComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'attractions', component: AttractionsComponent },
 
 ];
 

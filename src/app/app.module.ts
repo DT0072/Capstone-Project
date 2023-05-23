@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +51,6 @@ import { AttractionsComponent } from './attractions/attractions.component';
     NewsComponent,
     ThingstodoComponent,
     AttractionsComponent,
-
   ],
   imports: [
     HttpClientModule,
@@ -66,6 +65,7 @@ import { AttractionsComponent } from './attractions/attractions.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
