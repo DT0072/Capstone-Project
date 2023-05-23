@@ -32,6 +32,8 @@ import { ThingstodoComponent } from './thingstodo/thingstodo.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 import { EateriesComponent } from './eateries/eateries.component';
 import { BusstopComponent } from './busstop/busstop.component';
+import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
+
 
 
 
@@ -55,6 +57,7 @@ import { BusstopComponent } from './busstop/busstop.component';
     AttractionsComponent,
     EateriesComponent,
     BusstopComponent,
+    AdminTopbarComponent,
   ],
   imports: [
     HttpClientModule,
