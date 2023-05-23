@@ -30,6 +30,7 @@ import { EventsComponent } from './events/events.component';
 import { NewsComponent } from './news/news.component';
 import { ThingstodoComponent } from './thingstodo/thingstodo.component';
 import { AttractionsComponent } from './attractions/attractions.component';
+import { EateriesComponent } from './eateries/eateries.component';
 
 
 
@@ -51,6 +52,7 @@ import { AttractionsComponent } from './attractions/attractions.component';
     NewsComponent,
     ThingstodoComponent,
     AttractionsComponent,
+    EateriesComponent,
   ],
   imports: [
     HttpClientModule,

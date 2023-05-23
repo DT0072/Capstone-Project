@@ -16,6 +16,7 @@ import { ThingstodoComponent } from './thingstodo/thingstodo.component';
 import { FooterComponent } from './footer/footer.component';
 import { NewsComponent } from './news/news.component';
 import { AttractionsComponent } from './attractions/attractions.component';
+import { EateriesComponent } from './eateries/eateries.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'news', component: NewsComponent },
   { path: 'attractions', component: AttractionsComponent },
+  { path: 'eateries', component: EateriesComponent },
 
 ];
 
