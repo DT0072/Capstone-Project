@@ -55,20 +55,34 @@
 
 <app-searchbar></app-searchbar>
 
-<div class="Btn">
-    <button type="button" class="button" routerlink="/thingstodo">Things To Do 
-        <img src="assets/img_component/ticket 1.svg" onmouseover="this.src='assets/img_component/ticketw.svg'" onmouseout="this.src='assets/img_component/ticket 1.svg'">
-    </button>
-    <button type="button" class="button" routerlink="/busstop">Bus Stop 
-        <img src="assets/img_component/bus-stop.svg" onmouseover="this.src='assets/img_component/bus-stop-1.svg'" onmouseout="this.src='assets/img_component/bus-stop.svg'">
-    </button>
-    <button type="button" class="button" routerlink="/attraction">Attraction
-        <img src="assets/img_component/attraction 1.svg" onmouseover="this.src='assets/img_component/attraction.svg'" onmouseout="this.src='assets/img_component/attraction 1.svg'">
-    </button>
-    <button type="button" class="button" routerlink="/event">Events
-        <img src="assets/img_component/event.svg" onmouseover="this.src='assets/img_component/event 1.svg'" onmouseout="this.src='assets/img_component/event.svg'">
-    </button>
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-sm-3">
+            <a href="/thingstodo" class="btn btn-lg blue">things to do
+                <img src="assets/img_component/ticket 1.svg">
+            </a>
+        </div>
+ 
+        <div class="col-sm-3">
+            <a href="#" class="btn btn-lg blue">Bus Stop
+                <img src="assets/img_component/bus-stop.svg">
+            </a>
+        </div>
+ 
+        <div class="col-sm-3">
+            <a href="/attractions" class="btn btn-lg blue">Attraction
+                <img src="assets/img_component/attraction1.svg">
+            </a>
+        </div>
+
+        <div class="col-sm-3">
+            <a href="/events" class="btn btn-lg blue">events
+                <img src="assets/img_component/event.svg">
+            </a>
+        </div>
+    </div>
 </div>
+
 
 <div class="image-container">
     <img src="assets/img_component/aboutus.svg">
@@ -126,75 +140,28 @@
 </div>   
 
 <!--Community-->
-<div class="community">
+<div class="community px-5">
     <h1>Community</h1>
     <a href="#">More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 </div>
-<div class="container">
+<div class="container px-5">
     <div class="column">
-        <a href="#">
         <img src="https://www.walkabout.asia/wp-content/uploads/2016/02/DSC2096.jpg">
         <h4>Penang Hill Ultimate Travel Guide:  Coolest things to See, Do & Eat on Penang's Famous Hill Station </h4>
         <p>Rising in the central part of the island, Penang Hill (known in Malay as “Bukit Bendera”, or Flag Hill) is an 
             imposing 833-meters-high hill, and one of the unmissable things to do in Penang...</p>
-        </a>
     </div>
     <div class="column">
-        <a href="#">
         <img src="https://danielfooddiary.com/wp-content/uploads/2022/09/overandabove10.jpg">
         <h4>Over And Above, PENANG - NEW Japanese-Inspired Cafe In The Day And Bar By Night At George Town</h4>
         <p>Cafe in the day, bar at night, Japanese-inspired Over and Above has opened recently in Penang. 
             Located a short distance from one of the places of interest in Penang - Chew Jetty...</p>
-        </a>
     </div>
     <div class="column">
-        <a href="#">
         <img src="https://img.theculturetrip.com/768x/smart/wp-content/uploads/2018/01/shutterstock_594590456.jpg">
         <h4>City Hall</h4>
         <p>Located at the westernmost point of Penang Island, this majestic building is a funky formula of Neo-Baroque 
             and Palladian architectural styles, featuring colonnades, arched windows, and a sharp rooftop silhouette...</p>
-        </a>
     </div>
  </div>
-
-<!-- Footer -->
-<div class="footer">
-        <div class="footer-section about">
-            <!--<span class="material-symbols-outlined">travel_explore </span>-->
-            <h1 class="logo-text"><span>Penang</span> E-Travel</h1>
-            <hr>
-        </div>
-        <div class="footer-text">
-            <div class="contact">
-                    <h3>Address</h3>
-                    <p>No 123, Jalan 123, 11900, Bayan Lepas, Penang.</p><br>
-                    <h3>Email Us</h3>
-                    <p><a href="mailto:penange-travel@gmail.com">penange-travel@gmail.com</a></p><br>
-                    <h3>Contact Us</h3>
-                    <p><a href="tel:0123456789">012-3456789</a></p>
-            </div>
-            <div class="site">
-                <h3>Site Map</h3>
-                    <div class="footer-links">
-                        <ul class="footer-list left">
-                            <li><a href="/homepage">Home</a></li>
-                            <li><a href="/aboutus">About Us</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Booking</a></li>
-                        </ul>
-                        <ul class="footer-list right">
-                            <li><a href="#">Things To Do</a></li>
-                            <li><a href="#">Bus Stop</a></li>
-                            <li><a href="#">Attraction</a></li>
-                            <li><a href="#">Events</a></li>
-                        </ul>  
-                    </div>
-                    <h3>Follow Us On</h3>
-                    <div class="social-links">
-                        <a href="#"><img src="assets/img_component/fb.svg"></a>
-                        <a href="#"><img src="assets/img_component/ig.svg"></a>
-                        <a href="#"><img src="assets/img_component/yt.svg"></a>
-                    </div>
-            </div>
-        </div>
-</div>
+ <app-footer></app-footer>
