@@ -30,7 +30,10 @@ import { EventsComponent } from './events/events.component';
 import { NewsComponent } from './news/news.component';
 import { ThingstodoComponent } from './thingstodo/thingstodo.component';
 import { AttractionsComponent } from './attractions/attractions.component';
+import { EateriesComponent } from './eateries/eateries.component';
+import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
+
 
 
 
@@ -52,6 +55,8 @@ import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
     NewsComponent,
     ThingstodoComponent,
     AttractionsComponent,
+    EateriesComponent,
+    BusstopComponent,
     AdminTopbarComponent,
   ],
   imports: [
