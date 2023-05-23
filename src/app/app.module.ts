@@ -24,12 +24,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-import { EventsComponent } from './events/events.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ThingstodoComponent } from './thingstodo/thingstodo.component';
-import { FooterComponent } from './footer/footer.component';
-import { NewsComponent } from './news/news.component';
-import { AttractionsComponent } from './attractions/attractions.component';
+
 
 
 @NgModule({
@@ -44,12 +39,7 @@ import { AttractionsComponent } from './attractions/attractions.component';
     VerifyEmailComponent,
     AdminDashboardComponent,
     SearchbarComponent,
-    EventsComponent,
-    AboutusComponent,
-    ThingstodoComponent,
-    FooterComponent,
-    NewsComponent,
-    AttractionsComponent,
+ 
   ],
   imports: [
     HttpClientModule,
