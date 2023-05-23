@@ -31,6 +31,7 @@ import { NewsComponent } from './news/news.component';
 import { ThingstodoComponent } from './thingstodo/thingstodo.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 import { EateriesComponent } from './eateries/eateries.component';
+import { BusstopComponent } from './busstop/busstop.component';
 
 
 
@@ -53,6 +54,7 @@ import { EateriesComponent } from './eateries/eateries.component';
     ThingstodoComponent,
     AttractionsComponent,
     EateriesComponent,
+    BusstopComponent,
   ],
   imports: [
     HttpClientModule,
