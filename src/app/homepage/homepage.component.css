@@ -240,7 +240,7 @@ fill: white;
 
 .container {
   display: flex;
-  padding-bottom: 82px;
+  justify-content: center;
 }
 
 .column img {
@@ -273,7 +273,7 @@ fill: white;
 }
 
 .community{
-  padding-left: 3rem;
+  padding-left: 5rem;
 }
 
 .community a{
