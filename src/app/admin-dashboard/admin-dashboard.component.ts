@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../shared/authentication.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DataService } from '../shared/data.service';
 import { AttData } from '../model/att-data';
 import { Data } from '@angular/router';
@@ -26,7 +27,7 @@ export class AdminDashboardComponent {
   att_closeHrs: string= '';
   att_price: string= '';
 
-  constructor(private auth: AuthenticationService, private data: DataService) {}
+  constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
     this.getAllAttractions();
@@ -102,4 +103,5 @@ export class AdminDashboardComponent {
   
     return `${formattedTime}`;
   }
+
 }
