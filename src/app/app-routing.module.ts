@@ -7,7 +7,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { EventsComponent } from './events/events.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'searchbar', component: SearchbarComponent },
   { path: 'events', component: EventsComponent },

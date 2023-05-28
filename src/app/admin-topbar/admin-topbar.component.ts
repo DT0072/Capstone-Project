@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-topbar.component.css']
 })
 export class AdminTopbarComponent {
-
+  myFunction() {
+    var x = document.getElementById("myTopnav");
+     if (x != null){
+      if (x.className === "topbar-right") { // === is to compare the values
+        x.className += " responsive";
+        } else {
+          x.className = "topbar-right";
+        }
+     }
+  }
 }

@@ -10,11 +10,25 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent implements OnInit {
   title = 'Capstone';
+  isUser: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    
+    this.checkAdminLogin();
+  }
+
+  checkAdminLogin(): void {
+      
+
+    this.afAuth.signInWithEmailAndPassword('dttest@gmail.com', '123456')
+       if (this.afAuth.signInWithEmailAndPassword != null) {
+         this.isAdmin = true;
+       } else {
+         this.isAdmin = false;
+         console.log('Admin login failed:');
+       }
   }
 }

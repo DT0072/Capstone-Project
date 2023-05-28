@@ -19,7 +19,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AdminComponent } from './admin/admin.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -34,6 +33,7 @@ import { EateriesComponent } from './eateries/eateries.component';
 import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminAttComponent } from './admin-att/admin-att.component';
 
 
 @NgModule({
@@ -43,7 +43,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     HomepageComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     AdminDashboardComponent,
@@ -58,6 +57,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     BusstopComponent,
     AdminTopbarComponent,
     AdminLoginComponent,
+    AdminAttComponent,
   ],
   imports: [
     HttpClientModule,
