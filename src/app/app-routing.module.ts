@@ -7,7 +7,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { EventsComponent } from './events/events.component';
@@ -20,6 +19,7 @@ import { EateriesComponent } from './eateries/eateries.component';
 import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminAttComponent } from './admin-att/admin-att.component';
 import { CommunityComponent } from './community/community.component';
 
 const routes: Routes = [
@@ -34,7 +34,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'searchbar', component: SearchbarComponent },
   { path: 'events', component: EventsComponent },
@@ -47,6 +46,7 @@ const routes: Routes = [
   { path: 'busstop', component: BusstopComponent },
   { path: 'admin-topbar', component: AdminTopbarComponent },
   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'admin-att', component: AdminAttComponent },
   { path: 'community', component: CommunityComponent },
 ];
 

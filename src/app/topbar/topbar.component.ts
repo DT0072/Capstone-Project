@@ -17,5 +17,4 @@ export class TopbarComponent {
         }
      }
   }
-  isChecked = false;
 }
