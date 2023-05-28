@@ -19,6 +19,7 @@ import { EateriesComponent } from './eateries/eateries.component';
 import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminAttComponent } from './admin-att/admin-att.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'busstop', component: BusstopComponent },
   { path: 'admin-topbar', component: AdminTopbarComponent },
   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'admin-att', component: AdminAttComponent },
 ];
 
 @NgModule({

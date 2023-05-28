@@ -17,18 +17,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    this.checkAdminLogin();
+    // this.checkAdminLogin();
   }
 
-  checkAdminLogin(): void {
+  // checkAdminLogin(): void {
       
 
-    this.afAuth.signInWithEmailAndPassword('dttest@gmail.com', '123456')
-       if (this.afAuth.signInWithEmailAndPassword != null) {
-         this.isAdmin = true;
-       } else {
-         this.isAdmin = false;
-         console.log('Admin login failed:');
-       }
-  }
+  //   this.afAuth.signInWithEmailAndPassword('dttest@gmail.com', '123456')
+  //      if (this.afAuth.signInWithEmailAndPassword != null) {
+  //        this.isAdmin = true;
+  //      } else {
+  //        this.isAdmin = false;
+  //        console.log('Admin login failed:');
+  //      }
+  // }
 }
