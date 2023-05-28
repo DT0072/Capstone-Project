@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent {
+  activebook: string | null = null;
 
+  openbooking(book: string) {
+    this.activebook = book;
+  }
+  
 }

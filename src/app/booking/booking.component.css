@@ -1,0 +1,61 @@
+.tablinks {
+    overflow: hidden;
+    color: #001A33;
+    background-color: white;
+    width: 350px;
+    height: 80px;
+    border: none;
+}
+
+.tablinks.active {
+    color: white;
+    background-color: #001A33;
+}
+
+.tabcontent{
+    background-color: white;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-row {
+  display: grid;
+  gap: 5px;
+}
+
+label {
+  grid-column: 1;
+}
+
+input, button {
+  grid-column: 2;
+  width: 100%;
+}
+
+.col-md-6{
+    padding: 10px;
+}
+
+.container, .h3{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.btn{
+    background-color: #001A33;
+    border-radius: 20px;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 767px){
+    .tablinks{
+        width: 100%;
+    }
+
+}
+    
+
