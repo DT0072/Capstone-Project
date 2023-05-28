@@ -34,6 +34,7 @@ import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminAttComponent } from './admin-att/admin-att.component';
+import { CommunityComponent } from './community/community.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { AdminAttComponent } from './admin-att/admin-att.component';
     AdminTopbarComponent,
     AdminLoginComponent,
     AdminAttComponent,
+    CommunityComponent,
   ],
   imports: [
     HttpClientModule,

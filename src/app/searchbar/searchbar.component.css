@@ -21,3 +21,13 @@
   cursor: pointer;
   width: 50px;
 }
+
+@media screen and (max-width: 767px) {
+  .search-container input[type=text] {
+    width: 80%;
+  }
+
+  .search-container button {
+    width: 20%;
+  }
+}

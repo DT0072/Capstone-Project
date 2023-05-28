@@ -186,7 +186,7 @@ fill: white;
 }*/
 
 .leftside{
-  flex: 50%;
+  flex: 55%;
   padding: 20px;
 }
 
@@ -236,11 +236,12 @@ fill: white;
   text-align: center;
   background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
   border-radius: 35px;
+  margin-left: 30px;
 }
 
 .container {
   display: flex;
-  padding-bottom: 82px;
+  justify-content: center;
 }
 
 .column img {
@@ -258,7 +259,7 @@ fill: white;
 }
 
 .column p{
-  color: black;
+  color: #001A33;
   font-size: 20px;
   text-align: justify;
   padding: 20px;
@@ -273,7 +274,7 @@ fill: white;
 }
 
 .community{
-  padding-left: 3rem;
+  padding-left: 5rem;
 }
 
 .community a{

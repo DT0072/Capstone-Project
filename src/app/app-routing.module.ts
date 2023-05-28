@@ -20,7 +20,7 @@ import { BusstopComponent } from './busstop/busstop.component';
 import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminAttComponent } from './admin-att/admin-att.component';
-
+import { CommunityComponent } from './community/community.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -47,6 +47,7 @@ const routes: Routes = [
   { path: 'admin-topbar', component: AdminTopbarComponent },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'admin-att', component: AdminAttComponent },
+  { path: 'community', component: CommunityComponent },
 ];
 
 @NgModule({
