@@ -36,6 +36,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminAttComponent } from './admin-att/admin-att.component';
 import { CommunityComponent } from './community/community.component';
 import { BookingComponent } from './booking/booking.component';
+import { AdminEatComponent } from './admin-eat/admin-eat.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { BookingComponent } from './booking/booking.component';
     AdminAttComponent,
     CommunityComponent,
     BookingComponent,
+    AdminEatComponent,
   ],
   imports: [
     HttpClientModule,

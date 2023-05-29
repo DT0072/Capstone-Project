@@ -5,11 +5,11 @@ import { DataService } from '../shared/data.service';
 import { AttData } from '../model/att-data';
 
 @Component({
-  selector: 'app-admin-att',
-  templateUrl: './admin-att.component.html',
-  styleUrls: ['./admin-att.component.css']
+  selector: 'app-admin-eat',
+  templateUrl: './admin-eat.component.html',
+  styleUrls: ['./admin-eat.component.css']
 })
-export class AdminAttComponent {
+export class AdminEatComponent {
   attdataList: AttData[] = [];
   attdataObj: AttData= {
     att_id: '',
