@@ -96,12 +96,44 @@
             <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
           </div>
         </div>
+      </div>
     </div>
-    </div>
-    
-    
 
     <div id="status" class="tabcontent" [hidden]="activebook !== 'status'">
+      <div class="container">
+        <h3>Track Your Ticket</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="phone">Contact No:</label>
+            <input type="text" id="phone" name="phone" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="col-md-6">
+            <label for="ticketNumber">Ticket Number:</label>
+            <input type="text" id="ticketNumber" name="ticketNumber" class="form-control">
+          </div>
+                   
+          <!--submit button-->
+          <div class="col-12 my-5">
+            <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
