@@ -3,7 +3,6 @@ import { AuthenticationService } from '../shared/authentication.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DataService } from '../shared/data.service';
 import { AttData } from '../model/att-data';
-import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-admin-att',
