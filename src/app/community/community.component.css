@@ -2,11 +2,11 @@
     flex: 33.33%;
     padding: 10px;
     margin: 10px;
-    background-color: #cccccc;
     text-align: center;
     background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
     border-radius: 35px;
     margin-left: 30px;
+    background-size: 400px;
 }
   
 .container {

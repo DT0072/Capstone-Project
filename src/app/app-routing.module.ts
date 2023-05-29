@@ -21,6 +21,7 @@ import { AdminTopbarComponent } from './admin-topbar/admin-topbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminAttComponent } from './admin-att/admin-att.component';
 import { CommunityComponent } from './community/community.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'admin-att', component: AdminAttComponent },
   { path: 'community', component: CommunityComponent },
+  { path: 'booking', component: BookingComponent },
 ];
 
 @NgModule({

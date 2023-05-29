@@ -232,11 +232,11 @@ fill: white;
   flex: 33.33%;
   padding: 10px;
   margin: 10px;
-  background-color: #cccccc;
   text-align: center;
   background-image: url('https://e1.pxfuel.com/desktop-wallpaper/353/335/desktop-wallpaper-pastel-gradient-light-green-gradient.jpg');
   border-radius: 35px;
   margin-left: 30px;
+  background-size: 400px;
 }
 
 .container {
@@ -296,26 +296,39 @@ fill: white;
 }*/
 
 @media screen and (max-width: 767px) {
-
-  .btn{ 
-    margin-bottom: 20px; 
-  }
-
+  
+  /*Slider*/
   .carousel-inner{
-    display: flex;
+    display: block;
   }
 
   .carousel-item{
     display: block;
     margin-right: 0px;
-    flex: 0 0 calc(100%/3);
+
   }
 
   .carousel img {
-    width: 350px;
-    height: 452px;
+    width: 352px;
+    height: 177px;
   }
 
+  .slide, .carousel-frame{
+    width: 352px;
+    height: 177px;
+  }
+
+  /*button*/
+  .btn{ 
+      margin-bottom: 20px; 
+  }
+
+  .btn img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /*aboutus*/
   .text-container {
     font-size: 18px;
   }
@@ -325,6 +338,7 @@ fill: white;
     height: 400px;
   }
 
+  /*Experience*/
   .visit_container{
     display: block;
   }
@@ -333,24 +347,29 @@ fill: white;
     display: block;
   }
 
-  .leftside{
+  /*.leftside{
     padding: 0px;
     display: block;
   }
 
   .rightside{
     display: block;
-  }
+  }*/
 
+  /*Community*/
   .container{
     display: block;
   }
 
-  .column img {
-    height: 240px;
-    width: 332px;
-    border-radius: 32px;
-    padding: 20px;
+  .container, .column  {
+    display: block;
+    margin-bottom: 40px !important;
+    margin-left:0px;
+  }
+
+  .column img{
+    width: 320px;
+    height: 260px;
   }
 
 }
