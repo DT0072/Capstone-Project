@@ -1,7 +1,11 @@
+.tab{
+  padding-top: 85px;
+}
+
 .tablinks {
     overflow: hidden;
     color: #001A33;
-    background-color: white;
+    background-color: #F2F2F2;
     width: 350px;
     height: 80px;
     border: none;
@@ -50,10 +54,32 @@ input, button {
     border-radius: 20px;
 }
 
+.container-back{
+  background-image: url('https://ik.imagekit.io/tvlk/blog/2022/04/Tempat-Wisata-di-Penang-Malaysia-Traveloka-Xperience-6.jpg');
+  height: 500px;
+  background-size: cover;
+}
+
+.text{
+  color: #001A33;
+  text-align: center;
+  padding-top: 200px;
+  font-size: 50px;
+}
+
 /*Media Queries*/
 @media screen and (max-width: 767px){
     .tablinks{
         width: 100%;
+    }
+
+    .text {
+      padding-top: 100px;
+      padding-bottom: 30px;
+    }
+
+    .tab{
+      padding-top:0px;
     }
 
 }
