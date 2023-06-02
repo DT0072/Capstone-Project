@@ -66,3 +66,13 @@
     margin-right: auto;
 }
 
+.column-link{
+    text-decoration: none;
+    color:#001A33;
+}
+
+.load{
+    color: #001A33;
+    text-decoration: underline;
+    cursor: pointer;
+}

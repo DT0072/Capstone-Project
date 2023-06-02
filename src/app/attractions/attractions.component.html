@@ -1,78 +1,52 @@
-<!--<p>attractions works!</p>-->
 <div class="overflow-hidden">
     <div class="container mt-5">
-        <div class="row text-center">
-            <div class="col-sm-3">
-                <a href="/thingstodo" class="btn btn-lg blue">things to do
-                    <img src="assets/img_component/ticket 1.svg">
-                </a>
-            </div>
-    
-            <div class="col-sm-3">
-                <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">Bus Stop
-                    <img src="assets/img_component/bus-stop.svg">
-                </a>
-            </div>
-    
-            <div class="col-sm-3">
-                <a href="/attractions" class="btn btn-lg blue">Attraction
-                    <img src="assets/img_component/attraction1.svg">
-                </a>
-            </div>
-
-            <div class="col-sm-3">
-                <a href="/events" class="btn btn-lg blue">events
-                    <img src="assets/img_component/event.svg">
-                </a>
-            </div>
+      <div class="row text-center">
+        <div class="col-sm-3">
+          <a href="/thingstodo" class="btn btn-lg blue">things to do
+            <img src="assets/img_component/ticket 1.svg">
+          </a>
         </div>
+  
+        <div class="col-sm-3">
+          <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">Bus Stop
+            <img src="assets/img_component/bus-stop.svg">
+          </a>
+        </div>
+  
+        <div class="col-sm-3">
+          <a href="/attractions" class="btn btn-lg blue">Attraction
+            <img src="assets/img_component/attraction1.svg">
+          </a>
+        </div>
+  
+        <div class="col-sm-3">
+          <a href="/events" class="btn btn-lg blue">events
+            <img src="assets/img_component/event.svg">
+          </a>
+        </div>
+      </div>
     </div>
 
+    
+  
     <h1 class="text-center py-5">Attractions</h1>
+
     <div class="container-sm justify-content-md-center mb-5">
         <div class="row">
-        <div class="col" *ngFor="let attdata of attdataList">
-            <h2 class="text-center mb-4" >{{ attdata.att_name }}</h2>
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1">
-            <h5 class="mt-4">
-                {{ attdata.att_desc }}<br><br>
-                {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}<br><br>
-                RM {{ attdata.att_price }}
-            </h5>
-        </div>
-        
-        <!--<div class="col" *ngFor="let attdata of attdataList">
-            <h1 class="text-center mb-4" >{{ attdata.att_name }}</h1>
-            <img src="https://4.bp.blogspot.com/-voX5apVuifo/V_pvSBu4hNI/AAAAAAABPRI/2WBK0Inclm8G3ZhkZufv5aOKEKA7lYioACLcB/s1600/01%2BSGE_5644%2BPenang%2BHill%2B%2528Bukit%2BBendera%2B%25E5%258D%2587%25E6%2597%2597%25E5%25B1%25B1%2529%2B-%2BTaking%2BRailway%2BTrain%2Bto%2Bthe%2BSummit%2B%2540%2BPulau%2BPinang%2B%255BMalaysia%255D.JPG">
-            <h5 class="mt-4">
-                {{ attdata.att_desc }}<br><br>
-                {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}<br><br>
-                RM {{ attdata.att_price }}
-            </h5>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="col" *ngFor="let attdata of attdataList">
-            <h1 class="text-center mb-4">{{ attdata.att_name }}</h1>
-            <img src="https://image-tc.galaxy.tf/wijpeg-b82qo3z8tqb53z9vhgoowxvk4/komtar_wide.jpg?crop=0%2C102%2C1980%2C1114&width=1100">
-            <h5 class="mt-4">
-                {{ attdata.att_desc }}<br><br>
-                {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}<br><br>
-                RM {{ attdata.att_price }}
-            </h5>
-            </div>
-        
-            <div class="col" *ngFor="let attdata of attdataList">
-                <h1 class="text-center mb-4">{{ attdata.att_name }}</h1>
-                <img src="https://www.discoverwalks.com/blog/wp-content/uploads/2022/08/960px-botanical_garden_of_peradeniya_03.jpg">
-                <h5 class="mt-4">
+            <div class="col" *ngFor="let attdata of displayData">
+                <a href="/attraction-dashboard" class="column-link">
+                    <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1">
+                    <h5 class="mt-4">
                     {{ attdata.att_desc }}<br><br>
                     {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}<br><br>
                     RM {{ attdata.att_price }}
-                </h5>
+                    </h5>
+                </a>
             </div>
-        </div>-->
+            <h5 (click)="showMore()" class="load">Load More</h5>
+        </div>
     </div>
+    <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
+  
