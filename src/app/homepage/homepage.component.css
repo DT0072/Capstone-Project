@@ -70,7 +70,7 @@ fill: white;
 }
 
 
-.slide{
+.slide {
   width: 1364px;
   height:452px;
   flex-shrink: 0;
@@ -310,13 +310,27 @@ fill: white;
   }
 
   .carousel img {
-    width: 352px;
-    height: 177px;
+    width: 531px;
+    height: auto;
   }
 
   .slide, .carousel-frame{
     width: 352px;
     height: 177px;
+  }
+
+  
+  
+  .leftbtn{
+    right: 93%;
+  }
+
+  .leftbtn1{
+    right: -7%;
+  }
+
+  .leftbtn2{
+    right: -107%;
   }
 
   /*button*/
