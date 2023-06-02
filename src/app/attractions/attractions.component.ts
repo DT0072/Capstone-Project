@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../shared/authentication.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { DataService } from '../shared/data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AttData } from '../model/att-data';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-attractions',
@@ -17,16 +16,19 @@ export class AttractionsComponent implements OnInit {
   itemsToLoad: number = 8;
   startIndex: number = 4;
 
-  constructor(private auth: AuthenticationService, private dataService: DataService, private afAuth: AngularFireAuth) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.getAllAttractions();
   }
 
-  // Get All Attractions
   getAllAttractions() {
     this.dataService.getAllAttractions().subscribe(
-      (res) => {
+      (res: any) => {
         this.attdataList = res.map((e: any) => {
           const data = e.payload.doc.data();
           data.att_id = e.payload.doc.id;
@@ -36,23 +38,37 @@ export class AttractionsComponent implements OnInit {
         this.isDataLoaded = true;
         this.displayData = this.attdataList.slice(0, this.loadedItemCount);
       },
-      (err) => {
+      (err: any) => {
         alert('Error while fetching attractions, please try again later');
       }
     );
   }
 
   formatTime(time: string): string {
+    console.log('Time parameter:', time);
+  
+    if (time === '24 Hours') {
+      return time; // Return "24 Hours" as is
+    }
+  
+    if (time === '-' || !time) {
+      return ''; // Return an empty string or handle the case when time is '-' or undefined
+    }
+  
+    // Convert the time string to a JavaScript Date object
     const date = new Date(`2000-01-01T${time}`);
+  
+    // Format the time using options for hour12 and hourCycle
     const formattedTime = date.toLocaleTimeString([], {
       hour: 'numeric',
       minute: 'numeric',
       hour12: true,
       hourCycle: 'h23'
     });
-    return `${formattedTime}`;
+  
+    return formattedTime; // Return the formatted time without the label
   }
-
+  
   showMore() {
     if (!this.isDataLoaded) {
       return;
@@ -68,4 +84,20 @@ export class AttractionsComponent implements OnInit {
       return a.att_name.localeCompare(b.att_name);
     });
   }
+
+  redirectToAttractionDashboardComponent(attdata: AttData): void {
+    console.log('Data being passed:', attdata);
+    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price } = attdata;
+    this.router.navigate(['/attraction-dashboard'], {
+      state: {
+        att_id,
+        att_name,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price
+      }
+    });
+  }
+  
 }

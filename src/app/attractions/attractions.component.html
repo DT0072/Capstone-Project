@@ -1,52 +1,61 @@
 <div class="overflow-hidden">
-    <div class="container mt-5">
-      <div class="row text-center">
-        <div class="col-sm-3">
-          <a href="/thingstodo" class="btn btn-lg blue">things to do
-            <img src="assets/img_component/ticket 1.svg">
-          </a>
-        </div>
-  
-        <div class="col-sm-3">
-          <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">Bus Stop
-            <img src="assets/img_component/bus-stop.svg">
-          </a>
-        </div>
-  
-        <div class="col-sm-3">
-          <a href="/attractions" class="btn btn-lg blue">Attractions
-            <img src="assets/img_component/attraction1.svg">
-          </a>
-        </div>
-  
-        <div class="col-sm-3">
-          <a href="/events" class="btn btn-lg blue">events
-            <img src="assets/img_component/event.svg">
-          </a>
-        </div>
+  <div class="container mt-5">
+    <div class="row text-center">
+
+      <div class="col-sm-3">
+        <a href="/thingstodo" class="btn btn-lg blue">
+          things to do
+          <img src="assets/img_component/ticket 1.svg">
+        </a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">
+          Bus Stop
+          <img src="assets/img_component/bus-stop.svg">
+        </a>
+      </div>
+
+
+      <div class="col-sm-3">
+        <a href="/attractions" class="btn btn-lg blue">
+          Attractions
+          <img src="assets/img_component/attraction1.svg">
+        </a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="/events" class="btn btn-lg blue">
+          events
+          <img src="assets/img_component/event.svg">
+        </a>
       </div>
     </div>
+  </div>
 
-    
-  
-    <h1 class="text-center py-5">Attractions</h1>
+  <h1 class="text-center py-5 head">Attractions</h1>
 
-    <div class="container-sm justify-content-md-center mb-5">
-        <div class="row">
-            <div class="col" *ngFor="let attdata of displayData">
-                <a href="/attraction-dashboard" class="column-link">
-                    <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1">
-                    <h5 class="mt-4">
-                    {{ attdata.att_desc }}<br><br>
-                    {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}<br><br>
-                    RM {{ attdata.att_price }}
-                    </h5>
-                </a>
-            </div>
-            <h5 (click)="showMore()" class="load">Load More</h5>
-        </div>
+  <div class="container-sm justify-content-md-center mb-5">
+    <div class="row">
+      <div class="col" *ngFor="let attdata of displayData">
+        <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
+          <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1" alt="{{ attdata.att_name }}" class="attraction-image">
+          <h5 class="mt-4">
+            {{ attdata.att_desc }}<br><br>
+            <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
+              {{ formatTime(attdata.att_openHrs) }}
+            </ng-container>
+            <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
+              {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
+            </ng-container><br><br>
+            RM {{ attdata.att_price }}
+          </h5>
+        </a>
+      </div>
+      <h5 (click)="showMore()" class="load">Load More</h5>
     </div>
-    <app-footer></app-footer>
+  </div>
+
+  <app-footer></app-footer>
 </div>
-  

@@ -38,6 +38,7 @@ import { CommunityComponent } from './community/community.component';
 import { BookingComponent } from './booking/booking.component';
 import { AdminEatComponent } from './admin-eat/admin-eat.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     BookingComponent,
     AdminEatComponent,
     ContactusComponent,
+    AttractionDashboardComponent,
   ],
   imports: [
     HttpClientModule,

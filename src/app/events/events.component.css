@@ -55,7 +55,7 @@
 }
 
 .text-center{
-  text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.2);
   color: #001A33;
 }
 
@@ -74,3 +74,25 @@
   color: #001a33;
 }
 
+@media screen and (max-width: 767px){
+  .btn{
+    margin-bottom: 20px;
+  }
+
+  .content{
+    display: block;
+  }
+
+  .content img{
+    width: 324px;
+    height: 250px;
+  }
+
+  .container-sm{
+    width: 350px;
+  }
+
+  .head{
+    font-size: 40px;
+  }
+}
