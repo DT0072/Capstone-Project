@@ -1,52 +1,60 @@
-import { Component } from '@angular/core';
-import { AuthenticationService } from '../shared/authentication.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { DataService } from '../shared/data.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AttData } from '../model/att-data';
-import { Data } from '@angular/router';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-attractions',
   templateUrl: './attractions.component.html',
   styleUrls: ['./attractions.component.css']
 })
-export class AttractionsComponent {
-    attdataList: AttData[] = [];
-    attdataObj: AttData= {
-      att_id: '',
-      att_name: '',
-      att_desc: '',
-      att_openHrs: '',
-      att_closeHrs: '',
-      att_price: ''
-    };
-    att_id: string= '';
-    att_name: string= '';
-    att_desc: string= '';
-    att_openHrs: string= '';
-    att_closeHrs: string= '';
-    att_price: string= '';
-  
-    constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
-  
-    ngOnInit(): void {
-      this.getAllAttractions();
-    }
+export class AttractionsComponent implements OnInit {
+  attdataList: AttData[] = [];
+  displayData: AttData[] = [];
+  isDataLoaded: boolean = false;
+  loadedItemCount: number = 4;
+  itemsToLoad: number = 8;
+  startIndex: number = 4;
 
-    // Get All Attractions
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService
+  ) {}
+
+  ngOnInit(): void {
+    this.getAllAttractions();
+  }
+
   getAllAttractions() {
-    this.data.getAllAttractions().subscribe(res => {
-      this.attdataList= res.map( (e: any) => {
-        const data= e.payload.doc.data();
-        data.att_id= e.payload.doc.id;
-        return data;
-      })
-    }, err => {
-      alert('Error while fetching attractions, please try again later');
-    })
+    this.dataService.getAllAttractions().subscribe(
+      (res: any) => {
+        this.attdataList = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.att_id = e.payload.doc.id;
+          return data;
+        });
+        this.sortData();
+        this.isDataLoaded = true;
+        this.displayData = this.attdataList.slice(0, this.loadedItemCount);
+      },
+      (err: any) => {
+        alert('Error while fetching attractions, please try again later');
+      }
+    );
   }
 
   formatTime(time: string): string {
+    console.log('Time parameter:', time);
+  
+    if (time === '24 Hours') {
+      return time; // Return "24 Hours" as is
+    }
+  
+    if (time === '-' || !time) {
+      return ''; // Return an empty string or handle the case when time is '-' or undefined
+    }
+  
     // Convert the time string to a JavaScript Date object
     const date = new Date(`2000-01-01T${time}`);
   
@@ -58,7 +66,38 @@ export class AttractionsComponent {
       hourCycle: 'h23'
     });
   
-    return `${formattedTime}`;
+    return formattedTime; // Return the formatted time without the label
+  }
+  
+  showMore() {
+    if (!this.isDataLoaded) {
+      return;
+    }
+    const remainingData = this.attdataList.slice(this.startIndex);
+    const newData = remainingData.slice(0, this.itemsToLoad);
+    this.displayData = [...this.displayData, ...newData];
+    this.startIndex += this.itemsToLoad;
   }
 
+  sortData() {
+    this.attdataList.sort((a, b) => {
+      return a.att_name.localeCompare(b.att_name);
+    });
+  }
+
+  redirectToAttractionDashboardComponent(attdata: AttData): void {
+    console.log('Data being passed:', attdata);
+    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price } = attdata;
+    this.router.navigate(['/attraction-dashboard'], {
+      state: {
+        att_id,
+        att_name,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price
+      }
+    });
+  }
+  
 }

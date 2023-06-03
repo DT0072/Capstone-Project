@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
   carousel!: HTMLElement;
   leftBtn!: HTMLElement;
   rightBtn!: HTMLElement;
@@ -14,11 +14,11 @@ export class HomepageComponent implements OnInit {
   rightBtn1!: HTMLElement;
   leftBtn2!: HTMLElement;
   rightBtn2!: HTMLElement;
-
-
   span = 1364;
   prv = 0;
   currentIndex = 0;
+  isMobile = false;
+  timer: any;
 
   constructor(private elRef: ElementRef) {}
 
@@ -31,7 +31,6 @@ export class HomepageComponent implements OnInit {
     this.rightBtn1 = this.elRef.nativeElement.querySelector('.rightbtn1');
     this.leftBtn2 = this.elRef.nativeElement.querySelector('.leftbtn2');
     this.rightBtn2 = this.elRef.nativeElement.querySelector('.rightbtn2');
-    
 
     for (let i = 0; i < this.indicators.length; i++) {
       this.indicators[i].addEventListener('click', () => {
@@ -65,6 +64,27 @@ export class HomepageComponent implements OnInit {
     this.rightBtn2.addEventListener('click', () => {
       this.moveSlide('right');
     });
+
+    window.addEventListener('resize', () => {
+      this.checkIfMobile();
+      this.span = this.carousel.offsetWidth;
+      const mov = this.currentIndex * this.span;
+      this.carousel.animate(
+        [
+          { transform: `translateX(-${this.prv}px)` },
+          { transform: `translateX(-${mov}px)` }
+        ],
+        { duration: 300 }
+      );
+      this.carousel.style.transform = `translateX(-${mov}px)`;
+      this.prv = mov;
+    });
+
+    this.startAutoSlide();
+  }
+
+  ngOnDestroy() {
+    this.stopAutoSlide();
   }
 
   clearActive(current: number) {
@@ -75,19 +95,24 @@ export class HomepageComponent implements OnInit {
 
   executeMove(index: number) {
     const mov = index * this.span;
-    this.carousel.animate([
-      { transform: 'translateX(-' + this.prv + 'px)' },
-      { transform: 'translateX(-' + mov + 'px)' }
-    ], { duration: 300 });
+    this.carousel.animate(
+      [
+        { transform: 'translateX(-' + this.prv + 'px)' },
+        { transform: 'translateX(-' + mov + 'px)' }
+      ],
+      { duration: 300 }
+    );
     this.carousel.style.transform = 'translateX(-' + mov + 'px)';
     this.prv = mov;
   }
 
   moveSlide(dir: string) {
-    if (dir === 'left') {
-      this.currentIndex--;
-    } else {
+    this.stopAutoSlide();
+
+    if (dir === 'right') {
       this.currentIndex++;
+    } else {
+      this.currentIndex--;
     }
 
     if (this.currentIndex < 0) {
@@ -101,5 +126,21 @@ export class HomepageComponent implements OnInit {
     this.clearActive(this.currentIndex);
     this.executeMove(this.currentIndex);
     this.indicators[this.currentIndex].classList.add('active');
+
+    this.startAutoSlide();
+  }
+
+  checkIfMobile() {
+    this.isMobile = window.innerWidth < 768;
+  }
+
+  startAutoSlide() {
+    this.timer = setInterval(() => {
+      this.moveSlide('right');
+    }, 5000); 
+  }
+
+  stopAutoSlide() {
+    clearInterval(this.timer);
   }
 }

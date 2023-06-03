@@ -40,7 +40,7 @@ input[type=submit]:hover {
 }
     
 .info a:hover{
-    color: #001a33;
+    color: yellow;
     text-decoration: none;
 }
 

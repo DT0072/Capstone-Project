@@ -8,6 +8,7 @@
     margin-left: 30px;
     background-size: 400px;
     height: 700px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
   
 .container {
@@ -48,10 +49,10 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
   
-  
 .community{
-    padding-left: 5rem;
+    padding-left: 150px;
     color: #001A33;
+    text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.2);
 }
   
 .community a{
@@ -62,8 +63,12 @@
 @media screen and (max-width: 767px){
     .container, .column  {
         display: block;
-        margin-bottom: 40px !important;
-        margin-left:0px;
+        margin-bottom: 40px;
+        margin-left: 13px;
+        width: 340px;
+        height: fit-content;
+        background-size: cover;
+        padding: 0px;
     }
 
     .container img{
@@ -74,5 +79,9 @@
     .community{
         text-align: center;
         padding-left: 0px;
+    }
+
+    .community h1{
+        font-size: 40px;
     }
 }

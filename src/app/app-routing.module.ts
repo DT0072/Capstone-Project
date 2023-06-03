@@ -23,6 +23,7 @@ import { AdminAttComponent } from './admin-att/admin-att.component';
 import { CommunityComponent } from './community/community.component';
 import { BookingComponent } from './booking/booking.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'community', component: CommunityComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'contactus', component: ContactusComponent },
+  { path: 'attraction-dashboard', component: AttractionDashboardComponent },
 ];
 
 @NgModule({

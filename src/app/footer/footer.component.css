@@ -94,13 +94,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 70px;
+    padding: 30px;
     color: #FFFFFF;
     font-size: 25px;
   }
 
   .site{
     margin-top: 33px;
+  }
+
+  .right{
+    padding-left: 20px;
+  }
+
+  .footer-list a, .footer-list li{
+    font-size: 23px;
   }
   
 }

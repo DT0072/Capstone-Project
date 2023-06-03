@@ -70,7 +70,7 @@ fill: white;
 }
 
 
-.slide{
+.slide {
   width: 1364px;
   height:452px;
   flex-shrink: 0;
@@ -94,8 +94,6 @@ fill: white;
 /*.active{
   background-color: #001a33;
 }*/
-
-
 
 /*Button*/
 .btn{
@@ -147,6 +145,7 @@ fill: white;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.4;
 }
 
 .text-container {
@@ -163,7 +162,7 @@ fill: white;
 
 /*experience*/
 .rightside{
-  flex: 60%;
+  flex: 50%;
   border-radius: 35px;
   display: flex;
   flex-direction: row;
@@ -172,9 +171,10 @@ fill: white;
 }
 
 .rightside img{
-  width: 324.33px;
-  height: 293px;
+  width: 400px;
+  height: 350px;
   border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .p .rightside {
@@ -186,8 +186,9 @@ fill: white;
 }*/
 
 .leftside{
-  flex: 55%;
+  flex: 10%;
   padding: 20px;
+  margin-left: 30px;
 }
 
 .leftside a{
@@ -215,6 +216,8 @@ fill: white;
   flex-direction: row-reverse;
   align-items: center;
   padding: 50px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  line-height: 45px;
 }
 
 .justified-text{
@@ -225,7 +228,20 @@ fill: white;
 
 .title{
   margin-left: 4rem;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
+
+.col-12 {
+  flex: 3%;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.col-12 p{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 
 /*Community*/
 .column {
@@ -238,6 +254,7 @@ fill: white;
   margin-left: 30px;
   background-size: 400px;
   height: 700px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .container {
@@ -310,8 +327,8 @@ fill: white;
   }
 
   .carousel img {
-    width: 352px;
-    height: 177px;
+    width: 531px;
+    height: auto;
   }
 
   .slide, .carousel-frame{
@@ -319,16 +336,23 @@ fill: white;
     height: 177px;
   }
 
+  .leftbtn{
+    right: 93%;
+  }
+
+  .leftbtn1{
+    right: -7%;
+  }
+
+  .leftbtn2{
+    right: -107%;
+  }
+
   /*button*/
   .btn{ 
       margin-bottom: 20px; 
   }
-
-  .btn img {
-    width: 30px;
-    height: 30px;
-  }
-
+  
   /*aboutus*/
   .text-container {
     font-size: 18px;
@@ -342,22 +366,43 @@ fill: white;
   /*Experience*/
   .visit_container{
     display: block;
+    padding: 0px;
   }
 
   .experience_cont{
     display: block;
-  }
-
-  /*.leftside{
     padding: 0px;
+  }
+
+  .row{
     display: block;
   }
 
-  .rightside{
-    display: block;
-  }*/
+  .title{
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .leftside, .rightside{
+    padding: 0px;
+    margin: 33px;
+  }
+
+  .rightside img{
+    width: 300px;
+    height: 285px;
+  }
+
+  .col-12{
+    margin-left: 0px;
+  }
 
   /*Community*/
+  .community{
+    padding-left: 30px;
+    padding-top: 50px;
+  }
+
   .container{
     display: block;
   }
@@ -365,7 +410,7 @@ fill: white;
   .container, .column  {
     display: block;
     margin-bottom: 40px !important;
-    margin-left:0px;
+    margin-left:3px;
   }
 
   .column img{
