@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent implements OnInit {
   title = 'Capstone';
-  isUSer: boolean = false;
+  isUser: boolean = false;
   isAdmin: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth) {}
