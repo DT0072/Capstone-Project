@@ -44,6 +44,7 @@
     width: 600px;
     height: 426px;
     border-radius: 35px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
   
 
@@ -74,6 +75,7 @@
     flex-direction: row-reverse;
     align-items: center;
     line-height: 45px;
+    padding-top: 110px;
 }
 
 .align{
@@ -84,4 +86,52 @@
 .text{
   padding-left: 20px;
   margin-right: -45px;
+}
+
+@media screen and (max-width: 767px){
+    .contents{
+        position: inherit;
+        padding: 20px;
+    }
+
+    .georgetown_cont{
+        display: block;
+        padding-top: 80px;
+    }
+    
+    .penang_container{
+        display: block;
+    }
+
+    .text-container{
+        position: inherit;
+    }
+
+    .rightside img{
+        width: 332px;
+        height: 243px;
+    }
+
+    .align{
+        margin-top: 0em;
+    }
+
+    .text{
+        padding-left: 0px;
+        margin-right: 0px;
+        text-align: none;
+    }
+
+    .leftside{
+        padding: 10px;
+    }
+
+    .leftside h3{
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .head{
+        font-size: 42px;
+    }
 }
