@@ -55,6 +55,7 @@ export class AdminAttComponent {
     this.att_name= '';
     this.att_desc= '';
     this.att_openHrs= '';
+    this.att_closeHrs= '';
     this.att_price= '';
   }
 

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from '../shared/authentication.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DataService } from '../shared/data.service';
-import { AttData } from '../model/att-data';
+import { EatData } from '../model/eat-data';
+
 
 @Component({
   selector: 'app-admin-eat',
@@ -10,26 +11,26 @@ import { AttData } from '../model/att-data';
   styleUrls: ['./admin-eat.component.css']
 })
 export class AdminEatComponent {
-  attdataList: AttData[] = [];
-  attdataObj: AttData= {
-    att_id: '',
-    att_name: '',
-    att_desc: '',
-    att_openHrs: '',
-    att_closeHrs: '',
-    att_price: ''
+  eatdataList: EatData[] = [];
+  eatdataObj: EatData= {
+    eat_id: '',
+    eat_name: '',
+    eat_desc: '',
+    eat_openHrs: '',
+    eat_closeHrs: '',
+    eat_price: ''
   };
-  att_id: string= '';
-  att_name: string= '';
-  att_desc: string= '';
-  att_openHrs: string= '';
-  att_closeHrs: string= '';
-  att_price: string= '';
+  eat_id: string= '';
+  eat_name: string= '';
+  eat_desc: string= '';
+  eat_openHrs: string= '';
+  eat_closeHrs: string= '';
+  eat_price: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
-    this.getAllAttractions();
+    this.getAllEateries();
   }
 
   // register() {
@@ -37,54 +38,55 @@ export class AdminEatComponent {
   // }
 
   // Get All Attractions
-  getAllAttractions() {
-    this.data.getAllAttractions().subscribe(res => {
-      this.attdataList= res.map( (e: any) => {
+  getAllEateries() {
+    this.data.getAllEateries().subscribe(res => {
+      this.eatdataList= res.map( (e: any) => {
         const data= e.payload.doc.data();
         data.att_id= e.payload.doc.id;
         return data;
       })
     }, err => {
-      alert('Error while fetching attractions, please try again later');
+      alert('Error while fetching eateries, please try again later');
     })
   }
 
   // Reset Form
   resetForm() {
-    this.att_id= '';
-    this.att_name= '';
-    this.att_desc= '';
-    this.att_openHrs= '';
-    this.att_price= '';
+    this.eat_id= '';
+    this.eat_name= '';
+    this.eat_desc= '';
+    this.eat_openHrs= '';
+    this.eat_closeHrs= '';
+    this.eat_price= '';
   }
 
   // Add Attraction
-  addAttraction() {
-    if(this.att_name == '' || this.att_desc == '' || this.att_openHrs == '' || this.att_closeHrs == '' ||this.att_price == '') {
+  addEateries() {
+    if(this.eat_name == '' || this.eat_desc == '' || this.eat_openHrs == '' || this.eat_closeHrs == '' ||this.eat_price == '') {
       alert('Please fill in all fields');
       return;
     }
 
-    this.attdataObj.att_id= '';
-    this.attdataObj.att_name= this.att_name;
-    this.attdataObj.att_desc= this.att_desc;
-    this.attdataObj.att_openHrs= this.att_openHrs;
-    this.attdataObj.att_closeHrs= this.att_closeHrs;
-    this.attdataObj.att_price= this.att_price;
+    this.eatdataObj.eat_id= '';
+    this.eatdataObj.eat_name= this.eat_name;
+    this.eatdataObj.eat_desc= this.eat_desc;
+    this.eatdataObj.eat_openHrs= this.eat_openHrs;
+    this.eatdataObj.eat_closeHrs= this.eat_closeHrs;
+    this.eatdataObj.eat_price= this.eat_price;
 
-    this.data.addAttraction(this.attdataObj);
+    this.data.addEateries(this.eatdataObj);
     this.resetForm();
   }
 
   //Update Attraction
-  updateAttraction() {
+  updateEateries() {
 
   }
 
   // Delete Attraction
-  deleteAttraction(attdata: AttData) {
-    if(window.confirm('Are you sure you want to delete' + attdata.att_name + '?')){
-      this.data.deleteAttraction(attdata);
+  deleteEateries(eatdata: EatData) {
+    if(window.confirm('Are you sure you want to delete' + eatdata.eat_name + '?')){
+      this.data.deleteEateries(eatdata);
     }
   }
 

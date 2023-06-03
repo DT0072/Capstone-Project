@@ -10,25 +10,26 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent implements OnInit {
   title = 'Capstone';
+  isUser: boolean = false;
   isAdmin: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    this.checkAdminLogin();
+    // this.checkAdminLogin();
   }
 
-  checkAdminLogin(): void {
-    this.afAuth.authState.subscribe(user => {
-      if(user && user.uid === 'kwoY1TF3tpdhtHQnEZjU5TpOFz93'){
-        this.isAdmin = true;
-      }else {
-        this.isAdmin = false;
-      }
-    });
-  }
-  logout(): void {
-    this.afAuth.signOut();
-  }
+  // checkAdminLogin(): void {
+  //   this.afAuth.authState.subscribe(user => {
+  //     if(user && user.uid === 'kwoY1TF3tpdhtHQnEZjU5TpOFz93'){
+  //       this.isAdmin = true;
+  //     }else {
+  //       this.isAdmin = false;
+  //     }
+  //   });
+  // }
+  // logout(): void {
+  //   this.afAuth.signOut();
+  // }
 }
