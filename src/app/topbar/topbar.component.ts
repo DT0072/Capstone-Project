@@ -18,9 +18,9 @@ export class TopbarComponent {
      }
   }
 
-  @Output() logout: EventEmitter<void> = new EventEmitter<void>();
+  @Output() logoutUser: EventEmitter<void> = new EventEmitter<void>();
 
-  onLogout(): void {
-    this.logout.emit();
+  onUserLogout(): void {
+    this.logoutUser.emit();
   }
 }
