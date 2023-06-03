@@ -17,7 +17,8 @@ export class AdminAttComponent {
     att_desc: '',
     att_openHrs: '',
     att_closeHrs: '',
-    att_price: ''
+    att_price: '',
+    att_location: ''
   };
   att_id: string= '';
   att_name: string= '';
@@ -25,6 +26,7 @@ export class AdminAttComponent {
   att_openHrs: string= '';
   att_closeHrs: string= '';
   att_price: string= '';
+  att_location: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
@@ -57,11 +59,12 @@ export class AdminAttComponent {
     this.att_openHrs= '';
     this.att_closeHrs= '';
     this.att_price= '';
+    this.att_location= '';
   }
 
   // Add Attraction
   addAttraction() {
-    if(this.att_name == '' || this.att_desc == '' || this.att_openHrs == '' || this.att_closeHrs == '' ||this.att_price == '') {
+    if(this.att_name == '' || this.att_desc == '' || this.att_openHrs == '' || this.att_closeHrs == '' ||this.att_price == '' || this.att_location == '') {
       alert('Please fill in all fields');
       return;
     }
@@ -72,6 +75,7 @@ export class AdminAttComponent {
     this.attdataObj.att_openHrs= this.att_openHrs;
     this.attdataObj.att_closeHrs= this.att_closeHrs;
     this.attdataObj.att_price= this.att_price;
+    this.attdataObj.att_location= this.att_location;
 
     this.data.addAttraction(this.attdataObj);
     this.resetForm();
@@ -84,7 +88,7 @@ export class AdminAttComponent {
 
   // Delete Attraction
   deleteAttraction(attdata: AttData) {
-    if(window.confirm('Are you sure you want to delete' + attdata.att_name + '?')){
+    if(window.confirm('Are you sure you want to delete ' + attdata.att_name + '?')){
       this.data.deleteAttraction(attdata);
     }
   }

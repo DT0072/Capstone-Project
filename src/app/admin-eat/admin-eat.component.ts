@@ -18,7 +18,8 @@ export class AdminEatComponent {
     eat_desc: '',
     eat_openHrs: '',
     eat_closeHrs: '',
-    eat_price: ''
+    eat_price: '',
+    eat_location: ''
   };
   eat_id: string= '';
   eat_name: string= '';
@@ -26,6 +27,7 @@ export class AdminEatComponent {
   eat_openHrs: string= '';
   eat_closeHrs: string= '';
   eat_price: string= '';
+  eat_location: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
@@ -37,7 +39,7 @@ export class AdminEatComponent {
   //   this.auth.logout();
   // }
 
-  // Get All Attractions
+  // Get All Eateries
   getAllEateries() {
     this.data.getAllEateries().subscribe(res => {
       this.eatdataList= res.map( (e: any) => {
@@ -58,11 +60,12 @@ export class AdminEatComponent {
     this.eat_openHrs= '';
     this.eat_closeHrs= '';
     this.eat_price= '';
+    this.eat_location= '';
   }
 
-  // Add Attraction
+  // Add Eateries
   addEateries() {
-    if(this.eat_name == '' || this.eat_desc == '' || this.eat_openHrs == '' || this.eat_closeHrs == '' ||this.eat_price == '') {
+    if(this.eat_name == '' || this.eat_desc == '' || this.eat_openHrs == '' || this.eat_closeHrs == '' ||this.eat_price == '' || this.eat_location == '') {
       alert('Please fill in all fields');
       return;
     }
@@ -73,19 +76,20 @@ export class AdminEatComponent {
     this.eatdataObj.eat_openHrs= this.eat_openHrs;
     this.eatdataObj.eat_closeHrs= this.eat_closeHrs;
     this.eatdataObj.eat_price= this.eat_price;
+    this.eatdataObj.eat_location= this.eat_location;
 
     this.data.addEateries(this.eatdataObj);
     this.resetForm();
   }
 
-  //Update Attraction
+  //Update Eateries
   updateEateries() {
 
   }
 
   // Delete Attraction
   deleteEateries(eatdata: EatData) {
-    if(window.confirm('Are you sure you want to delete' + eatdata.eat_name + '?')){
+    if(window.confirm('Are you sure you want to delete ' + eatdata.eat_name + '?')){
       this.data.deleteEateries(eatdata);
     }
   }
