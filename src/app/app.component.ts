@@ -10,7 +10,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent implements OnInit {
   title = 'Capstone';
-  isUser: boolean = false;
   isAdmin: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth) {}
@@ -28,5 +27,8 @@ export class AppComponent implements OnInit {
         this.isAdmin = false;
       }
     });
+  }
+  logout(): void {
+    this.afAuth.signOut();
   }
 }

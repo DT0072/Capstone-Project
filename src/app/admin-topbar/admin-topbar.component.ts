@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-admin-topbar',
@@ -15,5 +15,11 @@ export class AdminTopbarComponent {
           x.className = "topbar-right";
         }
      }
+  }
+
+  @Output() logout: EventEmitter<void> = new EventEmitter<void>();
+
+  onLogout(): void {
+    this.logout.emit();
   }
 }
