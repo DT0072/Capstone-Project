@@ -17,9 +17,9 @@ export class AdminTopbarComponent {
      }
   }
 
-  @Output() logout: EventEmitter<void> = new EventEmitter<void>();
+  @Output() logoutAdmin: EventEmitter<void> = new EventEmitter<void>();
 
-  onLogout(): void {
-    this.logout.emit();
+  onAdminLogout(): void {
+    this.logoutAdmin.emit();
   }
 }
