@@ -5,4 +5,5 @@ export interface EatData {
     eat_openHrs: string;
     eat_closeHrs: string;
     eat_price: string;
+    eat_location: string;
 }
