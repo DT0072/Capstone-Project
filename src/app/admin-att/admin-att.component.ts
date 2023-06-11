@@ -18,7 +18,8 @@ export class AdminAttComponent {
     att_openHrs: '',
     att_closeHrs: '',
     att_price: '',
-    att_location: ''
+    att_location: '',
+    att_image: ''
   };
   att_id: string= '';
   att_name: string= '';
@@ -27,6 +28,7 @@ export class AdminAttComponent {
   att_closeHrs: string= '';
   att_price: string= '';
   att_location: string= '';
+  att_image: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
@@ -60,6 +62,7 @@ export class AdminAttComponent {
     this.att_closeHrs= '';
     this.att_price= '';
     this.att_location= '';
+    this.att_image= '';
   }
 
   // Add Attraction
@@ -76,6 +79,7 @@ export class AdminAttComponent {
     this.attdataObj.att_closeHrs= this.att_closeHrs;
     this.attdataObj.att_price= this.att_price;
     this.attdataObj.att_location= this.att_location;
+    this.attdataObj.att_image= this.att_image;
 
     this.data.addAttraction(this.attdataObj);
     this.resetForm();

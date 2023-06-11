@@ -19,7 +19,8 @@ export class AdminEatComponent {
     eat_openHrs: '',
     eat_closeHrs: '',
     eat_price: '',
-    eat_location: ''
+    eat_location: '',
+    eat_image: ''
   };
   eat_id: string= '';
   eat_name: string= '';
@@ -28,6 +29,7 @@ export class AdminEatComponent {
   eat_closeHrs: string= '';
   eat_price: string= '';
   eat_location: string= '';
+  eat_image: string= '';
 
   constructor(private auth: AuthenticationService, private data: DataService, private afAuth: AngularFireAuth) {}
 
@@ -61,6 +63,7 @@ export class AdminEatComponent {
     this.eat_closeHrs= '';
     this.eat_price= '';
     this.eat_location= '';
+    this.eat_image= '';
   }
 
   // Add Eateries
@@ -77,6 +80,7 @@ export class AdminEatComponent {
     this.eatdataObj.eat_closeHrs= this.eat_closeHrs;
     this.eatdataObj.eat_price= this.eat_price;
     this.eatdataObj.eat_location= this.eat_location;
+    this.eatdataObj.eat_image= this.eat_image;
 
     this.data.addEateries(this.eatdataObj);
     this.resetForm();
