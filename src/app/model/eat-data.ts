@@ -6,4 +6,5 @@ export interface EatData {
     eat_closeHrs: string;
     eat_price: string;
     eat_location: string;
+    eat_image: string;
 }
