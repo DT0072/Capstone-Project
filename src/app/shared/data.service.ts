@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AttData } from '../model/att-data';
 import { EatData } from '../model/eat-data';
+import { EventData } from '../model/event-data';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,27 @@ export class DataService {
   updateEateries(eatdata: EatData) {
     this.deleteEateries(eatdata);
     this.addEateries(eatdata);
+  }
+
+  // Add Events
+  addEvents(eventdata: EventData) {
+    eventdata.event_id = this.afs.createId();
+    return this.afs.collection('/eventdatas').add(eventdata);
+  }
+
+  // Get Events
+  getAllEvents() {
+    return this.afs.collection('/eventdatas').snapshotChanges();
+  }
+
+  // Delete Events
+  deleteEvents(eventdata: EventData) {
+    return this.afs.doc('/eventdatas/'+ eventdata.event_id).delete();
+  }
+
+  // Update Events
+  updateEvents(eventdata: EventData) {
+    this.deleteEvents(eventdata);
+    this.addEvents(eventdata);
   }
 }
