@@ -11,10 +11,13 @@ import { DataService } from '../shared/data.service';
 export class AttractionsComponent implements OnInit {
   attdataList: AttData[] = [];
   displayData: AttData[] = [];
+  filteredData: AttData[] = [];
   isDataLoaded: boolean = false;
   loadedItemCount: number = 4;
   itemsToLoad: number = 8;
   startIndex: number = 4;
+  selectedCategories: string[] = [];
+  isMenuOpen: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,37 +39,14 @@ export class AttractionsComponent implements OnInit {
         });
         this.sortData();
         this.isDataLoaded = true;
-        this.displayData = this.attdataList.slice(0, this.loadedItemCount);
+        this.filteredData = this.attdataList;
+        this.loadedItemCount = 4; 
+        this.displayData = this.filteredData.slice(0, this.loadedItemCount);
       },
       (err: any) => {
         alert('Error while fetching attractions, please try again later');
       }
     );
-  }
-
-  formatTime(time: string): string {
-    console.log('Time parameter:', time);
-  
-    if (time === '24 Hours') {
-      return time; // Return "24 Hours" as is
-    }
-  
-    if (time === '-' || !time) {
-      return ''; // Return an empty string or handle the case when time is '-' or undefined
-    }
-  
-    // Convert the time string to a JavaScript Date object
-    const date = new Date(`2000-01-01T${time}`);
-  
-    // Format the time using options for hour12 and hourCycle
-    const formattedTime = date.toLocaleTimeString([], {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-      hourCycle: 'h23'
-    });
-  
-    return formattedTime; // Return the formatted time without the label
   }
   
   showMore() {
@@ -78,6 +58,24 @@ export class AttractionsComponent implements OnInit {
     this.displayData = [...this.displayData, ...newData];
     this.startIndex += this.itemsToLoad;
   }
+  
+
+  formatTime(time: string): string {
+    if (time === '24 Hours') {
+      return time;
+    } else if (time === '-' || !time) {
+      return '';
+    } else {
+      const date = new Date(`2000-01-01T${time}`);
+      const formattedTime = date.toLocaleTimeString([], {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+        hourCycle: 'h23'
+      });
+      return formattedTime;
+    }
+  }
 
   sortData() {
     this.attdataList.sort((a, b) => {
@@ -86,8 +84,7 @@ export class AttractionsComponent implements OnInit {
   }
 
   redirectToAttractionDashboardComponent(attdata: AttData): void {
-    console.log('Data being passed:', attdata);
-    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price } = attdata;
+    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price,att_location } = attdata;
     this.router.navigate(['/attraction-dashboard'], {
       state: {
         att_id,
@@ -95,9 +92,45 @@ export class AttractionsComponent implements OnInit {
         att_desc,
         att_openHrs,
         att_closeHrs,
-        att_price
+        att_price,
+        att_location
       }
     });
   }
+
+  filterAttractions(event: any) {
+    const checkbox = event.target;
+    const categoryName = checkbox.name;
   
+    if (checkbox.checked) {
+      this.selectedCategories.push(categoryName);
+    } else {
+      const index = this.selectedCategories.indexOf(categoryName);
+      if (index !== -1) {
+        this.selectedCategories.splice(index, 1);
+      }
+    }
+  
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    if (this.selectedCategories.length > 0) {
+      this.filteredData = this.attdataList.filter((attdata) => {
+        return this.selectedCategories.some((category) => attdata.att_location.includes(category));
+      });
+    } else {
+      this.filteredData = this.attdataList;
+    }
+
+    this.displayData = this.filteredData.slice(0, this.loadedItemCount);
+    this.startIndex = this.loadedItemCount;
+  }
+  
+  isFilterMenuOpen: boolean = false;
+
+  toggleFilterMenu() {
+    this.isFilterMenuOpen = !this.isFilterMenuOpen;
+  }
+
 }

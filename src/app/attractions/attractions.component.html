@@ -1,29 +1,24 @@
 <div class="overflow-hidden">
   <div class="container mt-5">
     <div class="row text-center">
-
       <div class="col-sm-3">
         <a href="/thingstodo" class="btn btn-lg blue">
           things to do
           <img src="assets/img_component/ticket 1.svg">
         </a>
       </div>
-
       <div class="col-sm-3">
         <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">
           Bus Stop
           <img src="assets/img_component/bus-stop.svg">
         </a>
       </div>
-
-
       <div class="col-sm-3">
         <a href="/attractions" class="btn btn-lg blue">
           Attractions
           <img src="assets/img_component/attraction1.svg">
         </a>
       </div>
-
       <div class="col-sm-3">
         <a href="/events" class="btn btn-lg blue">
           events
@@ -33,26 +28,76 @@
     </div>
   </div>
 
-  <h1 class="text-center py-5 head">Attractions</h1>
+  <h1 class="text-center pt-5 pb-4 head">Attractions</h1>
+  
+  <div class="dropdown-filter" (click)="toggleFilterMenu()">
+    <button class="fa fa-filter align-right" type="button"> Filter</button>
+    <div class="filter-menu" [ngClass]="{ 'open': isFilterMenuOpen }">
+      <h5>Filter by Category</h5>
+      <label>
+        <input type="checkbox" name="Mall" (change)="filterAttractions($event)">
+        Mall
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="Beach" (change)="filterAttractions($event)">
+        Beach
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="Temple" (change)="filterAttractions($event)">
+        Temple
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="Museum" (change)="filterAttractions($event)">
+        Museum
+      </label>
+  
+      <h5 class="mt-3">Filter by Location</h5>
+      <label>
+        <input type="checkbox" name="George Town" (change)="filterAttractions($event)">
+        George Town
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="Bayan Lepas" (change)="filterAttractions($event)">
+        Bayan Lepas
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="Others" (change)="filterAttractions($event)">
+        Others
+      </label>
+  
+      <h5 class="mt-3">Filter by Price</h5>
+      <label>
+        <input type="checkbox" name="-" (change)="filterAttractions($event)">
+        Free
+      </label>
+    </div>
+  </div>
+  
 
   <div class="container-sm justify-content-md-center mb-5">
     <div class="row">
-      <div class="col" *ngFor="let attdata of displayData">
-        <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
-          <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
-          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1" alt="{{ attdata.att_name }}" class="attraction-image">
-          <h5 class="mt-4">
-            {{ attdata.att_desc }}<br><br>
-            <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
-              {{ formatTime(attdata.att_openHrs) }}
-            </ng-container>
-            <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
-              {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
-            </ng-container><br><br>
-            RM {{ attdata.att_price }}
-          </h5>
-        </a>
-      </div>
+        <div class="col" *ngFor="let attdata of displayData">
+          <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
+            <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1" alt="{{ attdata.att_name }}" class="attraction-image">
+            <h5 class="mt-4">
+              {{ attdata.att_desc }}<br><br>
+              {{ attdata.att_location }}<br><br>
+              <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
+                {{ formatTime(attdata.att_openHrs) }}
+              </ng-container>
+              <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
+                {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
+              </ng-container><br><br>
+              RM {{ attdata.att_price }}
+            </h5>
+          </a>
+        </div>
       <h5 (click)="showMore()" class="load">Load More</h5>
     </div>
   </div>

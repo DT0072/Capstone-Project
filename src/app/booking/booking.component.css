@@ -81,8 +81,9 @@ input, button {
     }
 
     .text {
-      padding-top: 100px;
+      padding-top: 40px;
       padding-bottom: 30px;
+      font-size: 65px;
     }
 
     .tab{
