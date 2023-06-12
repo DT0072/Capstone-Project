@@ -66,6 +66,9 @@
     width: 500px;
     height: 500px;
     border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
   
   .content{
@@ -87,11 +90,13 @@
     }
 
     .content img{
-        width: 440px;
+        width: 300px;
+        height: auto;
     }
 
     .container-sm {
-        width: 100%;
+        width: 90%;
+        margin: 20px;
     }
 
   }
