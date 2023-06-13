@@ -1,1 +1,69 @@
-<p>admin-event works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 mt-2">
+            <!-- <div class="card mb-3">
+                <div class="form-floating mb-3">
+                    <h5 class="text-dark text-muted px-2 pt-2">Welcome, </h5>
+                </div>
+            </div> -->
+            <div class="card border-0 shadow p-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="eventName" name="eventname" [(ngModel)]="event_name">
+                    <label for="event_name">Events</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="eventDesc" name="eventdesc" [(ngModel)]="event_desc">
+                    <label for="event_desc">Description</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="time" class="form-control" id="eventOpenHrs" name="eventopenHrs" [(ngModel)]="event_openHrs" min="10:00" max="23:00">
+                    <label for="event_openHrs">Opening Hours</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="time" class="form-control" id="eventCloseHrs" name="eventcloseHrs" [(ngModel)]="event_closeHrs" min="10:00" max="23:00">
+                    <label for="event_closeHrs">Close Hours</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="eventPrice" name="eventprice" [(ngModel)]="event_price">
+                    <label for="event_price">Price</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="eventLocation" name="eventlocation" [(ngModel)]="event_location">
+                    <label for="event_location">Address</label>
+                </div>
+                <button type="button" class="btn btn-outline-success" (click)="addEvents()">Add</button><br>
+            </div>
+        </div>
+        <div class="col-md-8 mt-2">
+            <h5 class="text-danger">Eateries Lists</h5>
+            <div class="card p-3 shadow">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Opening Hours</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let eventdata of eventdataList">
+                            <td>{{ eventdata.event_name }}</td>
+                            <td>{{ eventdata.event_desc }}</td>
+                            <td>{{ formatTime(eventdata.event_openHrs) }} to {{ formatTime(eventdata.event_closeHrs) }}</td>
+                            <td> RM {{ eventdata.event_price }}</td>
+                            <td>{{ eventdata.event_location }}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-danger" (click)="deleteEvents(eventdata)">Delete</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
