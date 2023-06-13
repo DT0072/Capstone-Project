@@ -1,22 +1,29 @@
 .card {
-    width: 45%;
-    height: 254px;
-    border-radius: 30px;
-    background: #e0e0e0;
-    box-shadow: 5px 5px 15px #bebebe, 
-               -5px -5px 15px #ffffff;
+  width: 45%;
+  height: 254px;
+  border-radius: 30px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 15px #bebebe, 
+              -5px -5px 15px #ffffff;
+}
+
+.admin-att {
+  text-decoration: none !important;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 20px;
   }
 
-  .admin-att {
-    text-decoration: none !important;
-    background-color: white;
-    border-radius: 15px;
-    font-size: 20px;
-  }
+.admin-eat {
+  text-decoration: none !important;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 20px;
+} 
 
-  .admin-eat {
-    text-decoration: none !important;
-    background-color: white;
-    border-radius: 15px;
-    font-size: 20px;
-  }
+.admin-event {
+  text-decoration: none !important;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 20px;
+}
