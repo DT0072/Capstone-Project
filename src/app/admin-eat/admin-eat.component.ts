@@ -46,7 +46,7 @@ export class AdminEatComponent {
     this.data.getAllEateries().subscribe(res => {
       this.eatdataList= res.map( (e: any) => {
         const data= e.payload.doc.data();
-        data.att_id= e.payload.doc.id;
+        data.eat_id= e.payload.doc.id;
         return data;
       })
     }, err => {
@@ -68,7 +68,7 @@ export class AdminEatComponent {
 
   // Add Eateries
   addEateries() {
-    if(this.eat_name == '' || this.eat_desc == '' || this.eat_openHrs == '' || this.eat_closeHrs == '' ||this.eat_price == '' || this.eat_location == '') {
+    if(this.eat_name == '' || this.eat_desc == '' || this.eat_openHrs == '' || this.eat_closeHrs == '' ||this.eat_price == '' || this.eat_location == '' || this.eat_image == '') {
       alert('Please fill in all fields');
       return;
     }
@@ -91,7 +91,7 @@ export class AdminEatComponent {
 
   }
 
-  // Delete Attraction
+  // Delete Eateries
   deleteEateries(eatdata: EatData) {
     if(window.confirm('Are you sure you want to delete ' + eatdata.eat_name + '?')){
       this.data.deleteEateries(eatdata);
