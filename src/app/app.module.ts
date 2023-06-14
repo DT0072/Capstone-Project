@@ -39,6 +39,7 @@ import { BookingComponent } from './booking/booking.component';
 import { AdminEatComponent } from './admin-eat/admin-eat.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
+import { AdminEventComponent } from './admin-event/admin-event.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { AttractionDashboardComponent } from './attraction-dashboard/attraction-
     AdminEatComponent,
     ContactusComponent,
     AttractionDashboardComponent,
+    AdminEventComponent,
   ],
   imports: [
     HttpClientModule,
