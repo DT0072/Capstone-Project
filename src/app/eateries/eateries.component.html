@@ -29,85 +29,33 @@
 </div>
 
 <h1 class="text-center py-5">Eateries</h1>
-<div class="container-sm">
-    <div class="column  px-5 pt-4">
-        <h3>Duck Kway Chap At Kimberley Street</h3>
-    </div>
-        <div class="content py-4">
-            <img src="https://burpple.imgix.net/foods/531ed326e1ae3e540281440874_original.?w=400&h=400&fit=crop&q=80&auto=format" class="px-4 py-4">
-            <p class="mt-3">A word of caution if this will be your first time trying this dish - it doesn't appeal to everyone and takes 
-                some getting used to. Personally, I don't like it but my partner and our friends did. The dining environment 
-                is not attractive, clean or comfortable either. Because this is a hawker stall at the edge of a busy road.
-                <br>
-                <small><i>Tip: You can choose to sit at the opposite dessert shop if you get drinks from them.</i></small>
-                <br><br>
-                However, if you are a fan of kway chap or just have a curious appetite, the broth is thick and flavorful. 
-                The dish has duck meat, braised eggs and various pig parts according to preference (e.g., pork intestines or 
-                pig ears). Other food that we recommended here are char koay teow, loh bak and fried oysters with egg (oh chien).
-                <br><br>
-                <b>
-                    Opening Hours: 2pm - 10pm<br>
-                    Closed On: Thursday
-                    <br>
-                    Contact No: 016-437 1819
-                    <br><br>
-                    Location: 135, Lebuh Kimberley, George Town, 10100 George Town, Pulau Pinang
-                </b>
-            </p>
+<div *ngFor="let eatdata of eatdataList">
+    <div class="container-sm">
+        <div class="column px-4 pt-4">
+            <h3>{{ eatdata.eat_name }}</h3>
         </div>
-</div>
-
-<div class="container-sm mt-5">
-    <div class="column px-4 pt-4">
-        <h3>Penang Road Famous Laksa </h3>
+            <div class="content py-2">
+                <img src="https://burpple.imgix.net/foods/531ed326e1ae3e540281440874_original.?w=400&h=400&fit=crop&q=80&auto=format" class="px-4 py-4">
+                <p class="mt-3">{{ eatdata.eat_desc }}<br><br>
+                    <b>
+                        Opening Hours: 
+                        <ng-container *ngIf="formatTime(eatdata.eat_openHrs) === '24 Hours'">
+                            {{ formatTime(eatdata.eat_openHrs) }}
+                          </ng-container>
+                          <ng-container *ngIf="formatTime(eatdata.eat_openHrs) !== '24 Hours'">
+                            {{ formatTime(eatdata.eat_openHrs) }} to {{ formatTime(eatdata.eat_closeHrs) }}
+                          </ng-container><br><br>
+                        RM {{ eatdata.eat_price }}
+                        <br>
+                        Contact No: 016-437 1819
+                        <br><br>
+                        {{ eatdata.eat_location }}
+                    </b>
+                </p>
+            </div>
     </div>
-        <div class="content">
-            <img src="https://www.penang-fyi.com/wp-content/uploads/2018/11/penang-laksa.jpg" class="px-4 py-4">
-            <p>This famous laksa shop serves lai fun noodles in a sardine broth with exceptional depth and flavours alongside 
-                an array of condiments. For those with bigger appetites, order char koay teow with duck egg to go with the laksa.
-                <br><br>
-                <b>
-                    Opening Hours:<br>
-                    Monday & Tuesday: 9AM - 5PM
-                    Thursday- Sunday: 9AM - 5:30 PM
-                    <br><br>
-                    Closed On: Wednesday
-                    <br>
-                    Contact No: 016-446 0543
-                    <br><br>
-                    Location: 5 Lebuh Keng Kwee, George Town, 10100, Malaysia.
-                </b>
-            </p>
-        </div>
 </div>
-
-<div class="container-sm my-5">
-    <div class="column px-4 pt-4">
-        <h3>Penang Road Famous Teochew Cendul </h3>
-    </div>
-        <div class="content py-4">
-            <img src="https://1.bp.blogspot.com/-jWyVcgn96yk/XyeVB_JJenI/AAAAAAAA8gI/ZfcmuzXgSOQ9zYWVbpyZQCCxXtfrundHACNcBGAsYHQ/s640/IMG_2591.jpg" class="px-4 py-4">
-            <p>Coming to Penang, it is often common to find dessert pop-up stalls by the roadside to cater for the need and 
-                convenience of passersby who somehow desire for something to quench their thirst under the hot weather. 
-                If you have not heard of it yet, the Penang Famous Teo Chew Cendol is one of the extremely mainstream places 
-                for all to go to enjoy bowls of refreshing goodness.、
-                <br><br>
-                More known for its cendol served till the brim in a blue bowl, the combination of toppings together that 
-                consist of served ice, pandan-flavoured jelly, red beans and coconut milk is just right for anybody that 
-                comes around. It is not too sweet or bland and together with brown sugar, you have gotten a bowl of enlivening 
-                dessert.
-                <br><br>
-                <b>
-                    Opening Hours:<br>
-                    Every day: 10AM - 07:30PM
-                    <br><br>
-                    Contact No: 04-2626002
-                    <br><br>
-                    Location: No. 27 & 29, Lebuh Keng Kwee, 10100 Penang, Malaysia, 10100, George Town, Penang.
-                </b>
-            </p>
-        </div>
-</div>
+<h5 (click)="showMore()" class="load">Load More</h5>
 <app-footer></app-footer>
 </div>
 

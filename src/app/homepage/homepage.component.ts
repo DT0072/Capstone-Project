@@ -131,7 +131,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   checkIfMobile() {
-    this.isMobile = window.innerWidth < 768;
+    this.isMobile = window.innerWidth < 767;
   }
 
   startAutoSlide() {

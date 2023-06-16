@@ -91,9 +91,9 @@ fill: white;
   border-radius:10px;
 }
   
-/*.active{
+.active{
   background-color: #001a33;
-}*/
+}
 
 /*Button*/
 .btn{
