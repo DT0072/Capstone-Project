@@ -17,7 +17,14 @@ export class AttractionsComponent implements OnInit {
   itemsToLoad: number = 8;
   startIndex: number = 4;
   selectedCategories: string[] = [];
+  selectedLocations: string[] = [];
+  selectedPriceRanges: string[] = [];
   isMenuOpen: boolean = false;
+  isFilterChecked: boolean = false;
+
+  categories: string[] = ['Mall', 'Museum'];
+  locations: string[] = ['George Town', 'Bayan Lepas'];
+  priceRanges: string[] = ['-'];
 
   constructor(
     private route: ActivatedRoute,
@@ -53,7 +60,7 @@ export class AttractionsComponent implements OnInit {
     if (!this.isDataLoaded) {
       return;
     }
-    const remainingData = this.attdataList.slice(this.startIndex);
+    const remainingData = this.isFilterChecked ? this.filteredData.slice(this.startIndex) : this.attdataList.slice(this.startIndex);
     const newData = remainingData.slice(0, this.itemsToLoad);
     this.displayData = [...this.displayData, ...newData];
     this.startIndex += this.itemsToLoad;
@@ -84,7 +91,7 @@ export class AttractionsComponent implements OnInit {
   }
 
   redirectToAttractionDashboardComponent(attdata: AttData): void {
-    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price,att_location } = attdata;
+    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
     this.router.navigate(['/attraction-dashboard'], {
       state: {
         att_id,
@@ -111,18 +118,69 @@ export class AttractionsComponent implements OnInit {
       }
     }
   
+    this.isFilterChecked = this.selectedCategories.length > 0 || this.selectedLocations.length > 0 || this.selectedPriceRanges.length > 0;
+    this.applyFilters();
+  }
+
+  filterByLocation(event: any) {
+    const checkbox = event.target;
+    const locationValue = checkbox.value;
+  
+    if (checkbox.checked) {
+      this.selectedLocations.push(locationValue);
+    } else {
+      const index = this.selectedLocations.indexOf(locationValue);
+      if (index !== -1) {
+        this.selectedLocations.splice(index, 1);
+      }
+    }
+  
+    this.isFilterChecked = this.selectedCategories.length > 0 || this.selectedLocations.length > 0 || this.selectedPriceRanges.length > 0;
+    this.applyFilters();
+  }
+
+  filterByPriceRange(event: any) {
+    const checkbox = event.target;
+    const priceRange = checkbox.value;
+
+    if (checkbox.checked) {
+      this.selectedPriceRanges.push(priceRange);
+    } else {
+      const index = this.selectedPriceRanges.indexOf(priceRange);
+      if (index !== -1) {
+        this.selectedPriceRanges.splice(index, 1);
+      }
+    }
+
+    this.isFilterChecked = this.selectedCategories.length > 0 || this.selectedLocations.length > 0 || this.selectedPriceRanges.length > 0;
     this.applyFilters();
   }
 
   applyFilters() {
-    if (this.selectedCategories.length > 0) {
+    if (this.selectedCategories.length > 0 || this.selectedLocations.length > 0 || this.selectedPriceRanges.length > 0) {
       this.filteredData = this.attdataList.filter((attdata) => {
-        return this.selectedCategories.some((category) => attdata.att_location.includes(category));
+        const isCategoryMatch =
+          this.selectedCategories.length === 0 ||
+          this.selectedCategories.some((category) =>
+            attdata.att_name.toLowerCase().includes(category.toLowerCase())
+          );
+  
+        const isLocationMatch =
+          this.selectedLocations.length === 0 ||
+          this.selectedLocations.some((location) =>
+            attdata.att_location.toLowerCase().includes(location.toLowerCase())
+          );
+  
+        const isPriceRangeMatch =
+          this.selectedPriceRanges.length === 0 ||
+          this.selectedPriceRanges.includes(attdata.att_price);
+  
+        return isCategoryMatch && isLocationMatch && isPriceRangeMatch;
       });
     } else {
       this.filteredData = this.attdataList;
     }
-
+  
     this.displayData = this.filteredData.slice(0, this.loadedItemCount);
     this.startIndex = this.loadedItemCount;
   }
@@ -132,5 +190,4 @@ export class AttractionsComponent implements OnInit {
   toggleFilterMenu() {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
-
 }

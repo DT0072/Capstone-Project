@@ -127,6 +127,15 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.checkbox-group label {
+    margin-right: 10px;
+}
+  
 @media screen and (max-width: 767px){
     .btn{
         margin-bottom: 20px;
