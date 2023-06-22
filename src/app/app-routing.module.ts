@@ -25,6 +25,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
 import { AdminEatComponent } from './admin-eat/admin-eat.component';
+import { AdminEventComponent } from './admin-event/admin-event.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -55,7 +56,8 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'attraction-dashboard', component: AttractionDashboardComponent },
-  { path: 'admin-eat', component: AdminEatComponent }
+  { path: 'admin-eat', component: AdminEatComponent },
+  { path: 'admin-event', component: AdminEventComponent }
 ];
 
 @NgModule({

@@ -67,7 +67,7 @@ export class AdminEventComponent {
 
   // Add Events
   addEvents() {
-    if(this.event_name == '' || this.event_desc == '' || this.event_openHrs == '' || this.event_closeHrs == '' ||this.event_price == '' || this.event_location == '' || this.event_image == '') {
+    if(this.event_name == '' || this.event_desc == '' || this.event_openHrs == '' || this.event_closeHrs == '' ||this.event_price == '' || this.event_location == '') {
       alert('Please fill in all fields');
       return;
     }
@@ -111,6 +111,16 @@ export class AdminEventComponent {
   
     return `${formattedTime}`;
   }
-
-
+  handleFileInput(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const fileData = e.target.result;
+        // Process the file data as needed (e.g., upload to server, display preview, etc.)
+        console.log(fileData);
+      };
+      reader.readAsDataURL(file);
+    }
+  }  
 }
