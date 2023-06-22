@@ -1,7 +1,12 @@
-<div class="main">
+<div class="main-1" *ngIf="isAdmin">
   <app-topbar></app-topbar>
-  <!-- <app-admin-topbar *ngIf="!isAdmin" (logout)="logoutAdmin()"></app-admin-topbar> -->
+  <button (click)="logout()">Logout</button>
+  <!-- Tells router where to display routed views -->
+  <router-outlet></router-outlet>
+</div>
 
-  <!--Tells router where to display routed views-->
+<div class="main-2" *ngIf="!isAdmin">
+  <app-admin-topbar></app-admin-topbar>
+  <!-- Tells router where to display routed views -->
   <router-outlet></router-outlet>
 </div>
