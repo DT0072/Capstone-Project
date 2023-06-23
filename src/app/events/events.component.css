@@ -74,6 +74,16 @@
   color: #001a33;
 }
 
+.load{
+  color: #001A33;
+  cursor: pointer;
+  margin-left: 90px;
+}
+
+.load:hover{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 767px){
   .btn{
     margin-bottom: 20px;

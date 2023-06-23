@@ -29,24 +29,27 @@
     </div>
 
     <h1 class="text-center py-5 head">Events</h1>
-    <div class="container-sm justify-content-md-center">
+    <div *ngFor="let eventdata of displayData">
+      <div class="container-sm justify-content-md-center mb-5">
         <div class="column px-4 pt-4">
-            <h3>Penang Hill Railway: A Centenary Celebration (1923 - 2023)</h3>
+          <h3>{{ eventdata.event_name }}</h3>
         </div>
-            <div class="content">
-                <img src="https://mypenang.gov.my/uploads/event/516/images/Lower-Station-2.jpg" class="px-4 py-4">
-                <p><b>Event Date: 01 Jan 2023 - 31 Dec 2023</b><br>
-                    Penang Hill Corporation is hosting a series of events in the run-up to the 100th 
-                    anniversary of the Penang Hill Railway on 21 October 2023. The railway was informally 
-                    opened on 21 October 1923 before it was officially opened on 1 January 1924. The year-long 
-                    centenary celebration will bring renewed interest in the history of Penang Hill's funicular 
-                    and the nostalgic journey of its transformation.<br>
-                    <b>Location: Penang Hill</b>
-                </p>
-            </div>
+        <div class="content">
+          <img src="https://mypenang.gov.my/uploads/event/516/images/Lower-Station-2.jpg" class="px-4 py-4">
+          <p>
+            <b>Event Date: {{ eventdata.event_date }}</b><br>
+            {{ eventdata.event_desc }}<br>
+            <b>Location: {{ eventdata.event_location }}</b>
+          </p>
+        </div>
+      </div>
     </div>
+    <div class="container justify-content-md-center">
+      <h5 (click)="showMore()" class="load">Load More</h5>
+    </div>
+    
 
-    <div class="container-sm mt-5">
+    <!--<div class="container-sm mt-5">
         <div class="column px-4 pt-4">
             <h3>Wesak Day</h3>
         </div>
@@ -87,7 +90,7 @@
                     <b>Location: Penang Esplanade</b>
                 </p>
             </div>
-    </div>
+    </div>-->
     <app-footer></app-footer>
 </div>
 
