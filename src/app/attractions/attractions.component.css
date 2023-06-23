@@ -73,8 +73,11 @@
 
 .load{
     color: #001A33;
-    text-decoration: underline;
     cursor: pointer;
+}
+
+.load:hover{
+    text-decoration: underline;
 }
 
 .mt-4 {
@@ -130,6 +133,7 @@
 .checkbox-group {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
   
 .checkbox-group label {

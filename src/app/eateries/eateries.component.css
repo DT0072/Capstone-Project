@@ -133,6 +133,7 @@
 .checkbox-group {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .checkbox-group label {

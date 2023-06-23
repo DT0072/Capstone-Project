@@ -139,4 +139,5 @@ export class EateriesComponent implements OnInit {
   toggleFilterMenu() {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
+  
 }

@@ -29,8 +29,25 @@
     </div>
 
     <h1 class="text-center py-5 head">Events</h1>
+    <div class="dropdown-filter" (click)="toggleFilterMenu()">
+    <button class="fa fa-filter align-right" type="button"> Filter</button>
+    <div class="filter-menu" [ngClass]="{ 'open': isFilterMenuOpen }">
+        <div class="checkbox-group">
+            <h5>Filter by Date</h5>
+            <label>
+              <input type="checkbox" (change)="toggleDateFilter('previous')"> Previous
+            </label>
+            <label>
+              <input type="checkbox" (change)="toggleDateFilter('upcoming')"> Upcoming
+            </label>
+            
+        </div>
+    </div>
+    </div>
+
+
     <div *ngFor="let eventdata of displayData">
-      <div class="container-sm justify-content-md-center mb-5">
+      <div class="container-sm justify-content-md-center mt-4 mb-5">
         <div class="column px-4 pt-4">
           <h3>{{ eventdata.event_name }}</h3>
         </div>
