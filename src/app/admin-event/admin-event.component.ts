@@ -15,6 +15,7 @@ export class AdminEventComponent {
     event_id: '',
     event_name: '',
     event_desc: '',
+    event_date: '',
     event_openHrs: '',
     event_closeHrs: '',
     event_price: '',

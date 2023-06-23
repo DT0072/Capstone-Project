@@ -14,10 +14,14 @@ export class EateriesComponent implements OnInit {
   filteredData: EatData[] = [];
   isDataLoaded: boolean = false;
   loadedItemCount: number = 4;
-  itemsToLoad: number = 8;
+  itemsToLoad: number = 6;
   startIndex: number = 4;
   selectedCategories: string[] = [];
   isMenuOpen: boolean = false;
+  selectedLocations: string[] = [];
+  isFilterChecked: boolean = false;
+
+  locations: string[] = ['George Town', 'Jelutong', 'Ayer Itam', 'Tanjung Tokong'];
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +43,8 @@ export class EateriesComponent implements OnInit {
         });
         this.sortData();
         this.isDataLoaded = true;
-        this.displayData = this.eatdataList.slice(0, this.loadedItemCount);
+        this.filteredData = this.eatdataList;
+        this.displayData = this.filteredData.slice(0, this.loadedItemCount);
       },
       (err: any) => {
         alert('Error while fetching eateries, please try again later');
@@ -48,18 +53,14 @@ export class EateriesComponent implements OnInit {
   }
 
   formatTime(time: string): string {
-    // Convert the time string to a JavaScript Date object
     const date = new Date(`2000-01-01T${time}`);
-
-    // Format the time using options for hour12 and hourCycle
     const formattedTime = date.toLocaleTimeString([], {
       hour: 'numeric',
       minute: 'numeric',
       hour12: true,
       hourCycle: 'h23'
     });
-
-    return `${formattedTime}`;
+    return formattedTime;
   }
 
   sortData() {
@@ -72,9 +73,71 @@ export class EateriesComponent implements OnInit {
     if (!this.isDataLoaded) {
       return;
     }
-    const remainingData = this.eatdataList.slice(this.startIndex);
+    const remainingData = this.filteredData.slice(this.startIndex);
     const newData = remainingData.slice(0, this.itemsToLoad);
     this.displayData = [...this.displayData, ...newData];
     this.startIndex += this.itemsToLoad;
   }
+
+  filterEateries(event: any) {
+    const checkbox = event.target;
+    const categoryName = checkbox.name;
+
+    if (checkbox.checked) {
+      this.selectedCategories.push(categoryName);
+    } else {
+      const index = this.selectedCategories.indexOf(categoryName);
+      if (index !== -1) {
+        this.selectedCategories.splice(index, 1);
+      }
+    }
+
+    this.isFilterChecked = this.selectedCategories.length > 0;
+    this.applyFilters();
+  }
+
+  filterByLocation(event: any) {
+    const checkbox = event.target;
+    const locationValue = checkbox.value;
+
+    if (checkbox.checked) {
+      this.selectedLocations.push(locationValue);
+    } else {
+      const index = this.selectedLocations.indexOf(locationValue);
+      if (index !== -1) {
+        this.selectedLocations.splice(index, 1);
+      }
+    }
+
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    this.filteredData = this.eatdataList.filter((eatdata) => {
+      const isLocationMatch =
+        this.selectedLocations.length === 0 ||
+        this.selectedLocations.some((location) =>
+          eatdata.eat_location.toLowerCase().includes(location.toLowerCase())
+        );
+      return isLocationMatch;
+    });
+
+    if (this.selectedCategories.length > 0) {
+      this.filteredData = this.filteredData.filter((eatdata) =>
+      this.selectedCategories.some((category) =>
+      eatdata.eat_name.toLowerCase().includes(category.toLowerCase())
+      )
+      );
+    }
+
+    this.displayData = this.filteredData.slice(0, this.loadedItemCount);
+    this.startIndex = this.loadedItemCount;
+  }
+
+  isFilterMenuOpen: boolean = false;
+
+  toggleFilterMenu() {
+    this.isFilterMenuOpen = !this.isFilterMenuOpen;
+  }
+  
 }
