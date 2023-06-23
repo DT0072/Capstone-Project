@@ -7,21 +7,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-  isAdmin: boolean = false;
 
   constructor(private afAuth: AngularFireAuth){}
 
-  ngOnInit(): void {
-    this.checkAdminLogin();
-  }
+  ngOnInit(): void {}
 
-  checkAdminLogin(): void {
-    this.afAuth.authState.subscribe(user => {
-      if(user && user.uid === 'kwoY1TF3tpdhtHQnEZjU5TpOFz93'){
-        this.isAdmin = true;
-      }else {
-        this.isAdmin = false;
-      }
-    });
-  }
 }
