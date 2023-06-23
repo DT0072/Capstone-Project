@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -8,21 +9,24 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
   title = 'Capstone';
-  isAdmin: boolean | null = null;
+  hideTopbar: boolean | undefined;
 
-  constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth) {}
-
-  ngOnInit(): void {
-    this.primengConfig.ripple = true;
-    this.checkAdminLogin();
+  constructor(private primengConfig: PrimeNGConfig, private afAuth: AngularFireAuth, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.hideTopbarInAdminPages(event.url);
+      }
+    });
   }
 
-  checkAdminLogin(): void {
-    this.afAuth.authState.subscribe(user => {
-      this.isAdmin = user && user.uid === 'kwoY1TF3tpdhtHQnEZjU5TpOFz93';
-    });
+  private hideTopbarInAdminPages(url: string) {
+    const adminPages = ['/admin-dashboard', '/admin-att', '/admin-eat', '/admin-event'];
+    const hideTopbar = adminPages.some((page) => url.includes(page));
+
+    // Use the hideTopbar variable to control the visibility of app-topbar component
+    this.hideTopbar = hideTopbar;
   }
 
   logout(): void {
