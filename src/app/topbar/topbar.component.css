@@ -72,14 +72,14 @@ a {
         float: none;
         display: block;
         text-align: right; 
-        margin-top: 10px; /* Add a margin to create space */   
+          
     }
     .logout-container {
         margin: 10px;
         margin-top: 25px; /* Add a margin to create space */
         display: flex;
         align-items: center;
-        gap: 10px;
+        
         
     }
 }
