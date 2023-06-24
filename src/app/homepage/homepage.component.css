@@ -301,6 +301,14 @@ fill: white;
   text-decoration: none;
 }
 
+.column-link{
+  cursor: pointer;
+}
+
+.column-link:hover{
+  text-decoration: underline;
+}
+
 /* Media queries */
 /*@media screen and (max-width: 600px) {
   .search-container input[type=text] {

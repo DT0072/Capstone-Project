@@ -107,16 +107,12 @@
     </div>
     <div class="rightside">
         <div class="row justify-content-end">
-            <div class="col-12">
-                <img src="https://www.adventureswithfamily.com/wp-content/uploads/2015/11/Penang-Street-Art-08.png">
-                <p>Penang Heritage</p>
-            </div>
-            <div class="col-12">
-                <img src="https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg">
-                <p>Penang Hill</p> 
-            </div>
+          <div class="col-12" *ngFor="let attdata of attdataList" >
+            <img [src]="attdata.att_image" alt="Attraction Image">
+            <p  (click)="redirectToAttractionDashboardComponent(attdata)" class="column-link">{{ attdata.att_name }}</p>
+          </div>
         </div>
-    </div>
+      </div>    
 </div>    
 
 <div class="experience_cont">

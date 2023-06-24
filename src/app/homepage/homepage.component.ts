@@ -1,4 +1,7 @@
 import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { AttData } from '../model/att-data';
+import { DataService } from '../shared/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -6,6 +9,7 @@ import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit, OnDestroy {
+  attdataList: AttData[] = [];
   carousel!: HTMLElement;
   leftBtn!: HTMLElement;
   rightBtn!: HTMLElement;
@@ -20,7 +24,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   isMobile = false;
   timer: any;
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, private dataService: DataService,private router: Router) {}
 
   ngOnInit() {
     this.carousel = this.elRef.nativeElement.querySelector('.carousel');
@@ -81,11 +85,39 @@ export class HomepageComponent implements OnInit, OnDestroy {
     });
 
     this.startAutoSlide();
+    this.getTwoAttractions();
   }
 
   ngOnDestroy() {
     this.stopAutoSlide();
   }
+
+  getTwoAttractions() {
+    this.dataService.getAllAttractions().subscribe(
+      (res: any) => {
+        this.attdataList = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.att_id = e.payload.doc.id;
+          return data;
+        }).filter((attraction: AttData) => {
+          return attraction.att_name === 'Penang Botanic Gardens' || attraction.att_name === 'Penang Hill';
+        }).slice(0, 2);
+  
+        // Manually assign image URLs for the attractions
+        this.attdataList.forEach((attraction: AttData) => {
+          if (attraction.att_name === 'Penang Botanic Gardens') {
+            attraction.att_image = 'https://apicms.thestar.com.my/uploads/images/2021/04/30/1119173.jpg'; 
+          } else if (attraction.att_name === 'Penang Hill') {
+            attraction.att_image = 'https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg';
+          }
+        });
+      },
+      (err: any) => {
+        console.error('Error while fetching attractions:', err);
+      }
+    );
+  }
+
 
   clearActive(current: number) {
     for (let i = 0; i < this.indicators.length; i++) {
@@ -142,5 +174,20 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   stopAutoSlide() {
     clearInterval(this.timer);
+  }
+
+  redirectToAttractionDashboardComponent(attdata: AttData): void {
+    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
+    this.router.navigate(['/attraction-dashboard'], {
+      state: {
+        att_id,
+        att_name,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
   }
 }
