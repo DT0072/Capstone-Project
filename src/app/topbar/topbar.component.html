@@ -26,10 +26,13 @@
             <button mat-menu-item><a routerLink= "/attractions">Attractions</a></button>
             <button mat-menu-item><a routerLink= "/eateries">Eateries</a></button>
         </mat-menu>
+        
         <a routerLink= "/contactus" class="routelink">Contact Us</a>
+        <div class="logout-container">
         <a routerLink= "/login" class="routelink"><i class="material-icons">person</i></a>
         <a routerLink= "" class="routelink"><i class="material-icons">shopping_bag</i></a>
         <button (click)="onUserLogout()">Logout</button>
+        </div>
     </div>
 </nav>
 
