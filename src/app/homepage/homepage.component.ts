@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   isMobile = false;
   timer: any;
 
-  constructor(private elRef: ElementRef, private dataService: DataService,private router: Router) {}
+  constructor(private elRef: ElementRef, private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     this.carousel = this.elRef.nativeElement.querySelector('.carousel');
@@ -36,6 +36,15 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.leftBtn2 = this.elRef.nativeElement.querySelector('.leftbtn2');
     this.rightBtn2 = this.elRef.nativeElement.querySelector('.rightbtn2');
 
+    this.getTwoAttractions();
+    this.initializeSlider();
+  }
+
+  ngOnDestroy() {
+    this.stopAutoSlide();
+  }
+
+  initializeSlider() {
     for (let i = 0; i < this.indicators.length; i++) {
       this.indicators[i].addEventListener('click', () => {
         this.clearActive(this.currentIndex);
@@ -52,7 +61,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.rightBtn.addEventListener('click', () => {
       this.moveSlide('right');
     });
-
     this.leftBtn1.addEventListener('click', () => {
       this.moveSlide('left');
     });
@@ -69,46 +77,47 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.moveSlide('right');
     });
 
+    this.checkIfMobile();
+    this.span = this.carousel.offsetWidth;
+    const mov = this.currentIndex * this.span;
+    this.carousel.style.transform = `translateX(-${mov}px)`;
+    this.prv = mov;
+
     window.addEventListener('resize', () => {
       this.checkIfMobile();
       this.span = this.carousel.offsetWidth;
       const mov = this.currentIndex * this.span;
-      this.carousel.animate(
-        [
-          { transform: `translateX(-${this.prv}px)` },
-          { transform: `translateX(-${mov}px)` }
-        ],
-        { duration: 300 }
-      );
       this.carousel.style.transform = `translateX(-${mov}px)`;
       this.prv = mov;
     });
 
     this.startAutoSlide();
-    this.getTwoAttractions();
-  }
-
-  ngOnDestroy() {
-    this.stopAutoSlide();
   }
 
   getTwoAttractions() {
     this.dataService.getAllAttractions().subscribe(
       (res: any) => {
-        this.attdataList = res.map((e: any) => {
-          const data = e.payload.doc.data();
-          data.att_id = e.payload.doc.id;
-          return data;
-        }).filter((attraction: AttData) => {
-          return attraction.att_name === 'Penang Botanic Gardens' || attraction.att_name === 'Penang Hill';
-        }).slice(0, 2);
-  
+        this.attdataList = res
+          .map((e: any) => {
+            const data = e.payload.doc.data();
+            data.att_id = e.payload.doc.id;
+            return data;
+          })
+          .filter((attraction: AttData) => {
+            return (
+              attraction.att_name === 'Penang Botanic Gardens' || attraction.att_name === 'Penang Hill'
+            );
+          })
+          .slice(0, 2);
+
         // Manually assign image URLs for the attractions
         this.attdataList.forEach((attraction: AttData) => {
           if (attraction.att_name === 'Penang Botanic Gardens') {
-            attraction.att_image = 'https://apicms.thestar.com.my/uploads/images/2021/04/30/1119173.jpg'; 
+            attraction.att_image =
+              'https://apicms.thestar.com.my/uploads/images/2021/04/30/1119173.jpg';
           } else if (attraction.att_name === 'Penang Hill') {
-            attraction.att_image = 'https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg';
+            attraction.att_image =
+              'https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg';
           }
         });
       },
@@ -117,7 +126,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
       }
     );
   }
-
 
   clearActive(current: number) {
     for (let i = 0; i < this.indicators.length; i++) {
@@ -169,7 +177,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   startAutoSlide() {
     this.timer = setInterval(() => {
       this.moveSlide('right');
-    }, 5000); 
+    }, 5000);
   }
 
   stopAutoSlide() {
@@ -191,3 +199,4 @@ export class HomepageComponent implements OnInit, OnDestroy {
     });
   }
 }
+
