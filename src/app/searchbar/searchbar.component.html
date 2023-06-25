@@ -1,10 +1,6 @@
-<!-- searchbar.component.html -->
 <div class="search-container">
   <form (ngSubmit)="search()" #searchForm="ngForm">
-    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search">
+    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search...">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
 </div>
-
-
-
