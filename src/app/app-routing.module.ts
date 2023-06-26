@@ -26,6 +26,8 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
 import { AdminEatComponent } from './admin-eat/admin-eat.component';
 import { AdminEventComponent } from './admin-event/admin-event.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -57,7 +59,9 @@ const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'attraction-dashboard', component: AttractionDashboardComponent },
   { path: 'admin-eat', component: AdminEatComponent },
-  { path: 'admin-event', component: AdminEventComponent }
+  { path: 'admin-event', component: AdminEventComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'cart-item', component: CartItemComponent }
 ];
 
 @NgModule({
