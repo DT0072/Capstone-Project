@@ -66,7 +66,7 @@
         <div class="col" *ngFor="let attdata of displayData">
           <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
             <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1" alt="{{ attdata.att_name }}" class="attraction-image">
+            <img [src]="getImageUrl(attdata)" alt="attraction-image" class="attraction-image">
             <h5 class="att-desc my-4">
               {{ attdata.att_desc }}<br><br>
               {{ attdata.att_location }}<br><br>

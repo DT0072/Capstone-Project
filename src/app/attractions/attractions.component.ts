@@ -190,4 +190,8 @@ export class AttractionsComponent implements OnInit {
   toggleFilterMenu() {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
+
+  getImageUrl(attdata: AttData): string {
+    return attdata.att_image;
+  }
 }
