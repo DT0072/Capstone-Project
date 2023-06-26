@@ -40,6 +40,8 @@ import { AdminEatComponent } from './admin-eat/admin-eat.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AttractionDashboardComponent } from './attraction-dashboard/attraction-dashboard.component';
 import { AdminEventComponent } from './admin-event/admin-event.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { AdminEventComponent } from './admin-event/admin-event.component';
     ContactusComponent,
     AttractionDashboardComponent,
     AdminEventComponent,
+    CartComponent,
+    CartItemComponent,
   ],
   imports: [
     HttpClientModule,
