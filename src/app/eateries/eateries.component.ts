@@ -140,4 +140,8 @@ export class EateriesComponent implements OnInit {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
   
+  getImageUrl(eatdata: EatData): string {
+    return eatdata.eat_image;
+  }
+
 }
