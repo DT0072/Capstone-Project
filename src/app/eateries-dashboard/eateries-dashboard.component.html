@@ -10,7 +10,7 @@
             <ng-container *ngIf="formatTime(selectedData.eat_openHrs) === '24 Hours'">
               {{ formatTime(selectedData.eat_openHrs) }}
             </ng-container>
-            <ng-container *ngIf="formatTime(selectedData.att_openHrs) !== '24 Hours'">
+            <ng-container *ngIf="formatTime(selectedData.eat_openHrs) !== '24 Hours'">
               {{ formatTime(selectedData.eat_openHrs) }} - {{ formatTime(selectedData.eat_closeHrs) }}
             </ng-container><br><br>
             RM {{ selectedData.eat_price }}<br><br>
