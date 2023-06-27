@@ -147,4 +147,8 @@ export class EventsComponent implements OnInit {
   toggleFilterMenu() {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
+
+  getImageUrl(eventdata: EventData): string {
+    return eventdata.event_image;
+  }
 }
