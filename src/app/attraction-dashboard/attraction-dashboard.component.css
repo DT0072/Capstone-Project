@@ -10,6 +10,11 @@
   text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.2);
 }
 
+.attraction-image{
+  width: 1000px;
+  height: 1000px;
+}
+
 @media screen and (max-width: 767px){
   .col img{
     width: 350px;
