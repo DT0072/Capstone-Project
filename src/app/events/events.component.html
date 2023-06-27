@@ -52,7 +52,7 @@
           <h3>{{ eventdata.event_name }}</h3>
         </div>
         <div class="content">
-          <img src="https://mypenang.gov.my/uploads/event/516/images/Lower-Station-2.jpg" class="px-4 py-4">
+          <img [src]="getImageUrl(eventdata)" alt="event-image" class="Eateries px-4 py-4">
           <p>
             <b>Event Date: {{ eventdata.event_date }}</b><br>
             {{ eventdata.event_desc }}<br>

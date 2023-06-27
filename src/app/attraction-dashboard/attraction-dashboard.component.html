@@ -3,7 +3,7 @@
     <div class="col">
       <div *ngIf="selectedData">
         <h1 class="mb-5">{{ selectedData.att_name }}</h1>
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/b9/cb/1c/suffolk-house.jpg?w=1200&h=1200&s=1">
+        <img [src]="getImageUrl(selectedData)" alt="attraction-image" class="attraction-image">
         <h5 class="mt-5">
           {{ selectedData.att_desc }}<br><br>
           {{ selectedData.att_location }}<br><br>

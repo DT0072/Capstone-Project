@@ -42,6 +42,8 @@ import { AttractionDashboardComponent } from './attraction-dashboard/attraction-
 import { AdminEventComponent } from './admin-event/admin-event.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { EateriesDashboardComponent } from './eateries-dashboard/eateries-dashboard.component';
+import { EventsDashboardComponent } from './events-dashboard/events-dashboard.component';
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     AdminEventComponent,
     CartComponent,
     CartItemComponent,
+    EateriesDashboardComponent,
+    EventsDashboardComponent,
   ],
   imports: [
     HttpClientModule,

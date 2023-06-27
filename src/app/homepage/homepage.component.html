@@ -112,7 +112,7 @@
             <p  (click)="redirectToAttractionDashboardComponent(attdata)" class="column-link">{{ attdata.att_name }}</p>
           </div>
         </div>
-      </div>    
+    </div>    
 </div>    
 
 <div class="experience_cont">
@@ -124,14 +124,10 @@
     <div class="rightside">
         <div class="container">
             <div class="row justify-content-start">
-              <div class="col-12">
-                <img src="https://cdn-imgix.headout.com/mircobrands-content/image/924d1dd360facef6ead8101c3872fcf9-97e0c77d-509b-4d22-bbb3-9dd63f1af47f.jpg">
-                <p>The Top Penang</p>
-              </div>
-              <div class="col-12">
-                <img src="https://mypenang.gov.my/uploads/directory/136/cover/The-Habitat-Penang-Hill-1.jpg">
-                <p>The Habitat</p> 
-              </div>
+                <div class="col-12" *ngFor="let attdata of additionalAttractions" >
+                    <img [src]="attdata.att_image" alt="Attraction Image">
+                    <p  (click)="redirectToAttractionDashboardComponent(attdata)" class="column-link">{{ attdata.att_name }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -145,15 +141,11 @@
     </div>
     <div class="rightside">
         <div class="row justify-content-end">
-            <div class="col-12 text">
-                <img src="https://www.penang-fyi.com/wp-content/uploads/2018/11/penang-laksa.jpg">
-                <p>Penang Road Famous Laksa </p>
+            <div class="col-12" *ngFor="let eatdata of eatdataList" >
+                <img [src]="eatdata.eat_image" alt="Eateries Image">
+                <p  (click)="redirectToEateriesDashboardComponent(eatdata)" class="column-link">{{ eatdata.eat_name }}</p>
             </div>
-            <div class="col-12">
-                <img src="https://1.bp.blogspot.com/-jWyVcgn96yk/XyeVB_JJenI/AAAAAAAA8gI/ZfcmuzXgSOQ9zYWVbpyZQCCxXtfrundHACNcBGAsYHQ/s640/IMG_2591.jpg">
-                <p>Penang Road Famous Teochew Cendol</p> 
-            </div>
-          </div>
+        </div>
     </div>
 </div>   
 
