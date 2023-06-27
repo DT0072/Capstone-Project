@@ -261,6 +261,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
           data: this.eatdataList
         }
       });
-    }
+  }
 }
 
