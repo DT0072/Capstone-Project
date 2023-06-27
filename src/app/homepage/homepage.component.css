@@ -321,8 +321,7 @@ fill: white;
 
 }*/
 
-@media screen and (max-width: 767px) {
-  
+@media (max-width: 769px){
   /*Slider*/
   .carousel-inner{
     display: block;
@@ -427,4 +426,29 @@ fill: white;
   }
 
 }
+
+@media (min-width: 769px) and (max-width: 1400px){
+  .carousel img {
+    width: 700px;
+    height: auto;
+  }
+
+  .slide, .carousel-frame{
+    width: 700px;
+    height: 230px;
+  }
+
+  .leftbtn{
+    right: 95%;
+  }
+
+  .leftbtn1{
+    right: -5%;
+  }
+
+  .leftbtn2{
+    right: -105%;
+  }
+}
+
 
