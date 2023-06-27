@@ -28,6 +28,7 @@ import { AdminEatComponent } from './admin-eat/admin-eat.component';
 import { AdminEventComponent } from './admin-event/admin-event.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { EateriesDashboardComponent } from './eateries-dashboard/eateries-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -61,7 +62,8 @@ const routes: Routes = [
   { path: 'admin-eat', component: AdminEatComponent },
   { path: 'admin-event', component: AdminEventComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'cart-item', component: CartItemComponent }
+  { path: 'cart-item', component: CartItemComponent },
+  { path: 'eateries-dashboard', component: EateriesDashboardComponent }
 ];
 
 @NgModule({
