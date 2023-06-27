@@ -8,7 +8,7 @@
   padding: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 15px 0 0 15px;
   width: 500px;
 }
 
@@ -17,7 +17,7 @@
   background-color: #001a33;
   color: white;
   padding: 10px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 15px 15px 0;
   cursor: pointer;
   width: 50px;
 }
