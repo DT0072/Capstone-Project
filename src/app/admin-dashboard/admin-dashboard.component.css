@@ -1,10 +1,12 @@
 .container {
-  width: 45%;
+  width: 55%;
   height: 550px;
-  border-radius: 30px;
-  background-image: url('src/assets/img_component/Adminbackground.png') !important;
-  background-repeat: no-repeat;
+  border-radius: 35px;
+  display: flex;
+  background-image: url('src/assets/img_component/Adminbackground.svg');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .adminheader {
@@ -16,21 +18,30 @@
 
 .admin-att {
   text-decoration: none !important;
-  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #000000;
+  background-color: #d9d9d9;
+  border: 0px;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 25px;
   }
 
 .admin-eat {
   text-decoration: none !important;
-  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #000000;
+  background-color: #d9d9d9;
+  border: 0px;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 25px;
 } 
 
 .admin-event {
   text-decoration: none !important;
-  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #000000;
+  background-color: #d9d9d9;
+  border: 0px;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 25px;
 }
