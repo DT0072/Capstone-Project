@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { AttData } from '../model/att-data';
+import { EatData } from '../model/eat-data';
 import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit, OnDestroy {
   attdataList: AttData[] = [];
+  eatdataList: EatData[] = [];
+  additionalAttractions: AttData[] = [];
   carousel!: HTMLElement;
   leftBtn!: HTMLElement;
   rightBtn!: HTMLElement;
@@ -36,8 +39,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.leftBtn2 = this.elRef.nativeElement.querySelector('.leftbtn2');
     this.rightBtn2 = this.elRef.nativeElement.querySelector('.rightbtn2');
 
-    this.getTwoAttractions();
+    this.getFourAttractions();
     this.initializeSlider();
+    this.getTwoEateries();
   }
 
   ngOnDestroy() {
@@ -94,30 +98,40 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.startAutoSlide();
   }
 
-  getTwoAttractions() {
+  getFourAttractions() {
     this.dataService.getAllAttractions().subscribe(
       (res: any) => {
-        this.attdataList = res
-          .map((e: any) => {
-            const data = e.payload.doc.data();
-            data.att_id = e.payload.doc.id;
-            return data;
-          })
-          .filter((attraction: AttData) => {
-            return (
-              attraction.att_name === 'Penang Botanic Gardens' || attraction.att_name === 'Penang Hill'
-            );
-          })
-          .slice(0, 2);
-
-        // Manually assign image URLs for the attractions
+        const attractions = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.att_id = e.payload.doc.id;
+          return data;
+        });
+  
+        const attractionsFiltered = attractions.filter((attraction: AttData) => {
+          return (
+            attraction.att_name === 'Penang Botanic Gardens' ||
+            attraction.att_name === 'Penang Hill' ||
+            attraction.att_name === 'ESCAPE Penang' ||
+            attraction.att_name === 'The Habitat Penang Hill'
+          );
+        });
+  
+        this.attdataList = attractionsFiltered.slice(0, 2);
+        this.additionalAttractions = attractionsFiltered.slice(2, 4);
+  
         this.attdataList.forEach((attraction: AttData) => {
           if (attraction.att_name === 'Penang Botanic Gardens') {
-            attraction.att_image =
-              'https://apicms.thestar.com.my/uploads/images/2021/04/30/1119173.jpg';
+            attraction.att_image = 'https://apicms.thestar.com.my/uploads/images/2021/04/30/1119173.jpg';
           } else if (attraction.att_name === 'Penang Hill') {
-            attraction.att_image =
-              'https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg';
+            attraction.att_image = 'https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg';
+          }
+        });
+  
+        this.additionalAttractions.forEach((attraction: AttData) => {
+          if (attraction.att_name === 'ESCAPE Penang') {
+            attraction.att_image = 'https://www.pelago.co/img/products/MY-Malaysia/escape-penang/743fd9ec-0f95-40c2-b5c2-fcb6c235cb4a_escape-penang.jpg';
+          } else if (attraction.att_name === 'The Habitat Penang Hill') {
+            attraction.att_image = 'https://mypenang.gov.my/uploads/directory/136/cover/The-Habitat-Penang-Hill-1.jpg';
           }
         });
       },
@@ -126,6 +140,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
 
   clearActive(current: number) {
     for (let i = 0; i < this.indicators.length; i++) {
@@ -185,11 +200,12 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   redirectToAttractionDashboardComponent(attdata: AttData): void {
-    const { att_id, att_name, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
     this.router.navigate(['/attraction-dashboard'], {
       state: {
         att_id,
         att_name,
+        att_image,
         att_desc,
         att_openHrs,
         att_closeHrs,
@@ -197,6 +213,54 @@ export class HomepageComponent implements OnInit, OnDestroy {
         att_location
       }
     });
+  }
+
+  getTwoEateries() {
+    this.dataService.getAllEateries().subscribe(
+      (res: any) => {
+        this.eatdataList = res
+          .map((e: any) => {
+            const data = e.payload.doc.data();
+            data.eat_id = e.payload.doc.id;
+            return data;
+          })
+          .filter((eatdata: EatData) => {
+            return (
+              eatdata.eat_name === 'Penang Road Famous Laksa' || eatdata.eat_name === 'Penang Road Famous Teochew Chendul'
+            );
+          })
+          .slice(0, 2);
+  
+        // Manually assign image URLs for the eateries
+        this.eatdataList.forEach((eatdata: EatData) => {
+          if (eatdata.eat_name === 'Penang Road Famous Laksa') {
+            eatdata.eat_image;
+          } else if (eatdata.eat_name === 'Penang Road Famous Teochew Chendul') {
+            eatdata.eat_image;
+          }
+        });
+      },
+      (err: any) => {
+        console.error('Error while fetching eateries:', err);
+      }
+    );
+  }
+
+  redirectToEateriesDashboardComponent(eatdata: EatData): void {
+    const { eat_id, eat_name, eat_image, eat_desc, eat_openHrs, eat_closeHrs, eat_price, eat_location } = eatdata;
+      this.router.navigate(['/eateries-dashboard'], {
+        state: {
+          eat_id,
+          eat_name,
+          eat_image,
+          eat_desc,
+          eat_openHrs,
+          eat_closeHrs,
+          eat_price,
+          eat_location,
+          data: this.eatdataList
+        }
+      });
   }
 }
 

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AttData } from '../model/att-data';
+import { EventData } from '../model/event-data';
 
 @Component({
-  selector: 'app-attraction-dashboard',
-  templateUrl: './attraction-dashboard.component.html',
-  styleUrls: ['./attraction-dashboard.component.css']
+  selector: 'app-events-dashboard',
+  templateUrl: './events-dashboard.component.html',
+  styleUrls: ['./events-dashboard.component.css']
 })
-export class AttractionDashboardComponent implements OnInit {
+export class EventsDashboardComponent implements OnInit{
+
   selectedData: any;
 
   constructor(private route: ActivatedRoute) {}
@@ -16,12 +17,12 @@ export class AttractionDashboardComponent implements OnInit {
     this.selectedData = history.state;
   console.log('Selected Data:', this.selectedData);
 
-  const { att_openHrs, att_closeHrs } = this.selectedData;
-  console.log('att_openHrs:', att_openHrs);
-  console.log('att_closeHrs:', att_closeHrs);
+  const { event_openHrs, event_closeHrs } = this.selectedData;
+  console.log('eat_openHrs:', event_openHrs);
+  console.log('eat_closeHrs:', event_closeHrs);
   
-  console.log('Time parameter:', this.formatTime(att_openHrs));
-  console.log('Time parameter:', this.formatTime(att_closeHrs));
+  console.log('Time parameter:', this.formatTime(event_openHrs));
+  console.log('Time parameter:', this.formatTime(event_closeHrs));
   }
 
   formatTime(time: string): string {
@@ -49,8 +50,9 @@ export class AttractionDashboardComponent implements OnInit {
     return formattedTime; // Return the formatted time without the label
   }
 
-  getImageUrl(attdata: AttData): string {
-    return attdata.att_image;
+  getImageUrl(eventdata: EventData): string {
+    return eventdata.event_image;
   }
 
 }
+
