@@ -15,6 +15,7 @@ export class AdminEatComponent {
   eatdataObj: EatData= {
     eat_id: '',
     eat_name: '',
+    eat_contact:'',
     eat_desc: '',
     eat_openHrs: '',
     eat_closeHrs: '',
@@ -24,6 +25,7 @@ export class AdminEatComponent {
   };
   eat_id: string= '';
   eat_name: string= '';
+  eat_contact: string= '';
   eat_desc: string= '';
   eat_openHrs: string= '';
   eat_closeHrs: string= '';
@@ -58,6 +60,7 @@ export class AdminEatComponent {
   resetForm() {
     this.eat_id= '';
     this.eat_name= '';
+    this.eat_contact= '';
     this.eat_desc= '';
     this.eat_openHrs= '';
     this.eat_closeHrs= '';
@@ -75,6 +78,7 @@ export class AdminEatComponent {
 
     this.eatdataObj.eat_id= '';
     this.eatdataObj.eat_name= this.eat_name;
+    this.eatdataObj.eat_contact= this.eat_contact;
     this.eatdataObj.eat_desc= this.eat_desc;
     this.eatdataObj.eat_openHrs= this.eat_openHrs;
     this.eatdataObj.eat_closeHrs= this.eat_closeHrs;

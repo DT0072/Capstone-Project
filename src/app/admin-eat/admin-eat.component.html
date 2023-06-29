@@ -46,6 +46,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Opening Hours</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Contact No</th>
                             <th scope="col">Address</th>
                             <th scope="col">Action</th>
                           </tr>
@@ -56,6 +57,7 @@
                             <td>{{ eatdata.eat_desc }}</td>
                             <td>{{ formatTime(eatdata.eat_openHrs) }} to {{ formatTime(eatdata.eat_closeHrs) }}</td>
                             <td> RM {{ eatdata.eat_price }}</td>
+                            <td>{{eatdata.eat_contact}}</td>
                             <td>{{ eatdata.eat_location }}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-danger" (click)="deleteEateries(eatdata)">Delete</button>
