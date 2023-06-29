@@ -28,164 +28,27 @@
     </div>
 </div>
 
-<h1 class="text-center py-5 head">Things To Do</h1>
-<div class="container-sm justify-content-md-center mb-5">
-    <div class="row">
-      <div class="col">
-        <img src="https://media2.malaymail.com/uploads/articles/2018/2018-11/2111_SZ_penang_hill1.jpg">
-        <h2 class="mt-4 text-center">Penang Hill Tram Ticket</h2>
-        <p class="mt-4">Penang Hill is a hill resort comprising a group of peaks near the center of Penang Island, Malaysia. 
-            It is located within the Air Itam suburb, 9 km (5.6 mi) west of the center of George Town. Penang Hill 
-            is also known by the Malay name Bukit Bendera, which actually refers to Flagstaff Hill, the most 
-            developed peak.
-        </p>
-        <h5 class="text-decoration-underline">Open Hours</h5>
-        <p>Monday to Sunday</p>
-        <ul>
-            <li>
-                Funicular Service
-                <p>6.30am - 10.00pm 
-                    (Last trip from Upper Station to Lower Station) 
-                    <small>The funicular runs on a half-hourly basis and additional trips will be run if necessary.</small>
-                </p>
-            </li>
-            <li>
-                Ticketing Counter
-                <p>6.15am - 8.00pm</p>
-            </li>
-        </ul>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <p><b>Malaysian citizens who show their MyKad</b></p>
-        <ul>
-            <li>Adult: RM 12</li>
-            <li>Children (4 - 12): RM 6</li>
-            <li>Senior Citizens (60+): RM 6</li>
-        </ul>
-        <p><b>Standard</b></p>
-        <ul>
-            <li>Adult: RM 15</li>
-            <li>Children (4 - 12): RM 30</li>
-            <li>Senior Citizens (60+): RM 30</li>
-        </ul>
-        <a href="/booking"><button type="button" class="btn1 btn-primary mt-4">Buy Ticket</button></a>
-      </div>
-    
-      <div class="col">
-        <img src="https://www.techdomepenang.org/wp-content/uploads/2023/01/about-01.jpg.webp">
-        <h2 class="mt-4 text-center">Tech Dome Penang</h2>
-        <p class="mt-3">
-            Tech Dome Penang is a not-for-profit science and technology centre run by Penang Tech Centre. 
-            It is an initiative by the Penang State Government and the setup was done in Public Public-Private 
-            Partnerships. With an area of approximately 45,000 sq ft,Tech Dome Penang has over 120 interactive 
-            science and technology exhibits.
-        </p>
-        <h5><u>Open Hours</u></h5>
-        <p>Monday - Sunday : 10am - 7pm</p>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <ul>
-            <li>Children (below 5yrs): Free</li>
-            <li>Adult (13yrs & above): RM 28</li>
-            <li>Children: RM 16</li>
-            <li>Senior Citizens (60+): RM 16</li>
-            <li>Student (with valid ID): RM 22</li>
-        </ul>
-        <a href="/booking"><button type="button" class="btn2 btn-primary ">Buy Ticket</button></a>
-      </div>
+    <h1 class="text-center py-5 head">Things To Do</h1>
+    <div class="container-sm justify-content-md-center mb-5">
+        <div class="row">
+            <div class="col" *ngFor="let attdata of displayData">
+                <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
+                <img [src]="attdata.att_image" alt="attraction-image" class="attraction-image">
+                <h5 class="att-desc my-4">
+                {{ attdata.att_desc }}<br><br>
+                {{ attdata.att_location }}<br><br>
+                <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
+                    {{ formatTime(attdata.att_openHrs) }}
+                </ng-container>
+                <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
+                    {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
+                </ng-container><br><br>
+                RM {{ attdata.att_price }}
+                </h5>
+                <a href= "#" class="btn-sm float-right my-4">Add To Cart</a>
+                <a href= "#" class="btn-sm float-right mx-3">Buy Now</a>
+            </div>
+        </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <img src="https://mypenang.gov.my/uploads/directory/136/cover/The-Habitat-Penang-Hill-1.jpg">
-        <h2 class="mt-4 text-center">The Habitat Ticket</h2>
-        <p class="mt-3">The Habitat Penang Hill is a place where guests can reconnect with nature and learn about the 
-            importance of preserving biodiversity. We have pledged proceeds to The Habitat Foundation to 
-            support initiatives in education, research, and sustainable tourism that conserve biodiversity. 
-            We hope you enjoy your experience.
-        </p>
-        <h5><u>Open Hours</u></h5>
-        <p>Sunday - Friday :  9 am - 7 pm <br>
-            Saturday : 9 am - 3 pm
-        </p>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <ul>
-            <li>Adult (13-59 years): RM 60</li>
-            <li>Children (4-12 years): RM 40</li>
-            <li>Senior Citizens (60+): RM 40</li>
-        </ul>
-        <a href="/booking"><button type="button" class="btn1 btn-primary mt-4">Buy Ticket</button></a>
-      </div>
-
-      <div class="col">
-        <img src="http://onlyticket.com.my/MobileOrder/Images/Product/AQTIMK00009-001.jpg">
-        <h2 class="mt-4 text-center">Penang Boutique Aquarium</h2>
-        <p class="mt-3">
-            Get up close and personal with marine flora and fauna as you go on a journey of discovery 
-            at Penang Boutique Aquarium! Home to a myriad of marine life, it promises to offer a wealth of amazement 
-            and knowledge for all ages. Learn more about the underwater world and find out how we can all help to 
-            conserve and protect our aquatic friends and their homes here.
-        </p>
-        <h5><u>Open Hours</u></h5>
-        <p>Monday - Sunday : 10am - 7pm</p>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <p>
-            Adult: RM 34<br>
-            Children / Senior Citizen: RM 30
-        </p>
-        <a href="/booking"><button type="button" class="btn1 btn-primary mt-5">Buy Ticket</button></a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <img src="https://www.bajet2cuti.com/storage/media/filemanager/brands/whatsapp-image-2023-01-18-at-7-16-29-pm.jpg">
-        <h2 class="mt-4 text-center">Entopia by Penang Butterfly Farm</h2>
-        <p class="mt-3">
-            Imagine nature's largest classroom and discovery hub, where butterflies and insects are free to come out and play. 
-            Within Entopia lies two worlds; The Natureland living outdoor gardens and The Cocoon indoor discovery centre. 
-            Over 150 species of fauna and more than 200 species of flora are being showcased throughout Entopia's entire 
-            exhibition.
-        </p>
-        <h5><u>Open Hours</u></h5>
-        <p>Monday - Sunday : 9am - 5pm</p>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <p><b>MyKad Special - Malaysians</b></p>
-        <ul>
-            <li>Adult: RM 59</li>
-            <li>Children (4 - 12): RM 39</li>
-            <li>Senior Citizens (60+): RM 39</li>
-        </ul>
-        <p><b>Standard - Non-Malaysians</b></p>
-        <ul>
-            <li>Adult: RM 75</li>
-            <li>Children (4 - 12): RM 55</li>
-            <li>Senior Citizens (60+): RM 55</li>
-        </ul>
-        <a href="/booking"><button type="button" class="btn1 btn-primary mt-4">Buy Ticket</button></a>
-      </div>
-
-      <div class="col">
-        <img src="https://cdn-imgix.headout.com/mircobrands-content/image/924d1dd360facef6ead8101c3872fcf9-97e0c77d-509b-4d22-bbb3-9dd63f1af47f.jpg">
-        <h2 class="mt-4 text-center">The Top Rainbow Skywalk</h2>
-        <p class="mt-4">Ever wonder what a bird's eye view of Penang is like? The Rainbow Skywalk and Observatory Deck offer 
-            stunning seamless views of George Town and beyond. Located at George Town's highest point, the open-air Rainbow 
-            Skywalk is at Level 68, on the rooftop of Komtar tower, offering visitors the thrilling experience of walking on 
-            air 816 feet above sea level. Meanwhile, the air-conditioned Observatory Deck at Level 65 also features a glass 
-            walkway that lets you watch the world go by below.<br>
-            Also on the rooftop, Top View restaurant & lounge @ 68th offers great tapas food and cocktails as well as a great 
-            view. Enjoy the feeling of being on the top of the world.
-        </p>
-        <h5 class="text-decoration-underline">Open Hours</h5>
-        <p>Monday - Friday :  11am - 10pm<br>
-            Saturday and Sunday : 10am - 10 pm<br>
-            (Last entry at 9:30pm)
-        </p>
-        <h5 class="mt-4"><u>Ticket Price</u></h5>
-        <p>
-            Adult: RM 61<br>
-            Children / Senior Citizen: RM 43
-        </p>
-        <a href="/booking"><button type="button" class="btn1 btn-primary" style="margin-top: 37px;">Buy Ticket</button></a>
-      </div>
-    </div>
-</div>
 <app-footer></app-footer>
 </div>

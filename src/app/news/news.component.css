@@ -44,12 +44,12 @@
 }
 
 #accordion li label + input[type="radio"]:checked + .content{
-    max-height: 1000px;
+    max-height: 2000px;
     transition: max-height 0.5s ease-in;
 }
 
 .content img{
-    width: 100%;
+    width: 50%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -65,9 +65,14 @@
 
 @media screen and (max-width: 767px) {
     #accordion {
-        /* margin: 50px auto; */
         width: 90%;
         color: #001a33;
         margin-top: 50px;
+        margin-left: 0px;
+    }
+
+    .content img{
+        width: 100%;
+        border-radius: 25px;
     }
 }
