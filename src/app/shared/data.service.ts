@@ -81,4 +81,10 @@ export class DataService {
     this.deleteEvents(eventdata);
     this.addEvents(eventdata);
   }
+
+  // Add Users
+  addUsers(userdata: UserData) {
+    userdata.user_id = this.afs.createId();
+    return this.afs.collection('userdatas').add(userdata);
+  }
 }
