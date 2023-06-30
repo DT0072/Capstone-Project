@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AttData } from '../model/att-data';
 import { EatData } from '../model/eat-data';
 import { EventData } from '../model/event-data';
+import { UserData } from '../model/user-data';
 
 @Injectable({
   providedIn: 'root'
@@ -80,5 +81,16 @@ export class DataService {
   updateEvents(eventdata: EventData) {
     this.deleteEvents(eventdata);
     this.addEvents(eventdata);
+  }
+
+  // Add Users
+  addUsers(userdata: UserData) {
+    userdata.user_id = this.afs.createId();
+    return this.afs.collection('userdatas').add(userdata);
+  }
+
+  // Get Users
+  getAllUsers() {
+    return this.afs.collection('/userdatas').snapshotChanges();
   }
 }
