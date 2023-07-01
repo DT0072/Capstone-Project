@@ -101,5 +101,16 @@ export class DataService {
   deleteCartItem(cartdata: CartData) {
     return this.afs.doc('/attdatas/'+ cartdata.cart_id).delete();
   }
+
+  // Delete Events
+  deleteUsers(userdata: UserData) {
+    return this.afs.doc('/userdatas/'+ userdata.user_id).delete();
+  }
+
+  // Update Events
+  updates(userdata: UserData) {
+    this.deleteUsers(userdata);
+    this.addUsers(userdata);
+  }
 }
 
