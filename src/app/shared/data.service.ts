@@ -3,13 +3,14 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AttData } from '../model/att-data';
 import { EatData } from '../model/eat-data';
 import { EventData } from '../model/event-data';
-import { UserData } from '../model/user-data';
+import { CartData} from '../model/cart-data';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  
   constructor(private afs: AngularFirestore) { }
 
   // Add Attractions
@@ -83,15 +84,22 @@ export class DataService {
     this.addEvents(eventdata);
   }
 
-  // Add Users
-  addUsers(userdata: UserData) {
-    userdata.user_id = this.afs.createId();
-    return this.afs.collection('userdatas').add(userdata);
+  // Add To Cart
+  addToCart(cartdata: CartData) {
+    cartdata.cart_id = this.afs.createId();
+    // cartdata.cart_item_name = cartdata.cart_item_name; 
+    // cartdata.cart_item_price = cartdata.cart_item_price;
+    return this.afs.collection('/cartdatas').add(cartdata);
   }
 
-  // Get Users
-  getAllUsers() {
-    return this.afs.collection('/userdatas').snapshotChanges();
+  // Get Cart Item
+  getCartItem() {
+    return this.afs.collection('/cartdatas').snapshotChanges();
+  }
+
+  // Delete Cart Item
+  deleteCartItem(cartdata: CartData) {
+    return this.afs.doc('/attdatas/'+ cartdata.cart_id).delete();
   }
 
   // Delete Events
@@ -105,3 +113,4 @@ export class DataService {
     this.addUsers(userdata);
   }
 }
+

@@ -1,1 +1,100 @@
-<p>cart works!</p>
+<!-- <p>cart works!</p> -->
+<br>
+<div class="row d-flex justify-content-center">
+  <div class="Cart-container">
+    <div class="row">
+      <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <!-- <a href= "/cart" ng-click= "cart-item(item.name, item.price, item.description, -1000000000)" class="Action">Remove All</a> -->
+        <a href="/cart" (click)="emptyCart()" class="Action">Remove All</a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="cartName" name="cartname" [(ngModel)]="cart_item_name">
+      <label for="att_name">Attractions</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control" id="cartPrice" name="cartprice" [(ngModel)]="cart_item_price">
+      <label for="attprice">Price</label>
+    </div>
+    <button type="button" class="btn btn-outline-success" (click)="addToCart()">Add</button><br>
+
+    <div class="row">
+      <div class="col-sm">
+        <app-cart-item *ngFor="let cartdata of cartdataList" [cartdata]="cartdata"></app-cart-item>
+        <!-- <app-cart-item></app-cart-item> -->
+        <br>
+      </div>
+    </div>
+
+    <!-- <div class= "cart-item">
+      <div class= "hero-details row">
+        <div class="col-5">
+          <span><strong>{{ childItem.att_name }}</strong></span>&nbsp;&nbsp;
+        </div>
+        <div class="col">
+          <div class="hero-price">
+            <span><strong>{{ childItem.att_price }}</strong></span><br>
+          </div>
+        </div>
+        <div class="col">
+          <div class= "count d-flex justify-content-center">
+            <button class= "btn-1" (click)="handleMinus()">-</button>
+            <input type="number" class="num" name="input" [(ngModel)]="this.childItem.att_qty" min="0" max="99" required/>
+            <button class= "btn-2" (click)="handlePlus()">+</button>
+          </div>
+        </div>
+      </div>
+      <div class= "desc">
+        <span>{{ childItem.att_desc }}</span>
+      </div>
+    </div> -->
+
+    <!-- <app-cart-item></app-cart-item> -->
+
+    <div *ngIf="items.length">
+      <hr>
+      <div class=" container row">
+        <div class="col-6 px-4">
+          <span><strong>Total: RM {{totalPrice.toFixed(2)}}</strong></span>
+        </div>
+        <div class="pay col-6">
+          <a routerLink="/checkout">
+            <button class="btn btn-primary btn-sm" *ngIf="items.length > 0"> <!--*ngIf="this.items.length> 0"> Way 3-->
+              Go to checkout
+            </button>
+          </a>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card mt-4 pe-0">
+    <div class="card-body pe-0">
+      <div class="row d-flex justify-content-space-between">
+        <div class="accepted-payment col">
+          <p><strong>We accept</strong></p>
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+            alt="Visa" />
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+            alt="American Express" />
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+            alt="Mastercard" /> &nbsp;
+        </div>
+        <div class="shipping col-sm-5">
+          <p class="estimated"><strong>Estimated Process Period</strong></p>
+          <p><strong>3 - 5 Days &nbsp; (Start from order day)</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
