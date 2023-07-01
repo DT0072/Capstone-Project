@@ -19,7 +19,8 @@ export class AdminAttComponent {
     att_closeHrs: '',
     att_price: '',
     att_location: '',
-    att_image: ''
+    att_image: '',
+    att_qty: ''
   };
   att_id: string= '';
   att_name: string= '';
