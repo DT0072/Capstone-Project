@@ -9,7 +9,7 @@ import { UserData } from '../model/user-data';
   providedIn: 'root'
 })
 export class DataService {
-  
+
   constructor(private afs: AngularFirestore) { }
 
   // Add Attractions
@@ -93,16 +93,4 @@ export class DataService {
   getAllUsers() {
     return this.afs.collection('/userdatas').snapshotChanges();
   }
-
-  // Delete Users
-  deleteUsers(userdata: UserData) {
-    return this.afs.doc('/userdatas/'+ userdata.user_id).delete();
-  }
-
-  // Update Users
-  updates(userdata: UserData) {
-    this.deleteUsers(userdata);
-    this.addUsers(userdata);
-  }
 }
-
