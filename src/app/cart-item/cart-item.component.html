@@ -1,1 +1,20 @@
-<p>cart-item works!</p>
+<!-- cart-item.component.html -->
+<div>
+  <!-- Display attraction details -->
+  <h3>{{ cartdata.cart_item_name }}</h3>
+  <p>Price: {{ cartdata.cart_item_price }}</p>
+
+  <!-- Quantity input field -->
+  <label for="quantity">Quantity:</label>
+  <input type="number" class="num" name="input" [(ngModel)]="cartdata.cart_item_quantity" min="0" max="99" required/>
+
+  <!-- Minus and plus buttons -->
+  <button (click)="handleMinus()">-</button>
+  <button (click)="handlePlus()">+</button>
+
+  <!-- Total price -->
+  <p>Total Price: {{ calculateTotalPrice() }}</p>
+
+  <!-- Add to Cart button -->
+  
+</div>
