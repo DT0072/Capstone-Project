@@ -93,4 +93,15 @@ export class DataService {
   getAllUsers() {
     return this.afs.collection('/userdatas').snapshotChanges();
   }
+
+  // Delete Events
+  deleteUsers(userdata: UserData) {
+    return this.afs.doc('/userdatas/'+ userdata.user_id).delete();
+  }
+
+  // Update Events
+  updates(userdata: UserData) {
+    this.deleteUsers(userdata);
+    this.addUsers(userdata);
+  }
 }
