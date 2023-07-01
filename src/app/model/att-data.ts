@@ -7,4 +7,5 @@ export interface AttData {
     att_price: string;
     att_location: string;
     att_image: string;
+    att_qty: string;
 }
