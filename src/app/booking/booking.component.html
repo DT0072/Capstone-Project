@@ -1,143 +1,75 @@
-<!--<p>booking works!</p>-->
-<div class="container-back">
-  <h1 class=" text my-5 mx-5">Enjoy Your Dream Vacation</h1>
-  <div class="tab my-5 mx-5 overflow-hidden">
-    <button class="tablinks" [class.active]="activebook === 'booking'" (click)="openbooking('booking')"><h3>Booking</h3></button>
-    <button class="tablinks" [class.active]="activebook === 'cancel'" (click)="openbooking('cancel')"><h3>Cancellation</h3></button>
-    <button class="tablinks" [class.active]="activebook === 'status'" (click)="openbooking('status')"><h3>Status</h3></button>
-
-    <div id="book" class="tabcontent pe-auto" [hidden]="activebook !== 'booking'">
-      <div class="container">
-          <h3>Book a Ticket</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="firstName">First Name:</label>
-              <input type="text" id="firstName" name="firstName" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="lastName">Last Name:</label>
-              <input type="text" id="lastName" name="lastName" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="phone">Contact No:</label>
-              <input type="text" id="phone" name="phone" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="date">Date :</label>
-              <input type="date" id="date" name="date" required>
-            </div>
-            <div class="col-md-6">
-              <label for="destination">Destination:</label>
-              <input type="text" id="destination" name="destination" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="adult">Adults</label>
-              <input type="number" id="adult" name="total_adults" min="1" required>
-            </div>
-            <div class="col-md-6">
-              <label for="child">Children</label>
-              <input type="number" id="child" name="total_children" min="0" required>
-            </div>          
-            <!--submit button-->
-            <div class="col-12 my-5">
-              <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
+<div class="container-sm justify-content-md-center my-5">
+  <div class="row">
+    <div class="col">
+      <div class="circle-row">
+        <div class="circle-container">
+          <div class="outer-circle cursor-pointer" [ngClass]="{'blueBg': progress === 1}">
+            <div class="inner-circle" [ngClass]="{'blueBg': progress === 1}">
+              <div class="number">1</div>
             </div>
           </div>
-      </div>
-    </div>
-     
-    <div id="cancel" class="tabcontent" [hidden]="activebook !== 'cancel'">
-      <div class="container">
-        <h3>Ticket Cancellation</h3>
-        <div class="row">
-          <div class="col-md-6">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" class="form-control">
+          <div class="text" [ngClass]="{'blueTxt': progress === 1}">
+            <strong>Find Travel Vouchers</strong>
           </div>
-          <div class="col-md-6">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" class="form-control">
+        </div>
+        <div class="circle-container">
+          <div class="outer-circle cursor-pointer" [ngClass]="{'blueBg': progress >= 2, 'reducedOpacity': progress < 2}">
+            <div class="inner-circle" [ngClass]="{'blueBg': progress >= 2}">
+              <div class="number">2</div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="form-control">
+          <div class="text" [ngClass]="{'blueTxt': progress >= 2, 'reducedOpacity': progress < 2}">
+            <b>Enter Booking Details</b>
           </div>
-          <div class="col-md-6">
-            <label for="date">Date :</label>
-            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="circle-container">
+          <div class="outer-circle" [ngClass]="{'blueBg': progress >= 3, 'reducedOpacity': progress < 3}">
+            <div class="inner-circle" [ngClass]="{'blueBg': progress >= 3}">
+              <div class="number">3</div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="ticketNumber">Ticket Number:</label>
-            <input type="text" id="ticketNumber" name="ticketNumber" class="form-control">
+          <div class="text" [ngClass]="{'blueTxt': progress >= 3, 'reducedOpacity': progress < 3}">
+            <b>Make Payment</b>
           </div>
-          <div class="col-md-6">
-            <label for="phone">Contact No:</label>
-            <input type="text" id="phone" name="phone" class="form-control">
+        </div>
+        <div class="circle-container">
+          <div class="outer-circle" [ngClass]="{'blueBg': progress >= 4, 'reducedOpacity': progress < 4}">
+            <div class="inner-circle" [ngClass]="{'blueBg': progress >= 4}">
+              <div class="number">4</div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="refundOption">Refund Option:</label>
-            <select id="refundOption" name="refundOption" class="form-control">
-              <option value="full">Full Refund</option>
-              <option value="partial">Partial Refund</option>
-              <option value="no">No Refund</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label for="reason">Reason for Cancellation:</label>
-            <textarea id="reason" name="reason" placeholder="Write something.." style="height:200px" class="form-control"></textarea>
-          </div>
-                   
-          <!--submit button-->
-          <div class="col-12 my-5">
-            <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
+          <div class="text" [ngClass]="{'blueTxt': progress >= 4, 'reducedOpacity': progress < 4}">
+            <b>Confirmation</b>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="status" class="tabcontent" [hidden]="activebook !== 'status'">
-      <div class="container">
-        <h3>Track Your Ticket</h3>
-        <div class="row">
-          <div class="col-md-6">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" class="form-control">
+      
+      <div class="col" *ngFor="let attdata of displayData">
+        <div class="left mt-5">
+          <img [src]="attdata.att_image" alt="attraction-image" class="attraction-image">
+          <div class="right mt-3">
+            <h3>{{ attdata.att_name }}</h3>
+            <p class="mt-2">
+              {{ attdata.att_desc }}<br><br>
+              {{ attdata.att_location }}<br><br>
+              <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
+                {{ formatTime(attdata.att_openHrs) }}
+              </ng-container>
+              <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
+                {{ formatTime(attdata.att_openHrs) }} - {{ formatTime(attdata.att_closeHrs) }}
+              </ng-container><br><br>
+              RM {{ attdata.att_price }}
+            </p>
+            <div class="right2 my-2">
+              <a href= "/cart" class="btn-sm float-right my-4 ">Add To Cart</a>
+              <a href="#" class="btn-sm float-right mx-3">Book Now</a>
+              <a href= "#" class="btn-sm float-right">Buy Now</a>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" class="form-control">
-          </div>
-          <div class="col-md-6">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="form-control">
-          </div>
-          <div class="col-md-6">
-            <label for="phone">Contact No:</label>
-            <input type="text" id="phone" name="phone" class="form-control">
-          </div>
-          <div class="col-md-6">
-            <label for="date">Date :</label>
-            <input type="date" id="date" name="date" required>
-          </div>
-          <div class="col-md-6">
-            <label for="ticketNumber">Ticket Number:</label>
-            <input type="text" id="ticketNumber" name="ticketNumber" class="form-control">
-          </div>
-                   
-          <!--submit button-->
-          <div class="col-12 my-5">
-            <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>
 </div>
+<app-footer></app-footer>
 
-
-
-  
