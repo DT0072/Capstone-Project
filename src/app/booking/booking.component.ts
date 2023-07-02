@@ -73,4 +73,20 @@ export class BookingComponent implements OnInit {
     this.progress = progress;
   }
 
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name,att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
+    this.router.navigate(['/booking-details'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
+  }
+
 }
