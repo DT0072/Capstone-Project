@@ -3,10 +3,23 @@
   height: 550px;
   border-radius: 35px;
   display: flex;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 35px;
   background-image: url('src/assets/img_component/Adminbackground.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 .adminheader {
