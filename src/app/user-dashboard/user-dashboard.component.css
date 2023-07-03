@@ -1,0 +1,103 @@
+.tab{
+    padding-top: 85px;
+  }
+  
+  .tablinks {
+    overflow: hidden;
+    color: #001A33;
+    background-color: #F2F2F2;
+    width: 350px;
+    height: 80px;
+    border: none;
+  }
+  
+  .tablinks.active {
+    color: white;
+    background-color: #001A33;
+  }
+  
+  .tabcontent{
+    background-color: white;
+  }
+  
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .form-row {
+    display: grid;
+    gap: 5px;
+  }
+  
+  label {
+    grid-column: 1;
+  }
+  
+  input, button {
+    grid-column: 2;
+    width: 100%;
+  }
+  
+  .col-md-6{
+      padding: 10px;
+  }
+  
+  .container, .h3{
+      padding-top: 30px;
+      padding-bottom: 30px;
+  }
+  
+  .btn{
+      background-color: #001A33;
+      border-radius: 20px;
+  }
+  
+  .container-back{
+    background-image: url('https://ik.imagekit.io/tvlk/blog/2022/04/Tempat-Wisata-di-Penang-Malaysia-Traveloka-Xperience-6.jpg');
+    height: 500px;
+    background-size: cover;
+  }
+  
+  .text {
+    background: linear-gradient(to right, #ff00cc, #3333ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    padding-top: 140px;
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  
+  /*Media Queries*/
+  @media screen and (max-width: 767px){
+      .tablinks{
+          width: 100%;
+      }
+  
+      .text {
+        padding-top: 40px;
+        padding-bottom: 30px;
+        font-size: 65px;
+      }
+  
+      .tab{
+        padding-top:0px;
+      }
+  
+  }
+      
+  
+  
