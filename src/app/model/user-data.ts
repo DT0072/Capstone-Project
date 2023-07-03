@@ -4,4 +4,5 @@ export interface UserData {
     user_firstname: string;
     user_lastname: string;
     user_password: string;
+    user_image: string;
 }
