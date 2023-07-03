@@ -3,7 +3,7 @@
     <div class="col">
       <div *ngIf="selectedData">
         <h1 class="mb-5">{{ selectedData.att_name }}</h1>
-        <img [src]="getImageUrl(selectedData)" alt="attraction-image" class="attraction-image">
+        <a [routerLink]="'/attractions'"><img [src]="getImageUrl(selectedData)" alt="attraction-image" class="attraction-image"></a>
         <h5 class="mt-5">
           {{ selectedData.att_desc }}<br><br>
           {{ selectedData.att_location }}<br><br>
@@ -14,6 +14,8 @@
             {{ formatTime(selectedData.att_openHrs) }} - {{ formatTime(selectedData.att_closeHrs) }}
           </ng-container><br><br>
           RM {{ selectedData.att_price }}
+          <br><br>
+          <a [routerLink]="'/cart'"><button (click)="addToCart(selectedData)" class="btn btn-primary">Add To Cart</button></a>
         </h5>
       </div>
     </div>
