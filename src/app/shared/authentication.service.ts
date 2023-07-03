@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router, Routes } from '@angular/router';
+import { UserData } from '../model/user-data';
 
 
 @Injectable({
@@ -31,15 +32,12 @@ export class AuthenticationService {
   } 
 
   // Register Method
-  register(email: string, password: string){
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(res => {
-      alert('User Registered Successfully');
-      this.router.navigate(['/login']);
-      this.sendEmailForVerification(res.user);
-    }, err => {
-      alert('Something Went wrong');
-      this.router.navigate(['/register']);
-    })
+  register(userdataObj: UserData): Promise<void> {
+    const { user_email, user_password } = userdataObj;
+    return this.fireauth.createUserWithEmailAndPassword(user_email, user_password)
+      .then(res => {
+        this.sendEmailForVerification(res.user);
+      });
   }
 
   // Logout Method

@@ -20,7 +20,6 @@ import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -56,7 +55,6 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent,
     AdminDashboardComponent,
     SearchbarComponent,
     AboutusComponent,
