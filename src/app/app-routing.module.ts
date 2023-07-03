@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
@@ -42,7 +41,6 @@ const routes: Routes = [
   { path: 'attractions', component: AttractionsComponent },
   { path: 'register', component: RegisterComponent }, 
   { path: 'login', component: LoginComponent },
-  { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'searchbar', component: SearchbarComponent },
