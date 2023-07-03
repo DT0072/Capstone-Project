@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 import { DataService } from '../shared/data.service';
 import { EatData } from '../model/eat-data';
-import { CartService } from '../cart.service';
+
 
 @Component({
   selector: 'app-eateries-dashboard',
@@ -15,7 +15,7 @@ export class EateriesDashboardComponent implements OnInit{
 
   selectedData: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private dataservice : DataService) {}
 
   ngOnInit(): void {
     this.selectedData = history.state;

@@ -4,6 +4,7 @@ import { AttData } from '../model/att-data';
 import { CartData } from '../model/cart-data';
 import { CartService } from '../cart.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attraction-dashboard',
@@ -13,7 +14,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class AttractionDashboardComponent implements OnInit {
   selectedData: any;
 
-  constructor(private route: ActivatedRoute, private cartService: CartService, private afs: AngularFirestore) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService, private afs: AngularFirestore, private router: Router) {}
 
   ngOnInit(): void {
     this.selectedData = history.state;
@@ -79,6 +80,22 @@ export class AttractionDashboardComponent implements OnInit {
       .catch((error) => {
         console.error('Error adding item to cart', error);
       });
+  }
+
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    this.router.navigate(['/booking-details'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
   }
 
 }

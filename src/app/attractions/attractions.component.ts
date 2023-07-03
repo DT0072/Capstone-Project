@@ -21,6 +21,9 @@ export class AttractionsComponent implements OnInit {
   selectedPriceRanges: string[] = [];
   isMenuOpen: boolean = false;
   isFilterChecked: boolean = false;
+  att_price: string; 
+
+  bookingDetailsState: any;
 
   categories: string[] = ['Mall', 'Museum'];
   locations: string[] = ['George Town', 'Bayan Lepas'];
@@ -30,7 +33,7 @@ export class AttractionsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService
-  ) {}
+  ) {this.att_price = '';}
 
   ngOnInit(): void {
     this.getAllAttractions();
@@ -195,4 +198,26 @@ export class AttractionsComponent implements OnInit {
   getImageUrl(attdata: AttData): string {
     return attdata.att_image;
   }
+
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    this.router.navigate(['/booking-details'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
+  }
+  
+
+  
+  
+  
+  
 }

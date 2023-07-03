@@ -37,5 +37,7 @@
 }
 
 .cart-image {
-    max-width: 100px; /* Adjust the value as needed */
+    width: 120px;
+    height: 110px;
+    border-radius: 10px;
 }
