@@ -14,14 +14,14 @@ export class AttractionDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedData = history.state;
-  console.log('Selected Data:', this.selectedData);
+    console.log('Selected Data:', this.selectedData);
 
-  const { att_openHrs, att_closeHrs } = this.selectedData;
-  console.log('att_openHrs:', att_openHrs);
-  console.log('att_closeHrs:', att_closeHrs);
-  
-  console.log('Time parameter:', this.formatTime(att_openHrs));
-  console.log('Time parameter:', this.formatTime(att_closeHrs));
+    const { att_openHrs, att_closeHrs } = this.selectedData;
+    console.log('att_openHrs:', att_openHrs);
+    console.log('att_closeHrs:', att_closeHrs);
+    
+    console.log('Time parameter:', this.formatTime(att_openHrs));
+    console.log('Time parameter:', this.formatTime(att_closeHrs));
   }
 
   formatTime(time: string): string {
