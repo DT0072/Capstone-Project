@@ -48,7 +48,7 @@
 .col{
     background-image: url('https://e0.pxfuel.com/wallpapers/914/810/desktop-wallpaper-pastel-blue-purple-mint-ombre-gradient-phone-phone-pastel-blue-gradient.jpg');
     padding: 35px;
-    margin: 20px;
+    margin: 17px;
     margin-bottom: 3em;
     border-radius: 35px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -75,6 +75,7 @@
 .load{
     color: #001A33;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .load:hover{
@@ -82,7 +83,6 @@
 }
 
 .att-desc {
-    width: 500px;
     padding: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -168,7 +168,8 @@
 
     .col{
         width: 350px;
-        margin: 20px
+        margin: 20px;
+        max-width: 350px;
     }
 
     .col img{
@@ -181,7 +182,7 @@
     }
 
     .load{
-        padding-left: 30px;
+        padding-left: 20px;
     }
 
     .mt-4 {
