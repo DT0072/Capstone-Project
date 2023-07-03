@@ -30,6 +30,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { EateriesDashboardComponent } from './eateries-dashboard/eateries-dashboard.component';
 import { EventsDashboardComponent } from './events-dashboard/events-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { BookingDetailsComponent} from './booking-details/booking-details.component';
 
 
 const routes: Routes = [
@@ -66,7 +68,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'cart-item', component: CartItemComponent },
   { path: 'eateries-dashboard', component: EateriesDashboardComponent },
-  { path: 'events-dashboard', component: EventsDashboardComponent }
+  { path: 'events-dashboard', component: EventsDashboardComponent },
+  { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'booking-details', component: BookingDetailsComponent}
 ];
 
 @NgModule({
