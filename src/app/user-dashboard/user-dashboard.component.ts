@@ -13,14 +13,14 @@ export class UserDashboardComponent implements OnInit {
   constructor(private authService: AuthenticationService) {}
 
   ngOnInit() {
-    this.getUserData();
+    /*this.getUserData();*/
   }
 
   openbooking(tab: string) {
     this.activebook = tab;
   }
 
-  getUserData() {
+  /*getUserData() {
     this.authService.getUserData().subscribe(
       (data: any) => {
         this.userData = data;
@@ -29,5 +29,5 @@ export class UserDashboardComponent implements OnInit {
         console.error('Error retrieving user data:', error);
       }
     );
-  }
+  }*/
 }
