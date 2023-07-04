@@ -1,1 +1,102 @@
-<p>cart works!</p>
+<ng-container *ngIf="true">
+    <div class="container">
+        <br>
+    <div class="card-table">
+        <div class="card-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cartdata of cartdataList; let i = index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ cartdata.cart_item_name }}</td>
+                        <td><img [src]="getCartImageUrl(cartdata)" alt="cart-image" class="cart-image"></td>
+                        <td>{{ cartdata.cart_item_desc }}</td>
+                        <th>RM {{ cartdata.cart_item_price }}</th>
+                        <td>{{ cartdata.cart_item_quantity }}</td>
+                        <td>RM {{ cartdata.cart_item_price }}</td>
+                        <td><button class="btn btn-danger" (click)="deleteCartItem(cartdata)"> Delete</button></td>
+                    </tr>
+                    <!-- <tr *ngFor="let attdata of attdataList; let i = index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ attdata.att_name }}</td>
+                        <td><img [src]="getImageUrl(attdata)" alt="attraction-image" class="attraction-image"></td>
+                        <td>{{ attdata.att_desc }}</td>
+                        <th>{{ attdata.att_price }}</th>
+                        <td>1</td>
+                        <td>30</td>
+                        <td><button class="btn btn-danger">Delete</button></td>
+                        <td><button (click)="addToCart(attdata)" class="btn btn-primary">Add</button></td>
+                    </tr> -->
+                    <!-- <tr *ngFor="let item of products; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.att_name}}</td>
+                        <td>Some Image</td>
+                        <td>{{item.att_desc}}</td>
+                        <th>{{item.att_price}}</th>
+                        <td>1</td>
+                        <td>{{item.total}}</td>
+                        <td><button (click)="removeItem(item)" class="btn btn-danger">Delete</button></td>
+                    </tr> -->
+                    <div>
+                        <button>Check Out</button>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</ng-container>
+
+
+
+
+<ng-container *ngIf="false">
+    <br>
+<div class="container">
+    <div class="card">
+        <h5 class="card-title">Shopping Cart</h5>
+    </div>
+    <div class="center">
+        <h4>Your Cart Is Empty </h4>
+        <!-- <h5>Add Item To It Now</h5> -->
+        <br>
+        <button class="btn btn-primary">Shop Now</button>
+    </div>
+</div>
+</ng-container>
+
+
+  <!-- <div class="card mt-4 pe-0">
+    <div class="card-body pe-0">
+      <div class="row d-flex justify-content-space-between">
+        <div class="accepted-payment col">
+          <p><strong>We accept</strong></p>
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+            alt="Visa" />
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+            alt="American Express" />
+          <img class="me-2" width="45px"
+            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+            alt="Mastercard" /> &nbsp;
+        </div>
+        <div class="shipping col-sm-5">
+          <p class="estimated"><strong>Estimated Process Period</strong></p>
+          <p><strong>3 - 5 Days &nbsp; (Start from order day)</strong></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <app-footer></app-footer> -->

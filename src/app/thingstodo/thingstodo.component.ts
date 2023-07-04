@@ -66,5 +66,37 @@ export class ThingstodoComponent implements OnInit {
       return a.att_name.localeCompare(b.att_name);
     });
   }
+
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    this.router.navigate(['/booking-details'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
+  }
+
+  redirectToAttractionDashboardComponent(attdata: AttData): void {
+    const { att_id, att_name,att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;
+    this.router.navigate(['/attraction-dashboard'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
+  }
   
 }

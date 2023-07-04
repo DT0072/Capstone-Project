@@ -8,7 +8,7 @@
         </a>
       </div>
       <div class="col-sm-3">
-        <a href="https://myrapidbus.prasarana.com.my/kiosk/rpg" target="_blank" class="btn btn-lg blue">
+        <a href="/busstop" class="btn btn-lg blue">
           Bus Stop
           <img src="assets/img_component/bus-stop.svg">
         </a>
@@ -63,28 +63,31 @@
 
   <div class="container-sm justify-content-md-center mb-5">
     <div class="row">
-        <div class="col" *ngFor="let attdata of displayData">
-          <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
-            <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
-            <img [src]="getImageUrl(attdata)" alt="attraction-image" class="attraction-image">
-            <h5 class="att-desc my-4">
-              {{ attdata.att_desc }}<br><br>
-              {{ attdata.att_location }}<br><br>
-              <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
-                {{ formatTime(attdata.att_openHrs) }}
-              </ng-container>
-              <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
-                {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
-              </ng-container><br><br>
-              RM {{ attdata.att_price }}
-            </h5>
-            <a href= "/cart" class="btn-sm float-right my-4">Add To Cart</a>
-            <a href= "#" class="btn-sm float-right mx-3">Buy Now</a>
-          </a>
-        </div>
+      <div class="col" *ngFor="let attdata of displayData">
+        <a href="/attraction-dashboard" class="column-link" (click)="redirectToAttractionDashboardComponent(attdata)">
+          <h2 class="text-center mb-4">{{ attdata.att_name }}</h2>
+          <img [src]="getImageUrl(attdata)" alt="attraction-image" class="attraction-image">
+          <h5 class="att-desc my-4">
+            {{ attdata.att_desc }}<br><br>
+            {{ attdata.att_location }}<br><br>
+            <ng-container *ngIf="formatTime(attdata.att_openHrs) === '24 Hours'">
+              {{ formatTime(attdata.att_openHrs) }}
+            </ng-container>
+            <ng-container *ngIf="formatTime(attdata.att_openHrs) !== '24 Hours'">
+              {{ formatTime(attdata.att_openHrs) }} to {{ formatTime(attdata.att_closeHrs) }}
+            </ng-container><br><br>
+            RM {{ attdata.att_price }}
+          </h5>
+          <ng-container *ngIf="attdata.att_price !== '-'">
+            <a href="/cart" class="btn-sm float-right my-4">Add To Cart</a>
+            <a href="/booking-details" class="btn-sm float-right mx-3" (click)="redirectToBookingDetailsComponent(attdata)">Buy Now</a>
+          </ng-container>
+        </a>
+      </div>
       <h5 (click)="showMore()" class="load">Load More</h5>
     </div>
   </div>
+  
 
   <app-footer></app-footer>
 </div>

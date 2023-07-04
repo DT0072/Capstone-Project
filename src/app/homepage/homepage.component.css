@@ -306,7 +306,7 @@ fill: white;
 }
 
 .column-link:hover{
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Media queries */
