@@ -19,7 +19,10 @@ export class SearchbarComponent implements OnInit {
   attNames: string[] = [];
   eateriesNames: string[] = [];
   eventNames: string[] = [];
-  
+  matchingAttractions: AttData[] = [];
+  matchingEateries: EatData[] = [];
+  matchingEvents: EventData[] = [];
+  showDropdown: boolean = false;
 
   constructor(
     private router: Router,
@@ -98,67 +101,92 @@ export class SearchbarComponent implements OnInit {
       const tempFind = this.searchQuery.toUpperCase();
       if (tempFind === 'ATTRACTIONS' || tempFind === 'ATTRACTION') {
         this.router.navigate(['/attractions']);
-      } else if (tempFind === 'THINGS TO DO' || tempFind === 'THINGS' || tempFind === 'DO') {
+      } else if (tempFind === 'THINGS TO DO' || tempFind === 'THINGS' || tempFind === 'THINGSTODO') {
         this.router.navigate(['/thingstodo']);
-      } else if (tempFind === 'EATERIES' || tempFind === 'EATERY' || tempFind === 'EAT') {
+      } else if (tempFind === 'EATERIES' || tempFind === 'EATERY') {
         this.router.navigate(['/eateries']);
       } else if (tempFind === 'EVENTS') {
         this.router.navigate(['/events']);
       } else {
-        const matchingAttractions = this.attdataList.filter(attData =>
+        this.matchingAttractions = this.attdataList.filter(attData =>
           attData.att_name.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
-        const matchingEateries = this.eatDataList.filter(eatData =>
+        this.matchingEateries = this.eatDataList.filter(eatData =>
           eatData.eat_name.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
-        const matchingEvents = this.eventDataList.filter(eventData =>
+        this.matchingEvents = this.eventDataList.filter(eventData =>
           eventData.event_name.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
 
-        if (matchingAttractions.length > 0) {
-          const selectedData = matchingAttractions[0];
-          const { att_openHrs, att_closeHrs, att_name, att_desc, att_image, att_location } = selectedData;
-          this.router.navigate(['/attraction-dashboard'], {
-            state: {
-              att_openHrs: att_openHrs,
-              att_closeHrs: att_closeHrs,
-              att_name: att_name,
-              att_desc: att_desc,
-              att_image: att_image,
-              att_location: att_location,
-              data: selectedData
-            }
-          });
-        } else if (matchingEateries.length > 0) {
-          const selectedData = matchingEateries[0];
-          const { eat_openHrs, eat_closeHrs, eat_name, eat_desc, eat_image, eat_location } = selectedData;
-          this.router.navigate(['/eateries-dashboard'], {
-            state: {
-              eat_openHrs: eat_openHrs,
-              eat_closeHrs: eat_closeHrs,
-              eat_name: eat_name,
-              eat_desc: eat_desc,
-              eat_image: eat_image,
-              eat_location: eat_location,
-              data: selectedData
-            }
-          });
-        } else if (matchingEvents.length > 0) {
-          const selectedData = matchingEvents[0];
-          const { event_openHrs, event_closeHrs, event_name, event_desc, event_image, event_location } = selectedData;
-          this.router.navigate(['/events-dashboard'], {
-            state: {
-              event_openHrs: event_openHrs,
-              event_closeHrs: event_closeHrs,
-              event_name: event_name,
-              event_desc: event_desc,
-              event_image: event_image,
-              event_location: event_location,
-              data: selectedData
-            }
-          });
+        if (this.matchingAttractions.length === 0 && this.matchingEateries.length === 0 && this.matchingEvents.length === 0) {
+          this.showDropdown = false;
+        } else {
+          this.showDropdown = true;
+
+          if (this.matchingAttractions.length === 1 && this.matchingEateries.length === 0 && this.matchingEvents.length === 0) {
+            this.navigateToAttraction(this.matchingAttractions[0]);
+          } else if (this.matchingAttractions.length === 0 && this.matchingEateries.length === 1 && this.matchingEvents.length === 0) {
+            this.navigateToEatery(this.matchingEateries[0]);
+          } else if (this.matchingAttractions.length === 0 && this.matchingEateries.length === 0 && this.matchingEvents.length === 1) {
+            this.navigateToEvent(this.matchingEvents[0]);
+          }
         }
       }
+    } else {
+      this.clearSearchResults();
     }
+  }
+
+  clearSearchResults(): void {
+    this.matchingAttractions = [];
+    this.matchingEateries = [];
+    this.matchingEvents = [];
+    this.searchQuery = '';
+    this.showDropdown = false;
+  }
+
+  navigateToAttraction(selectedData: AttData): void {
+    const { att_openHrs, att_closeHrs, att_name, att_desc, att_image, att_location } = selectedData;
+    this.router.navigate(['/attraction-dashboard'], {
+      state: {
+        att_openHrs: att_openHrs,
+        att_closeHrs: att_closeHrs,
+        att_name: att_name,
+        att_desc: att_desc,
+        att_image: att_image,
+        att_location: att_location,
+        data: selectedData
+      }
+    });
+  }
+
+  navigateToEatery(selectedData: EatData): void {
+    const { eat_openHrs, eat_closeHrs, eat_name, eat_desc, eat_image, eat_location } = selectedData;
+    this.router.navigate(['/eateries-dashboard'], {
+      state: {
+        eat_openHrs: eat_openHrs,
+        eat_closeHrs: eat_closeHrs,
+        eat_name: eat_name,
+        eat_desc: eat_desc,
+        eat_image: eat_image,
+        eat_location: eat_location,
+        data: selectedData
+      }
+    });
+  }
+
+  navigateToEvent(selectedData: EventData): void {
+    const { event_openHrs, event_closeHrs, event_name, event_desc, event_image, event_location } = selectedData;
+    this.router.navigate(['/events-dashboard'], {
+      state: {
+        event_openHrs: event_openHrs,
+        event_closeHrs: event_closeHrs,
+        event_name: event_name,
+        event_desc: event_desc,
+        event_image: event_image,
+        event_location: event_location,
+        data: selectedData
+      }
+    });
   }
 }
