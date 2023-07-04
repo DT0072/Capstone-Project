@@ -18,7 +18,7 @@ export class AuthenticationService {
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
       localStorage.setItem('token', 'true'); 
       alert('User Login Successfully');
-      this.router.navigate(['/homepage']);
+      this.router.navigate(['/user-dashboard']);
       
       // if (email === 'dttest@gmail.com' && password === '123456') {
       //   this.router.navigate(['/admin-dashboard']);
