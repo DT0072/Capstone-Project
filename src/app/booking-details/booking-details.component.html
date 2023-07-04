@@ -160,7 +160,7 @@
           <!-- Booking form -->
           <form (ngSubmit)="submitBookingForm()" class="form-container">
             <!-- Form fields here -->
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" class="submit" (click)="redirectToBookingDetailsComponent(selectedData)" >Submit</button>
           </form>
           
         </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AttData } from '../model/att-data';
+import { Router } from '@angular/router';
+import { BookData } from '../model/book-data';
 
 @Component({
   selector: 'app-booking-details',
@@ -16,8 +18,9 @@ export class BookingDetailsComponent implements OnInit {
   selectedDate: Date = new Date();
   adultCount: number = 1;
   childCount: number = 0;
+  
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.initializeCalendar();
     const today = new Date();
     this.currentMonth = today.getMonth();
@@ -135,6 +138,7 @@ export class BookingDetailsComponent implements OnInit {
     // For example, you can access the firstName field value as follows:
     // const firstName = (<HTMLInputElement>document.getElementById('firstName')).value;
     // Perform the necessary operations with the form data (e.g., send it to the server)
+    this.router.navigate(['/check-out']);
     console.log('Form submitted!');
   }
 
@@ -157,5 +161,21 @@ export class BookingDetailsComponent implements OnInit {
     } else if (field === 'child' && this.childCount > 0) {
       this.childCount--;
     }
+  }
+
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    this.router.navigate(['/check-out'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
   }
 }
