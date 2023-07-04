@@ -10,6 +10,8 @@ import { UserData } from '../model/user-data';
 export class AuthenticationService {
 
   constructor(private fireauth : AngularFireAuth, private router: Router) { }
+
+  
   
   // Login Method
   login(email: string, password: string){

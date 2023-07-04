@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserData } from '../model/user-data';
+import { DataService } from '../shared/data.service';
 import { AuthenticationService } from '../shared/authentication.service';
 
 @Component({
@@ -8,26 +12,49 @@ import { AuthenticationService } from '../shared/authentication.service';
 })
 export class UserDashboardComponent implements OnInit {
   activebook: string = 'user';
-  userData: any = {}; // Update the variable declaration
+  userdataList: UserData[] = [];
+  displayData: UserData[] = [];
+  isLoggedIn: boolean = false; // Add a flag to track login status
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private dataService: DataService,
+    private authService: AuthenticationService,
+    private afAuth: AngularFireAuth
+  ) {}
 
   ngOnInit() {
-    /*this.getUserData();*/
+    this.getUserData();
   }
 
   openbooking(tab: string) {
     this.activebook = tab;
   }
 
-  /*getUserData() {
-    this.authService.getUserData().subscribe(
-      (data: any) => {
-        this.userData = data;
-      },
-      (error: any) => {
-        console.error('Error retrieving user data:', error);
+  getUserData() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.isLoggedIn = true; // User is logged in
+        const userEmail = user.email;
+
+        if (userEmail !== null && userEmail !== undefined) {
+          this.dataService.getUserDataByEmail(userEmail).subscribe(
+            (res: any) => {
+              this.userdataList = res.map((e: any) => {
+                const data = e.payload.doc.data();
+                data.user_id = e.payload.doc.id;
+                return data;
+              });
+              // Additional logic or assignments specific to user data
+            },
+            (err: any) => {
+              alert('Error while fetching user data, please try again later');
+            }
+          );
+        }
+      } else {
+        this.isLoggedIn = false; // User is not logged in
       }
-    );
-  }*/
+    });
+  }
 }
