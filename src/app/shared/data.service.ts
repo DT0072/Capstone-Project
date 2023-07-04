@@ -93,4 +93,15 @@ export class DataService {
   getAllUsers() {
     return this.afs.collection('/userdatas').snapshotChanges();
   }
+
+  getUserData() {
+    return this.afs.collection('/userdatas').snapshotChanges();
+  }
+
+  getUserDataByEmail(email: string) {
+    return this.afs.collection('/userdatas', (ref) =>
+      ref.where('user_email', '==', email)
+    ).snapshotChanges();
+  }  
+  
 }
