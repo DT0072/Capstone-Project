@@ -7,9 +7,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
+                        <th>Check</th>
                         <th>Image</th>
-                        <th>Description</th>
+                        <th>Name</th>
+                        <!-- <th>Description</th> -->
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
@@ -17,27 +18,38 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- FETCH FROM FIRESTORE CARTDATAS -->
                     <tr *ngFor="let cartdata of cartdataList; let i = index">
                         <td>{{ i+1 }}</td>
-                        <td>{{ cartdata.cart_item_name }}</td>
+                        <td><input type="checkbox" [(ngModel)]="cartdata.selected" (ngModelChange)="calculateGrandTotal()"></td>
                         <td><img [src]="getCartImageUrl(cartdata)" alt="cart-image" class="cart-image"></td>
-                        <td>{{ cartdata.cart_item_desc }}</td>
-                        <th>RM {{ cartdata.cart_item_price }}</th>
-                        <td>{{ cartdata.cart_item_quantity }}</td>
-                        <td>RM {{ cartdata.cart_item_price }}</td>
+                        <th>{{ cartdata.cart_item_name }}</th>
+                        <!-- <td>{{ cartdata.cart_item_desc }}</td> -->
+                        <th>RM{{ cartdata.cart_item_price }}</th>
+                        <td><input type="number" class="num" name="input" min="0" max="99" [(ngModel)]="cartdata.cart_item_quantity" (ngModelChange)="calculateGrandTotal()" required/></td>
+                        <td>RM{{ cartdata.selected ? (convertToNumber(cartdata.cart_item_price) * convertToNumber(cartdata.cart_item_quantity)) : 0 }}</td>
                         <td><button class="btn btn-danger" (click)="deleteCartItem(cartdata)"> Delete</button></td>
                     </tr>
-                    <!-- <tr *ngFor="let attdata of attdataList; let i = index">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ attdata.att_name }}</td>
+
+                    <!-- DISPLAY ALL ATTRACTION -->
+                    <!-- <ng-container *ngFor="let attdata of attdataList; let i = index">
+                    <tr *ngIf="attdata.att_price !== '-'"> -->
+                        <!-- <td>{{ i+1 }}</td> -->
+                        <!-- <td>{{ attdata.att_name }}</td>
                         <td><img [src]="getImageUrl(attdata)" alt="attraction-image" class="attraction-image"></td>
                         <td>{{ attdata.att_desc }}</td>
-                        <th>{{ attdata.att_price }}</th>
-                        <td>1</td>
-                        <td>30</td>
-                        <td><button class="btn btn-danger">Delete</button></td>
-                        <td><button (click)="addToCart(attdata)" class="btn btn-primary">Add</button></td>
-                    </tr> -->
+                        <th>RM{{ attdata.att_price }}</th>
+                        <td><input type="checkbox" [(ngModel)]="attdata.selected" (ngModelChange)="calculateGrandTotal()"></td>
+                        <td> <label for="quantity">Quantity:</label> -->
+                            <!-- <input type="number" class="num" name="input" [(ngModel)]="attdata.att_qty" min="0" max="99" required/></td> -->
+                            <!-- <input type="number" class="num" name="input" min="0" max="99" [(ngModel)]="attdata.att_qty" (ngModelChange)="calculateGrandTotal()" required/></td>
+                        <td>RM{{ attdata.selected ? (convertToNumber(attdata.att_price) * convertToNumber(attdata.att_qty)) : 0 }}</td> -->
+                        <!-- <td><button (click)="deleteCartItem(attdata)" class="btn btn-danger">Delete</button></td> -->
+                        <!-- <td><button (click)="addToCart(attdata)" class="btn btn-primary">Add</button></td> -->
+                        <!-- <td><button  class="btn btn-primary">Go To Checkout</button></td> -->
+                    <!-- </tr>
+                    </ng-container> -->
+
                     <!-- <tr *ngFor="let item of products; let i = index">
                         <td>{{i+1}}</td>
                         <td>{{item.att_name}}</td>
@@ -48,11 +60,39 @@
                         <td>{{item.total}}</td>
                         <td><button (click)="removeItem(item)" class="btn btn-danger">Delete</button></td>
                     </tr> -->
-                    <div>
-                        <button>Check Out</button>
-                    </div>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"></td>
+                        <td colspan="1"><strong>Grand Total:</strong></td>
+                        <td><strong>RM{{ grandTotal }}</strong></td>
+                        <td><button  class="btn btn-primary">Go To Checkout</button></td>
+                    </tr>
                 </tbody>
             </table>
+            <!-- <div class="card mt-4 pe-0"> -->
+                <div class="card-body pe-0">
+                  <div class="row d-flex justify-content-space-between ">
+                    <div class="accepted-payment col">
+                      <p><strong>We accept</strong></p>
+                      <img class="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                        alt="Visa" />
+                      <img class="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                        alt="American Express" />
+                      <img class="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                        alt="Mastercard" /> &nbsp;
+                    </div>
+                    <div class="shipping col-sm-5">
+                      <p class="estimated"><strong>Estimated Process Period</strong></p>
+                      <p><strong>3 - 5 Days &nbsp; (Start from order day)</strong></p>
+                    </div>
+                  </div>
+                </div>
+            <!-- </div> -->
         </div>
     </div>
     </div>
@@ -99,4 +139,4 @@
       </div>
     </div>
   </div> -->
-  <!-- <app-footer></app-footer> -->
+  <app-footer></app-footer>

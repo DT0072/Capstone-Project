@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { AttData } from '../model/att-data';
@@ -16,11 +16,12 @@ import { AttractionDashboardComponent } from '../attraction-dashboard/attraction
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit, OnChanges{
   cartdataList: CartData[] = [];
   attdataList: AttData[] = [];
 public products : any = [];
-public grandTotal !: number;
+// public grandTotal !: number;
+grandTotal: number = 0;
 
 constructor(
   private cartService: CartService,
@@ -32,22 +33,26 @@ constructor(
 ){}
 
 ngOnInit(): void{
-  this.cartService.getProduct()
-  .subscribe(res=>{
-    this.products = res;
-    this.grandTotal = this.cartService.getTotalPrice();
-  })
+  // this.cartService.getProduct()
+  // .subscribe(res=>{
+  //   this.products = res;
+  //   this.grandTotal = this.cartService.getTotalPrice();
+  // })
   this.getAllAttractions();
   this.getCartItem();
 }
 
-removeItem(item: any){
-  this.cartService.removeCartItem(item);
+ngOnChanges() {
+  this.calculateGrandTotal();
 }
 
-emptyCart(){
-  this.cartService.removeAllCart();
-}
+// removeItem(item: any){
+//   this.cartService.removeCartItem(item);
+// }
+
+// emptyCart(){
+//   this.cartService.removeAllCart();
+// }
 
 getAllAttractions() {
     this.data.getAllAttractions().subscribe(res => {
@@ -65,7 +70,7 @@ getAllAttractions() {
     return attdata.att_image;
   }
 
-  //Store to firestore
+  //Store to firestore ONLY USE FOR ALL ATTRACTION DISPLAY OUT
   addToCart(attdata: AttData) {
     const cartData: CartData = {
       cart_id: this.afs.createId(),
@@ -81,6 +86,7 @@ getAllAttractions() {
     this.cartService.addCartItem(cartData)
       .then(() => {
         console.log('Item added to cart successfully');
+        this.calculateGrandTotal();
       })
       .catch((error) => {
         console.error('Error adding item to cart', error);
@@ -112,11 +118,30 @@ getAllAttractions() {
   //   }
   // }
 
+  // deleteCartItem(cartdata: CartData) {
+  //   const cartItemId = cartdata.cart_id;
+    
+  //   // Remove the item from the cartdataList array
+  //   const itemIndex = this.cartdataList.findIndex(item => item.cart_id === cartItemId);
+  //   if (itemIndex !== -1) {
+  //     this.cartdataList.splice(itemIndex, 1);
+  //   }
+    
+  //   // Delete the item from the Firestore collection
+  //   this.afs.collection('/cartdatas').doc(cartItemId).delete()
+  //     .then(() => {
+  //       console.log('Item deleted successfully');
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error deleting item', error);
+  //     });
+  // }
+
   deleteCartItem(cartdata: CartData) {
-    const cartItemId = cartdata.cart_id;
+    const cartItemId = cartdata.cart_item_id;
     
     // Remove the item from the cartdataList array
-    const itemIndex = this.cartdataList.findIndex(item => item.cart_id === cartItemId);
+    const itemIndex = this.cartdataList.findIndex(item => item.cart_item_id === cartItemId);
     if (itemIndex !== -1) {
       this.cartdataList.splice(itemIndex, 1);
     }
@@ -130,6 +155,33 @@ getAllAttractions() {
         console.error('Error deleting item', error);
       });
   }
+  
+  convertToNumber(value: string): number {
+    return Number(value);
+  }
+
+  //For All Attraction
+  // calculateGrandTotal() {
+  //   this.grandTotal = 0;
+  //   for (const attdata of this.attdataList) {
+  //     if (attdata.selected) {
+  //       const totalPrice = this.convertToNumber(attdata.att_price) * this.convertToNumber(attdata.att_qty);
+  //       this.grandTotal += totalPrice;
+  //     }
+  //   }
+  // }
+
+  //For Cart In Firestore
+  calculateGrandTotal() {
+    this.grandTotal = 0;
+    for (const cartdata of this.cartdataList) {
+      if (cartdata.selected) {
+        const totalPrice = this.convertToNumber(cartdata.cart_item_price) * this.convertToNumber(cartdata.cart_item_quantity);
+        this.grandTotal += totalPrice;
+      }
+    }
+  }
+  
 
 
 }
