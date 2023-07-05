@@ -10,19 +10,19 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  public cartItemList : any = []
-  public productList = new BehaviorSubject<any>([]);
+  //public cartItemList : any = []
+  //public productList = new BehaviorSubject<any>([]);
 
   constructor(private http: HttpClient, private afs: AngularFirestore) {}
 
-  getProduct(){
-    return this.productList.asObservable();
-  }
+  // getProduct(){
+  //   return this.productList.asObservable();
+  // }
 
-  setproduct(product : any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
-  }
+  // setproduct(product : any){
+  //   this.cartItemList.push(...product);
+  //   this.productList.next(product);
+  // }
   
   // addToCart(attdata : any){
   //   this.cartItemList.push(attdata);
@@ -32,26 +32,26 @@ export class CartService {
   //   // console.log(this.cartItemList);
   // }
 
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
-  }
+  // getTotalPrice() : number{
+  //   let grandTotal = 0;
+  //   this.cartItemList.map((a:any)=>{
+  //     grandTotal += a.total;
+  //   })
+  //   return grandTotal;
+  // }
 
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
-  }
+  // removeCartItem(product: any){
+  //   this.cartItemList.map((a:any, index:any)=>{
+  //     if(product.id=== a.id){
+  //       this.cartItemList.splice(index,1);
+  //     }
+  //   })
+  // }
 
-  removeAllCart(){
-    this.cartItemList = []
-    this.productList.next(this.cartItemList);
-  }
+  // removeAllCart(){
+  //   this.cartItemList = []
+  //   this.productList.next(this.cartItemList);
+  // }
 
   // Get Attractions
   getAllAttractions() {
@@ -79,12 +79,13 @@ export class CartService {
   //   return this.afs.doc('/cartdatas/'+ cartdata.cart_id).delete();
   // }
 
+  // deleteCartItem(cartdata: CartData) {
+  //   const cartItemId = cartdata.cart_id;
+  //   return this.afs.collection('/cartdatas').doc(cartItemId).delete();
+  // }
+
   deleteCartItem(cartdata: CartData) {
-    const cartItemId = cartdata.cart_id;
-    return this.afs.collection('/cartdatas').doc(cartItemId).delete();
+    return this.afs.collection('/cartdatas').doc(cartdata.cart_id).delete();
   }
-  
-  
-  
-  
+
 }

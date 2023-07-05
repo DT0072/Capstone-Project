@@ -21,7 +21,7 @@
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,0.2);
-    border-radius: .25rem;
+    border-radius: 10px;
 }
 
 .center .btn {
@@ -33,11 +33,18 @@
 }
 
 .attraction-image {
-    max-width: 100px; /* Adjust the value as needed */
+    width: 100px; /* Adjust the value as needed */
+    height: 100px;
+    border-radius: 10px;
 }
 
 .cart-image {
-    width: 120px;
-    height: 110px;
+    width: 100px; /* Adjust the value as needed */
+    height: 100px;
     border-radius: 10px;
+}
+
+.accepted-payment {
+    padding-right: 50px;
+    padding-left: 50px;
 }

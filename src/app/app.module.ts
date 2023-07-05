@@ -45,6 +45,7 @@ import { EateriesDashboardComponent } from './eateries-dashboard/eateries-dashbo
 import { EventsDashboardComponent } from './events-dashboard/events-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
     EventsDashboardComponent,
     UserDashboardComponent,
     BookingDetailsComponent,
+    CheckOutComponent,
   ],
   imports: [
     HttpClientModule,
