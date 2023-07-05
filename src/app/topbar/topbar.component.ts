@@ -8,7 +8,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 export class TopbarComponent {
   isLoggedIn: boolean = false; // Add a flag to track login status
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(public authenticationService: AuthenticationService) {}
 
   /*Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon*/
   myFunction() {
@@ -24,5 +24,6 @@ export class TopbarComponent {
 
   logout() {
     this.authenticationService.logout();
+    this.authenticationService.isLoggedIn = false; // Set the flag to false on logout
   }
 }
