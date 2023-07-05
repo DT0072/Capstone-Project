@@ -181,7 +181,4 @@ getAllAttractions() {
       }
     }
   }
-  
-
-
 }
