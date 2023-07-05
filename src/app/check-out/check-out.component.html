@@ -28,12 +28,12 @@
   
           <!-- Circle 3 -->
           <div class="circle-container">
-            <div class="outer-circle" [ngClass]="{'blueBg': progress >= 3, 'reducedOpacity': progress < 3}">
+            <div class="outer-circle" [ngClass]="{'blueBg': progress >= 3, 'reducedOpacity': progress == 3}">
               <div class="inner-circle" [ngClass]="{'blueBg': progress >= 3}">
                 <div class="number">3</div>
               </div>
             </div>
-            <div class="text" [ngClass]="{'blueTxt': progress >= 3, 'reducedOpacity': progress < 3}">
+            <div class="text" [ngClass]="{'blueTxt': progress >= 3, 'reducedOpacity': progress == 3}">
               <b>Make Payment</b>
             </div>
           </div>
@@ -50,47 +50,54 @@
             </div>
           </div>
         </div>
-  
-        <div class="left mt-5">
-          <img [src]="getImageUrl(selectedData)" alt="attraction-image" class="attraction-image">
-          <div class="right mt-3">
-            <h3 class="mb-4">{{ selectedData?.att_name }}</h3>
-            <p class="mt-2">
-              {{ selectedData?.att_desc }}<br><br>
-              {{ selectedData?.att_location }}<br><br>
-              <ng-container *ngIf="formatTime(selectedData?.att_openHrs) === '24 Hours'">
-                {{ formatTime(selectedData?.att_openHrs) }}
+
+
+        <div class="order">
+          <h2>Order Details</h2>
+          <div class="left mt-3">
+            <img [src]="getImageUrl(selectedData)" alt="attraction-image" class="attraction-image">
+            <div class="right mt-3">
+              <!-- If condition for booking page -->
+              <ng-container *ngIf="fromBookingPage">
+                <h3 class="mb-4">{{ selectedData?.att_name }}</h3>
+                <h4 class="mt-2">
+                  <strong>RM {{ selectedData?.att_price }}</strong>
+                </h4>
               </ng-container>
-              <ng-container *ngIf="formatTime(selectedData?.att_openHrs) !== '24 Hours'">
-                {{ formatTime(selectedData?.att_openHrs) }} - {{ formatTime(selectedData?.att_closeHrs) }}
-              </ng-container><br><br>
-              <strong>RM {{ selectedData?.att_price }}</strong>
-            </p>
+              <!-- Else condition for cart page -->
+              <ng-container *ngIf="!fromBookingPage">
+                <h3 class="mb-4">{{ selectedData?.cart_item_name }}</h3>
+                <h4 class="mt-2">
+                  <strong>RM {{ selectedData?.cart_item_price }}</strong>
+                </h4>
+              </ng-container>
+              <hr>
+              <strong>Quantity:</strong>
+              <p>Total:</p>
+            </div>
           </div>
         </div>
-      </div>
+        
   
-      <div class="container-sm justify-content-md-center my-5">
-        <!-- Rest of the code -->
-      
-        <div class="col">
-          <div class="container my-5">
+      <div class="container-sm justify-content-md-center my-5">      
+        <div class="col-left">
+          <div class="col-md-8 container my-5">
             <h2>Payment Methods</h2>
       
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <input type="radio" id="card" name="paymentMethod" class="payment-method" (click)="showForm('card-form')">
                 <label for="card">Debit/Credit Card</label>
               </div>
       
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <input type="radio" id="tng" name="paymentMethod" class="payment-method" (click)="showForm('tng-form')">
                 <label for="tng">TnG E-wallet</label>
               </div>
               <!-- Other payment method radio buttons -->
             </div>
       
-            <div class="row">
+            <div class="row mt-4">
               <div id="card-form" class="col-md-12 form-group" [hidden]="!isFormVisible('card-form')">
                 <!-- Debit/Credit Card Form -->
                 <label for="cardNumber">Card Number</label>
@@ -112,8 +119,11 @@
             <button type="submit" class="submit mt-3" >Pay Now</button>
           </div>
         </div>
-      </div>
+        
+
+       </div>
     </div>
+  </div>
 </div>
     <app-footer></app-footer>
   
