@@ -88,4 +88,8 @@ export class CartService {
     return this.afs.collection('/cartdatas').doc(cartdata.cart_id).delete();
   }
 
+  updateCartItem(cartItem: CartData){
+    return this.afs.collection('/cartdatas').doc(cartItem.cart_id).update(cartItem);
+  }
+
 }
