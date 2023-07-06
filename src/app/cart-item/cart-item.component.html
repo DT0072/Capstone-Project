@@ -31,7 +31,7 @@
         <div class="total-label">Grand Total:</div>
         <h3>RM{{ grandTotal }}</h3>
         <div class="checkout-button my-3">
-          <button class="btn btn-primary">Go To Checkout</button>
+          <a routerLink="/check-out"><button class="btn btn-primary">Go To Checkout</button></a>
         </div>
       </div>
     </div>
@@ -39,8 +39,7 @@
 </ng-container>
 
 <!-- <ng-container *ngIf="cartdataList.length === 0"> -->
-    <ng-container *ngIf="false">
-  <br>
+<ng-container *ngIf="false"><br>
   <div class="container">
     <div class="center">
       <h4>Your Cart Is Empty </h4>
