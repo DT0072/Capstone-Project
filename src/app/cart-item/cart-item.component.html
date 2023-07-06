@@ -16,7 +16,8 @@
         <div class="item-name p-3">{{ cartdata.cart_item_name }}</div>
         <div class="item-price">RM{{ cartdata.cart_item_price }}</div>
         <div class="item-quantity">
-          <input type="number" class="num" name="input" min="0" max="99" [(ngModel)]="cartdata.cart_item_quantity" (ngModelChange)="calculateGrandTotal()" required/>
+          <input type="number" class="num" name="input" min="0" max="99"
+             [(ngModel)]="cartdata.cart_item_quantity" (ngModelChange)="updateCartItem(cartdata)" required />
         </div>
         <div class="item-total">RM{{ cartdata.selected ? (convertToNumber(cartdata.cart_item_price) * convertToNumber(cartdata.cart_item_quantity)) : 0 }}</div>
         <div class="item-delete">

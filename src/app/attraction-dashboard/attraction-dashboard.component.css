@@ -1,10 +1,11 @@
 .col img {
-    border-radius: 20px
+  border-radius: 20px 0px 0px 20px;
 }
 
 .col{
   background-color: #001A33;
   border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .col h1{
@@ -14,14 +15,13 @@
 .attraction-image{
   width: 500px;
   height: 500px;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px; 
 }
 
-.btn-sm{
+.btn-sm {
   color: white;
   background-color: #00284d;
   border-radius: 10px;
-  width: 150px;
-  height: 40px;
   font-size: 18px;
   font-weight: bold;
   border: none;
@@ -29,11 +29,17 @@
   position: relative;
   text-decoration: none;
   padding: 10px;
+  height: 40px; /* Add this line */
 }
+
 
 .btn-sm:hover{
   color: white;
   background-color: #001A33;
+}
+
+.right2{
+  margin-top:10px;
 }
 
 .fa-arrow-left{
@@ -48,10 +54,11 @@
 .right{
   display: flex;
   background-color: #ffffff;
-  border-radius: 20px;
+  border-radius: 0px 20px 20px 0px;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 5px 15px; 
   justify-content: center;
+  height: 500px;
 }
 
 @media screen and (max-width: 767px){
