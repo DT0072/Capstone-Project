@@ -11,13 +11,12 @@
         <a href="javascript:void(0);" class="icon mt-3" (click)="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
+        <a routerLink="/homepage" class="routelink">Home</a>
         <a routerLink="/aboutus" class="routelink">About Us</a>
         <a routerLink="/heroes" [matMenuTriggerFor]="newsMenu" class="routelink">News</a>
         <mat-menu #newsMenu="matMenu">
             <button mat-menu-item><a routerLink="/news">News</a></button>
             <button mat-menu-item><a routerLink="/events">Upcoming Events</a></button>
-            <button mat-menu-item><a routerLink="/community">Community</a></button>
-            <button mat-menu-item>Past Events</button>
         </mat-menu>
 
         <a routerLink="/heroes" [matMenuTriggerFor]="categoriesMenu" class="routelink">All Categories</a>
@@ -25,9 +24,9 @@
             <button mat-menu-item><a routerLink="/thingstodo">Things to Do</a></button>
             <button mat-menu-item><a routerLink="/attractions">Attractions</a></button>
             <button mat-menu-item><a routerLink="/eateries">Eateries</a></button>
+            <button mat-menu-item><a routerLink="/busstop">Bus Stop</a></button>
         </mat-menu>
         
-        <a routerLink="/contactus" class="routelink">Contact Us</a>
         <div class="logout-container">
             <a routerLink="/cart" class="routelink"><i class="material-icons">shopping_bag</i></a>
             <ng-container *ngIf="!authenticationService.isLoggedIn">
