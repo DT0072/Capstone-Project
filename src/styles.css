@@ -3,6 +3,7 @@
 @import "primeng/resources/primeng.css";
 
 body {
+    height: 85px;
     font-family: 'Open Sans', 'sans-serif'; 
     background-image: url('../../Capstone/src/assets/img_component/light.png');
     background-repeat: no-repeat;
