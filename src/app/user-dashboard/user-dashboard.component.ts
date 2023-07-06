@@ -16,14 +16,9 @@ export class UserDashboardComponent implements OnInit {
   displayData: UserData[] = [];
   isLoggedIn: boolean = false; // Add a flag to track login status
 
-  constructor(
-    private firestore: AngularFirestore,
-    private dataService: DataService,
-    private authService: AuthenticationService,
-    private afAuth: AngularFireAuth
-  ) {}
+  constructor(private firestore: AngularFirestore, private dataService: DataService, private authService: AuthenticationService, private afAuth: AngularFireAuth) {}
 
-  ngOnInit() {
+  ngOnInit() {  
     this.getUserData();
   }
 
