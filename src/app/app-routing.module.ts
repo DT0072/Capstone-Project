@@ -31,6 +31,7 @@ import { EateriesDashboardComponent } from './eateries-dashboard/eateries-dashbo
 import { EventsDashboardComponent } from './events-dashboard/events-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BookingDetailsComponent} from './booking-details/booking-details.component';
+import { CheckOutComponent} from './check-out/check-out.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,8 @@ const routes: Routes = [
   { path: 'eateries-dashboard', component: EateriesDashboardComponent },
   { path: 'events-dashboard', component: EventsDashboardComponent },
   { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: 'booking-details', component: BookingDetailsComponent}
+  { path: 'booking-details', component: BookingDetailsComponent},
+  { path: 'check-out', component: CheckOutComponent}
 ];
 
 @NgModule({

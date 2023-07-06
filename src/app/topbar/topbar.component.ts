@@ -1,11 +1,15 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-
+import { AuthenticationService } from '../shared/authentication.service';
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent {
+  isLoggedIn: boolean = false; // Add a flag to track login status
+
+  constructor(public authenticationService: AuthenticationService) {}
+
   /*Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon*/
   myFunction() {
     var x = document.getElementById("myTopnav");
@@ -18,9 +22,8 @@ export class TopbarComponent {
      }
   }
 
-  @Output() logoutUser: EventEmitter<void> = new EventEmitter<void>();
-
-  onUserLogout(): void {
-    this.logoutUser.emit();
+  logout() {
+    this.authenticationService.logout();
+    this.authenticationService.isLoggedIn = false; // Set the flag to false on logout
   }
 }

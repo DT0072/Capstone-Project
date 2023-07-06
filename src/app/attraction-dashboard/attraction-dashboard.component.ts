@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AttData } from '../model/att-data';
+import { CartData } from '../model/cart-data';
+import { CartService } from '../cart.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attraction-dashboard',
@@ -10,18 +14,21 @@ import { AttData } from '../model/att-data';
 export class AttractionDashboardComponent implements OnInit {
   selectedData: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService, private afs: AngularFirestore, private router: Router) {}
 
   ngOnInit(): void {
     this.selectedData = history.state;
-    console.log('Selected Data:', this.selectedData);
+  console.log('Selected Data:', this.selectedData);
 
-    const { att_openHrs, att_closeHrs } = this.selectedData;
-    console.log('att_openHrs:', att_openHrs);
-    console.log('att_closeHrs:', att_closeHrs);
-    
-    console.log('Time parameter:', this.formatTime(att_openHrs));
-    console.log('Time parameter:', this.formatTime(att_closeHrs));
+  const { att_openHrs, att_closeHrs } = this.selectedData;
+  console.log('att_openHrs:', att_openHrs);
+  console.log('att_closeHrs:', att_closeHrs);
+  
+  console.log('Time parameter:', this.formatTime(att_openHrs));
+  console.log('Time parameter:', this.formatTime(att_closeHrs));
+  // this.selectedData.forEach((a: any) => {
+  //   Object.assign(a,{quantity:1,total:a.price});
+  // });
   }
 
   formatTime(time: string): string {
@@ -51,6 +58,46 @@ export class AttractionDashboardComponent implements OnInit {
 
   getImageUrl(attdata: AttData): string {
     return attdata.att_image;
+  }
+
+    //Store to firestore
+    addToCart(attdata: AttData) {
+      const cartData: CartData = {
+        cart_id: this.afs.createId(),
+        cart_user_id: '', // Add the user ID if applicable
+        cart_item_id: '',
+        cart_item_name: attdata.att_name,
+        cart_item_price: attdata.att_price,
+        cart_item_quantity: '1', // Set the quantity
+        cart_item_image: attdata.att_image,
+        cart_item_desc: attdata.att_desc
+      };
+  
+      this.cartService.addCartItem(cartData)
+        .then(() => {
+          console.log('Item added to cart successfully');
+        })
+        .catch((error) => {
+          console.error('Error adding item to cart', error);
+        });
+    }
+  
+  
+
+  redirectToBookingDetailsComponent(attdata: AttData): void {
+    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    this.router.navigate(['/booking-details'], {
+      state: {
+        att_id,
+        att_name,
+        att_image,
+        att_desc,
+        att_openHrs,
+        att_closeHrs,
+        att_price,
+        att_location
+      }
+    });
   }
 
 }

@@ -132,11 +132,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-              <label for="destination">Destination:</label>
-              <input type="text" id="destination" name="destination" class="form-control">
-
               <br>
-
                 <div class="input-container">
                   <label for="adult">Adults</label>
                   <div class="input-with-icons">
@@ -160,12 +156,11 @@
           <!-- Booking form -->
           <form (ngSubmit)="submitBookingForm()" class="form-container">
             <!-- Form fields here -->
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" class="submit" (click)="redirectToBookingDetailsComponent(selectedData)" >Submit</button>
           </form>
           
         </div>
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
   

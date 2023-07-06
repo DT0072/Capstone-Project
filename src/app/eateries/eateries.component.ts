@@ -23,11 +23,7 @@ export class EateriesComponent implements OnInit {
 
   locations: string[] = ['George Town', 'Jelutong', 'Ayer Itam', 'Tanjung Tokong'];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private dataService: DataService
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.getAllEateries();
@@ -143,5 +139,4 @@ export class EateriesComponent implements OnInit {
   getImageUrl(eatdata: EatData): string {
     return eatdata.eat_image;
   }
-
 }

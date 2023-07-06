@@ -8,6 +8,7 @@ import { UserData } from '../model/user-data';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  isLoggedIn: boolean = false; // Add a flag to track login status
 
   constructor(private fireauth : AngularFireAuth, private router: Router) { }
   
@@ -15,8 +16,9 @@ export class AuthenticationService {
   login(email: string, password: string){
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
       localStorage.setItem('token', 'true'); 
+      this.isLoggedIn = true; // Set the flag to true on successful login
       alert('User Login Successfully');
-      this.router.navigate(['/homepage']);
+      this.router.navigate(['/user-dashboard']);
       
       // if (email === 'dttest@gmail.com' && password === '123456') {
       //   this.router.navigate(['/admin-dashboard']);
