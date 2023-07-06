@@ -1,88 +1,36 @@
-<!--<p>user-dashboard works!</p>-->
+<div class="container-back pb-5 mb-3">
+  <div class="card-back">
+    <h1 class="text my-5 mx-5">Enjoy Your Dream Vacation</h1>
+    <div class="tab my-5 mx-5 py-4 ">
+      <button class="tablinks" [class.active]="activebook === 'user'" (click)="openbooking('user')">
+        <h3>User Profile</h3>
+      </button>
+      <button class="tablinks" [class.active]="activebook === 'booking-status'" (click)="openbooking('booking-status')">
+        <h3>Booking Status</h3>
+      </button>
 
-  <div class="container-back">
-    <h1 class=" text my-5 mx-5">Enjoy Your Dream Vacation</h1>
-    <div class="tab my-5 mx-5 overflow-hidden">
-      <button class="tablinks" [class.active]="activebook === 'user'" (click)="openbooking('user')"><h3>User Profile</h3></button>
-      <button class="tablinks" [class.active]="activebook === 'cancel'" (click)="openbooking('cancel')"><h3>Cancellation</h3></button>
-      <button class="tablinks" [class.active]="activebook === 'status'" (click)="openbooking('status')"><h3>Status</h3></button>
-  
-      <div id="book" class="tabcontent pe-auto" [hidden]="activebook !== 'user'">
+      <div id="book" class="tabcontent ps-5 pt-3" [hidden]="activebook !== 'user'">
+        <ng-container *ngIf="isLoggedIn; else loginMessage">
+          <div class="user-profile" *ngFor="let userData of userdataList">
+            <img *ngIf="userData.user_image" [src]="userData.user_image" alt="Profile Picture" class="profile-picture">
+            <div *ngIf="!userData.user_image" class="default-profile-pic">No profile picture</div>
+            <p>First Name: {{ userData.user_firstname }}</p>
+            <p>Last Name: {{ userData.user_lastname }}</p>
+            <p>Email: {{ userData.user_email }}</p>
+            <!-- Add additional properties you have in the UserData model -->
 
-
-<div *ngIf="isLoggedIn; else loginMessage">
-  <!-- Content for logged-in user -->
-  <p>Welcome to the user dashboard!</p>
-</div>
-
-<ng-template #loginMessage>
-  <p>Please login to continue.</p>
-</ng-template>
-
-        <div *ngFor="let userData of userdataList">
-          <!-- Display the user data properties -->
-          <p>First Name: {{ userData.user_firstname }}</p>
-          <p>Last Name: {{ userData.user_lastname}}</p>
-          <p>Email: {{ userData.user_email }}</p>
-          <!-- Add additional properties you have in the UserData model -->
-        
-          <!-- Additional HTML code specific to user data -->
-        
-        </div>
-        <div *ngIf="!isLoggedIn">
-          <p>Please proceed to login</p>
-        </div>
-        
-        <!-- The rest of your template -->
-        
-        
-        
-          <hr>
-        </div>
-      </div>
-      </div>
-      
-    
-  
-      <!--<div id="status" class="tabcontent" [hidden]="activebook !== 'status'">
-        <div class="container">
-          <h3>Track Your Ticket</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="firstName">First Name:</label>
-              <input type="text" id="firstName" name="firstName" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="lastName">Last Name:</label>
-              <input type="text" id="lastName" name="lastName" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="phone">Contact No:</label>
-              <input type="text" id="phone" name="phone" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <label for="date">Date :</label>
-              <input type="date" id="date" name="date" required>
-            </div>
-            <div class="col-md-6">
-              <label for="ticketNumber">Ticket Number:</label>
-              <input type="text" id="ticketNumber" name="ticketNumber" class="form-control">
-            </div>-->
-                     
-            <!--submit button
-            <div class="col-12 my-5">
-              <button type="submit" class="btn btn-primary"><h5>Submit</h5></button>
-            </div>
+            <!-- Additional HTML code specific to user data -->
           </div>
-        </div>
+        </ng-container>
+
+        <ng-template #loginMessage>
+          <p>Please login to continue.</p>
+          <p>Please proceed to login</p>
+        </ng-template>
+
+        <hr>
       </div>
     </div>
   </div>
-  -->
-  
-  
-    
+</div>
+<br><br>
