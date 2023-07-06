@@ -19,7 +19,7 @@
               </p>
               <div class="right2 my-2 px-3">
                 <ng-container *ngIf="selectedData.att_price !== '-'">
-                  <a href= "/cart" class="btn-sm float-right my-4 ">Add To Cart</a>
+                  <a [routerLink]="'/cart'"><button (click)="addToCart(selectedData)" class="btn btn-primary">Add To Cart</button></a>
                   <a href="/booking-details" class="btn-sm float-right mx-3" (click)="redirectToBookingDetailsComponent(selectedData)">Buy Now</a>
                 </ng-container>
               </div>

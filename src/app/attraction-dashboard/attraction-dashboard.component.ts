@@ -60,27 +60,29 @@ export class AttractionDashboardComponent implements OnInit {
     return attdata.att_image;
   }
 
-  //Store to firestore
-  addToCart(attdata: AttData) {
-    const cartData: CartData = {
-      cart_id: this.afs.createId(),
-      cart_user_id: '', // Add the user ID if applicable
-      cart_item_id: '',
-      cart_item_name: attdata.att_name,
-      cart_item_price: attdata.att_price,
-      cart_item_quantity: '1', // Set the quantity
-      cart_item_image: attdata.att_image,
-      cart_item_desc: attdata.att_desc
-    };
-
-    this.cartService.addCartItem(cartData)
-      .then(() => {
-        console.log('Item added to cart successfully');
-      })
-      .catch((error) => {
-        console.error('Error adding item to cart', error);
-      });
-  }
+    //Store to firestore
+    addToCart(attdata: AttData) {
+      const cartData: CartData = {
+        cart_id: this.afs.createId(),
+        cart_user_id: '', // Add the user ID if applicable
+        cart_item_id: '',
+        cart_item_name: attdata.att_name,
+        cart_item_price: attdata.att_price,
+        cart_item_quantity: '1', // Set the quantity
+        cart_item_image: attdata.att_image,
+        cart_item_desc: attdata.att_desc
+      };
+  
+      this.cartService.addCartItem(cartData)
+        .then(() => {
+          console.log('Item added to cart successfully');
+        })
+        .catch((error) => {
+          console.error('Error adding item to cart', error);
+        });
+    }
+  
+  
 
   redirectToBookingDetailsComponent(attdata: AttData): void {
     const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  

@@ -17,9 +17,9 @@ import { Router } from '@angular/router';
 export class CartItemComponent implements OnInit, OnChanges{
   cartdataList: CartData[] = [];
   attdataList: AttData[] = [];
-  public products : any = [];
-  // public grandTotal !: number;
-  grandTotal: number = 0;
+public products : any = [];
+// public grandTotal !: number;
+grandTotal: number = 0;
 
 constructor(
   private cartService: CartService,
@@ -54,23 +54,23 @@ ngOnChanges() {
 // }
 
 getAllAttractions() {
-    this.data.getAllAttractions().subscribe(res => {
-      this.attdataList= res.map( (e: any) => {
-        const data= e.payload.doc.data();
-        data.att_id= e.payload.doc.id;
-        return data;
-      })
-    }, err => {
-      alert('Error while fetching attractions, please try again later');
+  this.data.getAllAttractions().subscribe(res => {
+    this.attdataList= res.map( (e: any) => {
+      const data= e.payload.doc.data();
+      data.att_id= e.payload.doc.id;
+      return data;
     })
-  }
+  }, err => {
+    alert('Error while fetching attractions, please try again later');
+  })
+}
 
   getImageUrl(attdata: AttData): string {
     return attdata.att_image;
   }
 
-  //Store to firestore ONLY USE FOR ALL ATTRACTION DISPLAY OUT
-  addToCart(attdata: AttData) {
+  //Store to firestore
+  addToCart(attdata: AttData): void {
     const cartData: CartData = {
       cart_id: this.afs.createId(),
       cart_user_id: '', // Add the user ID if applicable
@@ -81,17 +81,17 @@ getAllAttractions() {
       cart_item_image: attdata.att_image,
       cart_item_desc: attdata.att_desc
     };
-
+  
     this.cartService.addCartItem(cartData)
       .then(() => {
         console.log('Item added to cart successfully');
-        this.calculateGrandTotal();
       })
       .catch((error) => {
         console.error('Error adding item to cart', error);
       });
   }
-
+  
+  
   //Fetch from firestore
   getCartItem() {
     this.cartService.addToCart().subscribe(res => {
@@ -137,23 +137,40 @@ getAllAttractions() {
   // }
 
   deleteCartItem(cartdata: CartData) {
-    const cartItemId = cartdata.cart_item_id;
-    
-    // Remove the item from the cartdataList array
-    const itemIndex = this.cartdataList.findIndex(item => item.cart_item_id === cartItemId);
-    if (itemIndex !== -1) {
-      this.cartdataList.splice(itemIndex, 1);
+    const cartItemName = cartdata.cart_item_name;
+  
+    // Find the cart item with the matching cart_item_name
+    const cartItemToDelete = this.cartdataList.find(item => item.cart_item_name === cartItemName);
+  
+    if (!cartItemToDelete) {
+      console.error('Cart item not found');
+      return;
     }
-    
+  
     // Delete the item from the Firestore collection
-    this.afs.collection('/cartdatas').doc(cartItemId).delete()
-      .then(() => {
-        console.log('Item deleted successfully');
-      })
-      .catch((error) => {
-        console.error('Error deleting item', error);
+    this.afs
+      .collection('cartdatas', ref => ref.where('cart_item_name', '==', cartItemName))
+      .get()
+      .subscribe(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          doc.ref.delete().then(() => {
+            console.log('Item deleted successfully');
+  
+            // Remove the item from the cartdataList array
+            const index = this.cartdataList.indexOf(cartItemToDelete);
+            if (index !== -1) {
+              this.cartdataList.splice(index, 1);
+            }
+  
+            this.calculateGrandTotal(); // Recalculate the grand total
+          })
+          .catch(error => {
+            console.error('Error deleting item', error);
+          });
+        });
       });
   }
+  
   
   convertToNumber(value: string): number {
     return Number(value);
@@ -180,10 +197,6 @@ getAllAttractions() {
       }
     }
   }
-  
-
-
-  
   
 
 
