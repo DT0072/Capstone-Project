@@ -4,6 +4,7 @@ import { AttData } from '../model/att-data';
 import { EatData } from '../model/eat-data';
 import { EventData } from '../model/event-data';
 import { UserData } from '../model/user-data';
+import { BookData } from '../model/book-data';
 
 @Injectable({
   providedIn: 'root'
@@ -103,5 +104,20 @@ export class DataService {
       ref.where('user_email', '==', email)
     ).snapshotChanges();
   }  
-  
+
+  // Add Bookings
+  addBookings(bookdata: BookData) {
+    bookdata.book_id = this.afs.createId();
+    return this.afs.collection('/bookdatas').add(bookdata);
+  }
+
+  // Get Bookings
+  getAllBookings() {
+    return this.afs.collection('/bookdatas').snapshotChanges();
+  }
+
+  // Get Bookings by ID
+  getBookings() {
+    return this.afs.collection('/bookdatas').snapshotChanges();
+  }
 }

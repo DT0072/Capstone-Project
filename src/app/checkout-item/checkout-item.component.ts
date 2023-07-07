@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DataService } from '../shared/data.service';
@@ -9,7 +9,7 @@ import { AttData } from '../model/att-data';
   templateUrl: './checkout-item.component.html',
   styleUrls: ['./checkout-item.component.css']
 })
-export class CheckoutItemComponent {
+export class CheckoutItemComponent implements OnInit{
   selectedData: any;
   visibleForms: string[] = [];
   public products: any = [];
