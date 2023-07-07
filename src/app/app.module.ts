@@ -46,6 +46,7 @@ import { EventsDashboardComponent } from './events-dashboard/events-dashboard.co
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
   ],
   providers: [],
   bootstrap: [AppComponent]
