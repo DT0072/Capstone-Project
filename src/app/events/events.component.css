@@ -41,6 +41,7 @@
   width: 75%;;
   background: url('https://static.vecteezy.com/system/resources/previews/002/198/948/non_2x/mint-green-gradient-watercolor-background-vector.jpg');
   border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
   
 .column {

@@ -52,4 +52,8 @@ export class UserDashboardComponent implements OnInit {
       }
     });
   }
+
+  getImageUrl(userData: UserData): string {
+    return userData.user_image;
+  }
 }
