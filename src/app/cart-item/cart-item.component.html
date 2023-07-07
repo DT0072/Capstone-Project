@@ -30,9 +30,12 @@
       <div class="cart-summary">
         <div class="total-label">Grand Total:</div>
         <h3>RM{{ grandTotal }}</h3>
-        <div class="checkout-button my-3">
+        <div class="checkout-button my-3" *ngIf="isUserLoggedIn()">
           <a href="/check-out"><button class="btn btn-primary">Go To Checkout</button></a>
         </div>
+        <div class="checkout-button my-3" *ngIf="!isUserLoggedIn()">
+          <button class="btn btn-primary" disabled>Please log in to proceed</button>
+        </div>        
       </div>
     </div>
   </div>

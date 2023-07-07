@@ -19,6 +19,7 @@ export class CartItemComponent implements OnInit, OnChanges {
   attdataList: AttData[] = [];
   public products: any = [];
   grandTotal: number = 0;
+  userLoggedIn: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -33,10 +34,21 @@ export class CartItemComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getAllAttractions();
     this.getCartItem();
+    this.checkUserLoggedIn();
   }
 
   ngOnChanges() {
     this.calculateGrandTotal();
+  }
+
+  checkUserLoggedIn() {
+    this.afAuth.authState.subscribe(user => {
+      this.userLoggedIn = !!user;
+    });
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.userLoggedIn;
   }
 
   getAllAttractions() {
