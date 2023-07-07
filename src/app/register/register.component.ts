@@ -18,7 +18,7 @@ export class RegisterComponent {
     user_lastname: '',
     user_email: '',
     user_password: '',
-    user_image: ''
+    user_imageURL: ''
   };
   user_id: string= '';
   user_firstname: string= '';
@@ -68,7 +68,7 @@ export class RegisterComponent {
     this.userdataObj.user_firstname= this.user_firstname;
     this.userdataObj.user_lastname= this.user_lastname;
     this.userdataObj.user_password= this.user_password;
-    this.userdataObj.user_image= this.user_image;
+    this.userdataObj.user_imageURL= this.user_image;
 
     this.auth.register(this.userdataObj).then(
       () => {

@@ -16,7 +16,8 @@
         <div class="item-name p-3">{{ cartdata.cart_item_name }}</div>
         <div class="item-price">RM{{ cartdata.cart_item_price }}</div>
         <div class="item-quantity">
-          <input type="number" class="num" name="input" min="0" max="99" [(ngModel)]="cartdata.cart_item_quantity" (ngModelChange)="calculateGrandTotal()" required/>
+          <input type="number" class="num" name="input" min="0" max="99"
+             [(ngModel)]="cartdata.cart_item_quantity" (ngModelChange)="updateCartItem(cartdata)" required />
         </div>
         <div class="item-total">RM{{ cartdata.selected ? (convertToNumber(cartdata.cart_item_price) * convertToNumber(cartdata.cart_item_quantity)) : 0 }}</div>
         <div class="item-delete">
@@ -29,9 +30,12 @@
       <div class="cart-summary">
         <div class="total-label">Grand Total:</div>
         <h3>RM{{ grandTotal }}</h3>
-        <div class="checkout-button my-3">
-          <a routerLink="/check-out"><button class="btn btn-primary">Go To Checkout</button></a>
+        <div class="checkout-button my-3" *ngIf="isUserLoggedIn()">
+          <a href="/check-out"><button class="btn btn-primary">Go To Checkout</button></a>
         </div>
+        <div class="checkout-button my-3" *ngIf="!isUserLoggedIn()">
+          <button class="btn btn-primary" disabled>Please log in to proceed</button>
+        </div>        
       </div>
     </div>
   </div>
