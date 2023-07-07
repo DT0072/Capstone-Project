@@ -11,7 +11,6 @@ import { AttData } from '../model/att-data';
 })
 export class CheckoutItemComponent {
   selectedData: any;
-  progress: number = 0;
   visibleForms: string[] = [];
   public products: any = [];
   grandTotal: number = 0;
@@ -64,10 +63,6 @@ export class CheckoutItemComponent {
 
   getImageUrl(attdata: AttData): string {
     return attdata.att_image;
-  }
-
-  updateLoader(progress: number): void {
-    this.progress = progress;
   }
 
   showForm(formId: string): void {
