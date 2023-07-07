@@ -5,10 +5,17 @@
 <nav class="topbar mx-5 mt-3">
     <div class="topbar-left">
         <img src="assets/img_component/travel-luggage_(light).svg">
-        <a href="/homepage"><h3>Penang E-Travel</h3></a>
+        <ng-container *ngIf="!authenticationService.isLoggedIn">
+            <a routerLink="/homepage"><h3>Penang E-Travel</h3></a>
+        </ng-container>
+        
+        <ng-container *ngIf="authenticationService.isLoggedIn">
+            <a routerLink="/homepage"><h3>Penang E-Travel</h3></a>
+        </ng-container>
+        
     </div>
     <div class="topbar-right" id="myTopnav">
-        <a href="javascript:void(0);" class="icon mt-3" (click)="myFunction()">
+        <a routerLink="javascript:void(0);" class="icon mt-3" (click)="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
         <a routerLink="/homepage" class="routelink">Home</a>
