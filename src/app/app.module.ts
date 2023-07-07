@@ -47,6 +47,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     UserDashboardComponent,
     BookingDetailsComponent,
     CheckOutComponent,
+    CheckoutItemComponent,
   ],
   imports: [
     HttpClientModule,
