@@ -12,7 +12,7 @@
       <div id="book" class="tabcontent ps-5 pt-3" [hidden]="activebook !== 'user'">
         <ng-container *ngIf="isLoggedIn; else loginMessage">
           <div class="user-profile" *ngFor="let userData of userdataList">
-            <img [src]="getUserImage(userData)" alt="user-image" class="user-image">
+            <img [src]="getImageUrl(userData)" alt="user-image" class="user-image">
 
             <p>First Name: {{ userData.user_firstname }}</p>
             <p>Last Name: {{ userData.user_lastname }}</p>
@@ -29,6 +29,8 @@
 
         <hr>
       </div>
+
+      <div id="book" class="tabcontent ps-5 pt-3" [hidden]="activebook !== 'booking-status'"></div>
     </div>
   </div>
 </div>

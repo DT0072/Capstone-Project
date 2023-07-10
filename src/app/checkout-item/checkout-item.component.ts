@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DataService } from '../shared/data.service';
@@ -9,9 +9,8 @@ import { AttData } from '../model/att-data';
   templateUrl: './checkout-item.component.html',
   styleUrls: ['./checkout-item.component.css']
 })
-export class CheckoutItemComponent {
+export class CheckoutItemComponent implements OnInit{
   selectedData: any;
-  progress: number = 0;
   visibleForms: string[] = [];
   public products: any = [];
   grandTotal: number = 0;
@@ -64,10 +63,6 @@ export class CheckoutItemComponent {
 
   getImageUrl(attdata: AttData): string {
     return attdata.att_image;
-  }
-
-  updateLoader(progress: number): void {
-    this.progress = progress;
   }
 
   showForm(formId: string): void {

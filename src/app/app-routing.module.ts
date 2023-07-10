@@ -33,7 +33,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { BookingDetailsComponent} from './booking-details/booking-details.component';
 import { CheckOutComponent} from './check-out/check-out.component';
 import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
-
+import { CircleRowComponent } from './circle-row/circle-row.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' }, //Default route
@@ -72,7 +73,9 @@ const routes: Routes = [
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'booking-details', component: BookingDetailsComponent},
   { path: 'check-out', component: CheckOutComponent},
-  { path: 'checkout-item', component: CheckoutItemComponent}
+  { path: 'checkout-item', component: CheckoutItemComponent},
+  { path: 'circle-row', component: CircleRowComponent},
+  { path: 'confirmation', component: ConfirmationComponent},
 ];
 
 @NgModule({

@@ -48,6 +48,8 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
 import { CheckOutComponent } from './check-out/check-out.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
+import { CircleRowComponent } from './circle-row/circle-row.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
     BookingDetailsComponent,
     CheckOutComponent,
     CheckoutItemComponent,
+    CircleRowComponent,
+    ConfirmationComponent,
   ],
   imports: [
     HttpClientModule,

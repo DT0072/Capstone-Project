@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../shared/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { AttData } from '../model/att-data';
 import { Router } from '@angular/router';
@@ -18,6 +19,28 @@ export class BookingDetailsComponent implements OnInit {
   selectedDate: Date = new Date();
   adultCount: number = 1;
   childCount: number = 0;
+
+  bookdataList: BookData[] = [];
+  bookdataObj: BookData = {
+    book_id: '',
+    book_adult: '',
+    book_child: '',
+    book_date: '',
+    book_contact: 0,
+    book_email: '',
+    book_fname: '',
+    book_lname: '',
+    book_location: '',
+  }
+  book_id: string= '';
+  book_adult: string= '';
+  book_child: string= '';
+  book_date: string= '';
+  book_contact: number= 0;
+  book_email: string= '';
+  book_fname: string= '';
+  book_lname: string= '';
+  book_location: string= '';
   
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -42,6 +65,8 @@ export class BookingDetailsComponent implements OnInit {
 
     this.initializeCalendar();
   }
+
+  
 
   formatTime(time: string): string {
     if (time === '24 Hours') {
