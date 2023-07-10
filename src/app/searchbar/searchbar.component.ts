@@ -161,7 +161,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   navigateToEatery(selectedData: EatData): void {
-    const { eat_openHrs, eat_closeHrs, eat_name, eat_desc, eat_image, eat_location } = selectedData;
+    const { eat_openHrs, eat_closeHrs, eat_name, eat_desc, eat_image, eat_location, eat_contact } = selectedData;
     this.router.navigate(['/eateries-dashboard'], {
       state: {
         eat_openHrs: eat_openHrs,
@@ -170,21 +170,21 @@ export class SearchbarComponent implements OnInit {
         eat_desc: eat_desc,
         eat_image: eat_image,
         eat_location: eat_location,
+        eat_contact: eat_contact,
         data: selectedData
       }
     });
   }
 
   navigateToEvent(selectedData: EventData): void {
-    const { event_openHrs, event_closeHrs, event_name, event_desc, event_image, event_location } = selectedData;
+    const { event_name, event_desc, event_image, event_location, event_date } = selectedData;
     this.router.navigate(['/events-dashboard'], {
       state: {
-        event_openHrs: event_openHrs,
-        event_closeHrs: event_closeHrs,
         event_name: event_name,
         event_desc: event_desc,
         event_image: event_image,
         event_location: event_location,
+        event_date: event_date,
         data: selectedData
       }
     });

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DataService } from '../shared/data.service';
 import { AttData } from '../model/att-data';
+import { CartData } from '../model/cart-data';
 
 @Component({
   selector: 'app-checkout-item',
@@ -16,10 +17,10 @@ export class CheckoutItemComponent implements OnInit{
   grandTotal: number = 0;
   fromBookingPage: boolean = true; // Assuming default source is booking page
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router,private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.selectedData = history.state;
+    this.selectedData = history.state.cartdataList;
     console.log('Selected Data:', this.selectedData);
 
     const { att_openHrs, att_closeHrs } = this.selectedData;
@@ -30,7 +31,8 @@ export class CheckoutItemComponent implements OnInit{
     console.log('Time parameter:', this.formatTime(att_closeHrs));
 
     // Determine the source (booking or cart)
-    this.fromBookingPage = this.selectedData.fromBookingPage ?? true;
+    // this.fromBookingPage = this.selectedData.fromBookingPage ?? true;
+    this.fromBookingPage = false;
 
     this.visibleForms = ['card-form'];
 
@@ -72,5 +74,21 @@ export class CheckoutItemComponent implements OnInit{
   isFormVisible(formId: string): boolean {
     return this.visibleForms.includes(formId);
   }
+
+  
+  redirectToCheckOutComponent(cartdata: CartData): void {
+    const { cart_item_name, cart_item_price, cart_item_image } = cartdata;  
+    this.router.navigate(['/check-out'], {
+      state: {
+        cart_item_image,
+        cart_item_name, 
+        cart_item_price
+      }
+    });
+  }
+
+convertToNumber(value: string): number {
+  return Number(value);
+}
 
 }

@@ -188,19 +188,17 @@ export class BookingDetailsComponent implements OnInit {
     }
   }
 
+
   redirectToBookingDetailsComponent(attdata: AttData): void {
-    const { att_id, att_name, att_image, att_desc, att_openHrs, att_closeHrs, att_price, att_location } = attdata;  
+    const { att_image, att_name, att_price } = attdata;  
     this.router.navigate(['/check-out'], {
       state: {
-        att_id,
-        att_name,
-        att_image,
-        att_desc,
-        att_openHrs,
-        att_closeHrs,
-        att_price,
-        att_location
+        cartdataList: [
+          { cart_item_image: att_image, cart_item_name: att_name, cart_item_price: att_price }
+        ]
       }
     });
   }
+  
+  
 }

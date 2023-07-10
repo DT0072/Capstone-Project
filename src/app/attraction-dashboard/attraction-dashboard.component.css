@@ -14,7 +14,7 @@
 
 .attraction-image{
   width: 500px;
-  height: 500px;
+  height: 600px;
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px; 
 }
 
@@ -58,17 +58,45 @@
   flex-direction: column;
   box-shadow: rgba(255, 255, 255, 0.5) 0px 5px 15px; 
   justify-content: center;
-  height: 500px;
+  height: 600px;
 }
 
 @media screen and (max-width: 767px){
   .col img{
     width: 350px;
-    margin-left: 10px;
+    height: 350px;
+    border-radius: 20px 20px 0px 0px;
   }
 
-  .col h1{
+  .col h3{
     font-size:40px;
     text-align: center;
+    padding-top: 20px;
+  }
+
+  .left{
+    display: block;
+  }
+
+  .right{
+    display: block;
+    margin-left: 0px;
+    border-radius: 20px;
+    height: auto;
+    border-radius: 0px 0px 20px 20px;
+    padding-bottom: 25px;
+  }
+
+  .attraction-image{
+    width: 250px;
+    height: 250px;
+  }
+
+  .col{
+    padding: 20px !important;
+  }
+
+  .col h5{
+    padding: 10px;
   }
 }

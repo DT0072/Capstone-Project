@@ -151,4 +151,5 @@ export class EventsComponent implements OnInit {
   getImageUrl(eventdata: EventData): string {
     return eventdata.event_image;
   }
+  
 }
