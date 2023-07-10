@@ -1,46 +1,51 @@
-<app-circle-row></app-circle-row>
 <div class="container-sm justify-content-md-center my-5">
-  <app-checkout-item></app-checkout-item>
-  <div class="container-sm justify-content-md-center my-5">      
-    <div class="col-left">
-      <div class="col-md-8 container my-5">
-        <h2>Payment Methods</h2>
-  
-        <div class="row">
-          <div class="col-md-4">
-            <input type="radio" id="card" name="paymentMethod" class="payment-method" (click)="showForm('card-form')">
-            <label for="card">Debit/Credit Card</label>
+  <div class="row">
+    <div class="col">
+      <app-circle-row></app-circle-row>
+      <div class="container-sm justify-content-md-center my-5">
+        <app-checkout-item></app-checkout-item>
+        <div class="container-sm justify-content-md-center my-5">      
+          <div class="col-left">
+            <div class="col-md-8 container my-5">
+              <h2>Payment Methods</h2>
+        
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="radio" id="card" name="paymentMethod" class="payment-method" (click)="showForm('card-form')">
+                  <label for="card">Debit/Credit Card</label>
+                </div>
+        
+                <div class="col-md-4">
+                  <input type="radio" id="tng" name="paymentMethod" class="payment-method" (click)="showForm('tng-form')">
+                  <label for="tng">TnG E-wallet</label>
+                </div>
+                <!-- Other payment method radio buttons -->
+              </div>
+        
+              <div class="row mt-4">
+                <div id="card-form" class="col-md-12 form-group" [hidden]="!isFormVisible('card-form')">
+                  <!-- Debit/Credit Card Form -->
+                  <label for="cardNumber">Card Number</label>
+                  <input type="text" id="cardNumber" name="cardNumber" class="form-control">
+                  <label for="cardName">Name on Card</label>
+                  <input type="text" id="cardName" name="cardName" class="form-control">
+                  <label for="cardExpiry">Expiry Date</label>
+                  <input type="text" id="cardExpiry" name="cardExpiry" class="form-control">
+                  <label for="cardCvv">CVV</label>
+                  <input type="text" id="cardCvv" name="cardCvv" class="form-control">
+                </div>
+        
+                <div id="tng-form" class="col-md-12 form-group" [hidden]="!isFormVisible('tng-form')">
+                  <!-- TnG E-wallet Form -->
+                  <img src="assets/img_component/tng.jpeg" alt="TnG E-wallet" class="payment-image">
+                </div>
+                <!-- Other payment method forms -->
+              </div>
+              <button type="submit" class="submit mt-3" >Pay Now</button>
+            </div>
           </div>
-  
-          <div class="col-md-4">
-            <input type="radio" id="tng" name="paymentMethod" class="payment-method" (click)="showForm('tng-form')">
-            <label for="tng">TnG E-wallet</label>
-          </div>
-          <!-- Other payment method radio buttons -->
         </div>
-  
-        <div class="row mt-4">
-          <div id="card-form" class="col-md-12 form-group" [hidden]="!isFormVisible('card-form')">
-            <!-- Debit/Credit Card Form -->
-            <label for="cardNumber">Card Number</label>
-            <input type="text" id="cardNumber" name="cardNumber" class="form-control">
-            <label for="cardName">Name on Card</label>
-            <input type="text" id="cardName" name="cardName" class="form-control">
-            <label for="cardExpiry">Expiry Date</label>
-            <input type="text" id="cardExpiry" name="cardExpiry" class="form-control">
-            <label for="cardCvv">CVV</label>
-            <input type="text" id="cardCvv" name="cardCvv" class="form-control">
-          </div>
-  
-          <div id="tng-form" class="col-md-12 form-group" [hidden]="!isFormVisible('tng-form')">
-            <!-- TnG E-wallet Form -->
-            <img src="assets/img_component/tng.jpeg" alt="TnG E-wallet" class="payment-image">
-          </div>
-          <!-- Other payment method forms -->
-        </div>
-        <button type="submit" class="submit mt-3" >Pay Now</button>
       </div>
     </div>
   </div>
 </div>
-  
