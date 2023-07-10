@@ -154,7 +154,7 @@
   
 @media screen and (max-width: 767px){
   .col img{
-    width: 366px;
+    width: 320px;
     height: 300px;
 }
   
@@ -183,11 +183,28 @@
 
   .right{
     display: block;
-    margin-left: 10px;
+    margin-left: 0px;
+    padding-top: 10px;
   }
+  
 
   .submit{
     margin-top: 25px;
+  }
+
+  .outer-circle{
+    width: 84px;
+    height: 84px;
+  }
+
+  .inner-circle{
+    width: 64px;
+    height: 64px;
+  }
+
+  .order{
+    width: 366px;
+    height: 600px;
   }
 }
   
