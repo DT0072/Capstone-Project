@@ -20,6 +20,7 @@ export class CartItemComponent implements OnInit, OnChanges {
   public products: any = [];
   grandTotal: number = 0;
   userLoggedIn: boolean = false;
+  selectedData: any;
 
   constructor(
     private cartService: CartService,
@@ -209,4 +210,17 @@ export class CartItemComponent implements OnInit, OnChanges {
         console.error('Error updating item quantity in cart', error);
       });
   }
+
+
+  redirectToCheckOutComponent(): void {
+    const selectedItems = this.cartdataList.filter(cartdata => cartdata.selected);
+
+    this.router.navigate(['/check-out'], {
+      state: {
+        cartdataList: selectedItems
+      }
+    });
+  }
+  
+  
 }
