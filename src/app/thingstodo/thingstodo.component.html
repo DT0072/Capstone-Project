@@ -46,7 +46,7 @@
                 </ng-container><br><br>
                 RM {{ attdata.att_price }}
                 </h5>
-                <a href= "#" class="btn-sm float-right my-4">Add To Cart</a>
+                <a [routerLink]="'/cart'" (click)="addToCart(attdata)" class="btn-sm float-right">Add To Cart</a>
                 <a href="/booking-details" class="btn-sm float-right mx-3" (click)="redirectToBookingDetailsComponent(attdata)">Buy Now</a>
                 </a>
             </div>
