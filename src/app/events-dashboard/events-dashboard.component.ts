@@ -17,12 +17,9 @@ export class EventsDashboardComponent implements OnInit{
     this.selectedData = history.state;
   console.log('Selected Data:', this.selectedData);
 
-  const { event_openHrs, event_closeHrs } = this.selectedData;
-  console.log('eat_openHrs:', event_openHrs);
-  console.log('eat_closeHrs:', event_closeHrs);
-  
-  console.log('Time parameter:', this.formatTime(event_openHrs));
-  console.log('Time parameter:', this.formatTime(event_closeHrs));
+  const { event_date } = this.selectedData;
+  console.log('event_date:', event_date);
+
   }
 
   formatTime(time: string): string {
@@ -53,6 +50,7 @@ export class EventsDashboardComponent implements OnInit{
   getImageUrl(eventdata: EventData): string {
     return eventdata.event_image;
   }
+  
 
 }
 
