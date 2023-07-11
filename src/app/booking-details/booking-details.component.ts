@@ -199,6 +199,13 @@ export class BookingDetailsComponent implements OnInit {
       }
     });
   }
+
+
+
+  // Update the progress value based on your logic
+  updateProgress(): void {
+    this.progress = 2; // Set it to the desired value
+  }
   
   
 }
